@@ -1,0 +1,94 @@
+#projects {
+    height: calc(100vh - 3rem);
+    width: 100vw;
+    max-width: 75rem;
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    padding: 3rem 1rem;
+    margin-top: -40px;
+    box-sizing: border-box;
+}
+
+.projContent {
+    padding: 2rem;
+    font-size: 2rem;
+    font-weight: 300;
+    width: 50%;
+}
+
+.proj {
+    font-weight: bold;
+    color: rgb(211, 173, 208);
+    font-size: 2.2rem;
+    padding: 10px 10px;
+}
+
+/* project cards */
+.card-image{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    padding: 3px;
+}
+
+.card-image .card-img{
+    height:100%;
+    width: 100%;
+    object-fit: fill;
+}
+
+body{
+    min-height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card{
+    margin-top: 50px;
+    width: 320px;
+    border-radius: 25px;
+    background-color: rgb(78, 72, 72);
+}
+
+.slide-content{
+    margin:0 40px;
+}
+
+.image-content, .card-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 14px;
+}
+
+.name{
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(253, 253, 253);
+}
+
+.description{
+    font-size: 14px;
+    color: gray;
+    text-align: center;
+}
+
+.image-content{
+    row-gap: 5px;
+}
+
+.button{
+    border: none;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    margin: 14px;
+    transition: all 0.3s ease;
+}
+
+.button:hover{
+    background: rgb(211, 173, 208);
+}

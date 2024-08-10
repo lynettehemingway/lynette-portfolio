@@ -1,19 +1,20 @@
 .navbar {
-    height: 5rem;
+    height: 4rem;
     width: 100vw;
-    max-width: 75rem;
+    max-width: 100rem;
     margin: 0 auto;
-    padding: 1rem 2rem;
+    padding: 2rem 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    top: 0;
+    /* top: 0; */
     z-index: 3;
-   
+    background-color: black;
+    position: fixed;
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     object-fit: contain;
     color: white;
@@ -23,20 +24,20 @@
     margin: 1rem;
     color: white;
     cursor: pointer;
+    text-align: left;
 }
-
 
 
 .desktopMenuListItem:hover {
-    color: #ca75cab5;
-    padding-bottom: 0.5rem;
-    border-bottom: 3px solid #ca75cab5;
+    color: rgb(211, 173, 208);
+    /* padding-bottom: 0.5rem; */
+    border-color: 3px solid rgb(211, 173, 208);
 }
 
 .active {
-    color: #ca75cab5;
-    padding-bottom: 0.5rem;
-    border-bottom: 3px solid #ca75cab5;
+    color: rgb(211, 173, 208);
+    /* padding-bottom: 0.5rem; */
+    border-color: 3px solid rgb(211, 173, 208);
 }
 
 

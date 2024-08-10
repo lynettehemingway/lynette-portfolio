@@ -5,8 +5,8 @@ import logo from '../../assets/logo.jpg'
 export default function TextGenerate() {
   const [text, setText] = useState("");
   const [index, setIndex] = useState(0);
-  const message = "hi, im lynette.";
-
+  const message = "hi, im lynette";
+  
   useEffect(() => {
     if (index < message.length) {
       const timer = setInterval(() => {
@@ -22,7 +22,7 @@ export default function TextGenerate() {
     <section id="text">
       <img src={logo} alt="logo" className="flower"/>
       <div className="text">
-      {text}<span className="cursor">|</span>
+      {text}.<span className="cursor">|</span>
       <p className="textPara">a sophomore computer science major at the university of florida.</p>
       </div>
     </section>

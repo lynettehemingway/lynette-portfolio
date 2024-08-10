@@ -19,6 +19,7 @@
   .text {
     font-size: 4rem;
     font-weight: 700;
+    margin-top: -10px;
   }
   
   .cursor {
@@ -26,6 +27,7 @@
     width: 0.1em;
     background-color: black;
     animation: blink 1s step-end infinite;
+    border-radius: 30px;
   }
 
   @keyframes blink {
@@ -33,7 +35,7 @@
       background-color: transparent;
     }
     50% {
-      background-color: rgba(31, 31, 31, 0.71);
+      background-color: rgba(16, 15, 16, 0.71);
     }
   }
 
@@ -46,3 +48,6 @@
     padding: 2rem 3rem;
     color: gray;
   }
+
+
+

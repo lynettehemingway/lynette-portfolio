@@ -10,8 +10,8 @@ const Navbar = () => {
     <div className="desktopMenu">
                 <Link className="desktopMenuListItem">home</Link>
                 <Link className="desktopMenuListItem">about</Link>
-                <Link className="desktopMenuListItem">skills</Link>
                 <Link className="desktopMenuListItem">projects</Link>
+                <Link className="desktopMenuListItem">contact</Link>
             </div>
         </nav>
     )
