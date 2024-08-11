@@ -95,32 +95,6 @@
 }
 
 /* mobile */
-@media (max-width: 500px) {
-    .proj{
-        font-size: 30px;
-        margin-top: -30px;
-    }
-    .projContent {
-        width: 10px;
-        height: 10px;
-        margin-top: 70px;
-    }
-    .card-wrapper {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
-
-@media (max-width: 670px) {
-    .card-wrapper {
-        margin-left: 135px;
-        display: grid;
-        width: 9rem;
-        height: 10rem;
-        grid-template-columns: repeat(2, 1fr); 
-    }
-
-}
 
 @media (max-width: 960px) {
     .proj{
@@ -138,7 +112,7 @@
     .projContent {
         width: 10px;
         height: 10px;
-        margin-top: 10px;
+        margin-top: 90px;
     }
 
 
