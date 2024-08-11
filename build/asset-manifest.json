@@ -1,7 +1,12 @@
 {
   "files": {
+<<<<<<< HEAD
     "main.css": "/lynette-portfolio/static/css/main.86e1e5ba.css",
     "main.js": "/lynette-portfolio/static/js/main.5580e77f.js",
+=======
+    "main.css": "/lynette-portfolio/static/css/main.f771f7f9.css",
+    "main.js": "/lynette-portfolio/static/js/main.66665664.js",
+>>>>>>> 261f1bf1e73e28ee43942b478f7fc510bf1ada33
     "static/media/me.jpg": "/lynette-portfolio/static/media/me.4463e222d1b5016f332e.jpg",
     "static/media/logo.jpg": "/lynette-portfolio/static/media/logo.2b045ffdc8d77e75de32.jpg",
     "static/media/LynetteHemingwayResume.pdf": "/lynette-portfolio/static/media/LynetteHemingwayResume.5db281c761b4b92f4ce9.pdf",
@@ -11,11 +16,20 @@
     "static/media/mark-github.svg": "/lynette-portfolio/static/media/mark-github.06cbf6003f0503529f8552f9aa0e6491.svg",
     "static/media/iconmonstr-linkedin-1.svg": "/lynette-portfolio/static/media/iconmonstr-linkedin-1.1633a96222d704c5ee5222386dd242bd.svg",
     "static/media/bookmark-fill.svg": "/lynette-portfolio/static/media/bookmark-fill.26c60424607162f7434054082920c35a.svg",
+<<<<<<< HEAD
     "main.86e1e5ba.css.map": "/lynette-portfolio/static/css/main.86e1e5ba.css.map",
     "main.5580e77f.js.map": "/lynette-portfolio/static/js/main.5580e77f.js.map"
   },
   "entrypoints": [
     "static/css/main.86e1e5ba.css",
     "static/js/main.5580e77f.js"
+=======
+    "main.f771f7f9.css.map": "/lynette-portfolio/static/css/main.f771f7f9.css.map",
+    "main.66665664.js.map": "/lynette-portfolio/static/js/main.66665664.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f771f7f9.css",
+    "static/js/main.66665664.js"
+>>>>>>> 261f1bf1e73e28ee43942b478f7fc510bf1ada33
   ]
 }
