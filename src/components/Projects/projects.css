@@ -98,7 +98,6 @@
 
 @media (max-width: 960px) {
     .proj{
-        margin-top: 50px;
         font-size: 30px;
         white-space: nowrap;
         font-weight: bold;
@@ -113,9 +112,8 @@
     .projContent {
         width: 10px;
         height: 10px;
-        margin-top: 100px;
+        margin-top: 150px;
     }
-
 
     .description {
         margin-top: 10px;
