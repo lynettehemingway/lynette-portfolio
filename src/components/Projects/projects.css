@@ -98,6 +98,7 @@
 
 @media (max-width: 960px) {
     .proj{
+        margin-top: 50px;
         font-size: 30px;
         white-space: nowrap;
         font-weight: bold;
