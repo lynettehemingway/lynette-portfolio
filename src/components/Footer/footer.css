@@ -28,7 +28,13 @@
 /* mobile menu */
 @media (max-width: 960px){
     .footer{
-        margin-top: 800px;
-        margin-left: 40px;
+        display:none;
     }
+
+    .contact{
+        margin-top: 400px;
+        margin-left:100px;
+    }
+
+
 }

@@ -101,6 +101,7 @@
         font-size: 30px;
         white-space: nowrap;
         font-weight: bold;
+        margin-left: -30px;
     }
 
     .mobileproj {
@@ -112,21 +113,21 @@
     .projContent {
         width: 10px;
         height: 10px;
-        margin-top: 250px;
+        margin-top: 150px;
     }
 
     .description {
         margin-top: 10px;
         width: 400px;
-        height: 600px;
         font-size: 15px;
         padding: 0rem 2rem;
-        margin-left: 150px;
+        margin-left: -50px;
     }
 
     .name {
         font-size: 19px;
         white-space: nowrap;
+        margin-left: -20px;
     }
 
     .github-icon{
