@@ -3,11 +3,10 @@
     width: 100vw;
     max-width: 100rem;
     margin: 0 auto;
-    padding: 2rem 2rem;
+    padding: 2rem 3rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* top: 0; */
     z-index: 3;
     background-color: black;
     position: fixed;
@@ -20,8 +19,10 @@
     color: white;
 }
 
+
 .desktopMenuListItem {
     margin: 1rem;
+    margin-top: -20px;
     color: white;
     cursor: pointer;
     text-align: left;
@@ -29,12 +30,6 @@
 
 
 .desktopMenuListItem:hover {
-    color: rgb(211, 173, 208);
-    /* padding-bottom: 0.5rem; */
-    border-color: 3px solid rgb(211, 173, 208);
-}
-
-.active {
     color: rgb(211, 173, 208);
     /* padding-bottom: 0.5rem; */
     border-color: 3px solid rgb(211, 173, 208);

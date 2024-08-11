@@ -3,11 +3,9 @@
     width: 100vw;
     max-width: 75rem;
     margin: 0 auto;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
     padding: 3rem 1rem;
-    margin-top: -40px;
+    margin-top: -100px;
+    margin-bottom: 10px;
     box-sizing: border-box;
 }
 
@@ -15,80 +13,81 @@
     padding: 2rem;
     font-size: 2rem;
     font-weight: 300;
-    width: 50%;
+    width: 100%;
 }
 
 .proj {
     font-weight: bold;
     color: rgb(211, 173, 208);
     font-size: 2.2rem;
-    padding: 10px 10px;
+    padding: 10px;
 }
 
 /* project cards */
-.card-image{
-    position: relative;
-    height: 150px;
-    width: 150px;
-    padding: 3px;
-}
-
-.card-image .card-img{
-    height:100%;
-    width: 100%;
-    object-fit: fill;
-}
-
-body{
-    min-height:100vh;
-    display: flex;
-    align-items: center;
+.card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
     justify-content: center;
+    max-width: 100px;
+    margin: 50 auto;
 }
 
-.card{
-    margin-top: 50px;
-    width: 320px;
+.card {
+    width: 20rem;
+    height: 22rem;
     border-radius: 25px;
     background-color: rgb(78, 72, 72);
-}
-
-.slide-content{
-    margin:0 40px;
-}
-
-.image-content, .card-content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 14px;
-}
-
-.name{
-    font-size: 18px;
-    font-weight: 500;
-    color: rgb(253, 253, 253);
-}
-
-.description{
-    font-size: 14px;
-    color: gray;
-    text-align: center;
-}
-
-.image-content{
-    row-gap: 5px;
-}
-
-.button{
-    border: none;
-    font-size: 16px;
-    padding: 8px 16px;
-    border-radius: 6px;
-    margin: 14px;
+    color: white;
+    border-width: 2px;
+    border-color: #424242;
+    border-radius: 5%;
+    text-align: left;
+    padding: 2rem 2rem;
     transition: all 0.3s ease;
 }
 
-.button:hover{
-    background: rgb(211, 173, 208);
+.card:hover {
+    margin-top: -7px;
+    margin-bottom: 7px;
+    filter: brightness(140%);
 }
+
+.name {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(221, 217, 220);
+    font-weight: bold;
+}
+
+.description {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: gray;
+    padding: 1rem 0;
+    text-align: left;
+}
+
+
+.github-icon {
+    height:20px;
+    filter: invert(100%) sepia(0%) saturate(7436%) hue-rotate(161deg) brightness(120%) contrast(114%);
+    
+}
+
+.mark-icon {
+    height:30px;
+    filter: invert(96%) sepia(55%) saturate(6147%) hue-rotate(191deg) brightness(87%) contrast(88%);
+}
+
+
+.box{
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+};

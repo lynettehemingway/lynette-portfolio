@@ -1,0 +1,26 @@
+#footer {
+    width: 100vw;
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    margin-top: 300px;
+}
+
+.footer{
+    text-align: center;
+    color:gray;
+    font-size: 13px;;
+}
+
+.contact {
+    width: 15px;
+    height:15px;
+    margin: 5px;
+    filter: invert(96%) sepia(55%) saturate(6147%) hue-rotate(191deg) brightness(87%) contrast(88%);
+}
+
+.contactt{
+    position:relative;
+    margin-top: -40px;
+    align-items: left;
+}
