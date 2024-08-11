@@ -112,7 +112,7 @@
     .projContent {
         width: 10px;
         height: 10px;
-        margin-top: 220px;
+        margin-top: 250px;
     }
 
     .description {
@@ -120,6 +120,7 @@
         width: 400px;
         font-size: 15px;
         padding: 0rem 2rem;
+        margin-left: 150px;
     }
 
     .name {
