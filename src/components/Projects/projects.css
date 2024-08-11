@@ -92,7 +92,7 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-};
+}
 
 
 /* mobile */
@@ -139,7 +139,7 @@
     .projContent {
         width: 10px;
         height: 10px;
-        margin-top: 10px;
+        margin-top: 90px;
     }
 
 
