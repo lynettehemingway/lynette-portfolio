@@ -111,7 +111,7 @@
     }
 
     .card-wrapper {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust for smaller screens */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
     }
 }
 
@@ -126,5 +126,7 @@
 
     .card {
         padding: 1rem;
+        width: 10rem;
+        height: 12rem;
     }
 }
