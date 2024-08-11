@@ -21,6 +21,7 @@ const Intro = () => {
                     </ul>  
                     <p className="introPara">Beyond school, I enjoy playing otome games and exploring how data analysis and computer science intersect to create engaging, interactive experiences.</p>                         
                     </div>
+                    <img src={me} alt="net" className="img-mobile" />
                  
                 </div>
                 <div className="img">

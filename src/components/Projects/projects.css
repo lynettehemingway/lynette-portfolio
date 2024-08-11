@@ -2,7 +2,7 @@
     height: calc(100vh - 3rem);
     width: 100vw;
     max-width: 75rem;
-    margin: 0 auto;
+    margin: auto;
     padding: 3rem 1rem;
     margin-top: -100px;
     margin-bottom: 10px;
@@ -14,6 +14,10 @@
     font-size: 2rem;
     font-weight: 300;
     width: 100%;
+}
+
+.mobileproj {
+    display:none;
 }
 
 .proj {
@@ -84,8 +88,6 @@
 
 
 .box{
-    justify-content: space-between;
-    align-items: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -94,39 +96,71 @@
 
 
 /* mobile */
-@media (max-width: 768px) {
+@media (max-width: 500px) {
+    .proj{
+        font-size: 30px;
+        margin-top: -30px;
+    }
     .projContent {
-        padding: 1rem;
-        font-size: 1.2rem;
+        width: 10px;
+        height: 10px;
+        margin-top: 70px;
     }
-
-    .proj {
-        font-size: 1.5rem;
-    }
-
-    .card {
-        width: 100%;
-        height: auto;
-        padding: 1.5rem;
-    }
-
     .card-wrapper {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 670px) {
+    .card-wrapper {
+        margin-left: 135px;
+        display: grid;
+        width: 9rem;
+        height: 10rem;
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+}
+
+@media (max-width: 960px) {
+    .proj{
+        font-size: 30px;
+        white-space: nowrap;
+        font-weight: bold;
+    }
+
+    .mobileproj {
+        display:contents;
+        color: gray;
+        font-size: 15px;
+    }
+
     .projContent {
-        font-size: 1rem;
+        width: 10px;
+        height: 10px;
+        margin-top: 10px;
     }
 
-    .proj {
-        font-size: 1.2rem;
+
+    .description {
+        margin-top: 10px;
+        width: 400px;
+        font-size: 15px;
+        padding: 0rem 2rem;
     }
 
-    .card {
-        padding: 1rem;
-        width: 10rem;
-        height: 12rem;
+    .name {
+        font-size: 19px;
+        white-space: nowrap;
+    }
+
+    .github-icon{
+        margin-left: 30px;
+        margin-bottom: -50px;
+    }
+
+    .card-wrapper {
+       display:none;
     }
 }

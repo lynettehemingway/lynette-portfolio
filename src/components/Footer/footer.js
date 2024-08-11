@@ -1,6 +1,5 @@
 import React from 'react';
 import './footer.css';
-import email from '../../assets/mail.svg';
 import resumeIcon from '../../assets/iconmonstr-cv-2.svg';
 import linkedin from '../../assets/iconmonstr-linkedin-1.svg';
 import resumePDF from '../../assets/LynetteHemingwayResume.pdf'; // Import your PDF here
