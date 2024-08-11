@@ -1,6 +1,6 @@
 {
  "homepage": "https://lynettehemingway.github.io/lynette-portfolio",
- "name": "personal-portfolio",
+ "name": "lynette-portfolio",
  "version": "0.1.0",
  "private": true,
  "dependencies": {
