@@ -24,3 +24,11 @@
     margin-top: -40px;
     align-items: left;
 }
+
+/* mobile menu */
+@media (max-width: 960px){
+    .footer{
+        margin-top: 200px;
+        margin-left: 40px;
+    }
+}

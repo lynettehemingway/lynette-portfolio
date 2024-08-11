@@ -51,3 +51,24 @@
 
 
 
+/* mobile */
+@media (max-width: 960px){
+  .flower{
+    height: 20rem;
+    width: 20rem;
+    margin-top: 15px;
+  }
+
+  .text {
+    font-size: 4rem;
+    font-weight: 700;
+  }
+}
+
+/* mobile menu */
+@media (max-width: 960px){
+  .text {
+    font-size: 3rem;
+    margin-left: 10px;
+  }
+}
