@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/lynette-portfolio/static/css/main.06b028a8.css",
+    "main.css": "/lynette-portfolio/static/css/main.f771f7f9.css",
     "main.js": "/lynette-portfolio/static/js/main.66665664.js",
     "static/media/me.jpg": "/lynette-portfolio/static/media/me.4463e222d1b5016f332e.jpg",
     "static/media/logo.jpg": "/lynette-portfolio/static/media/logo.2b045ffdc8d77e75de32.jpg",
@@ -12,11 +12,11 @@
     "static/media/mail.svg": "/lynette-portfolio/static/media/mail.986b88211e31f96b7287abf77d90a4ee.svg",
     "static/media/iconmonstr-linkedin-1.svg": "/lynette-portfolio/static/media/iconmonstr-linkedin-1.1633a96222d704c5ee5222386dd242bd.svg",
     "static/media/bookmark-fill.svg": "/lynette-portfolio/static/media/bookmark-fill.26c60424607162f7434054082920c35a.svg",
-    "main.06b028a8.css.map": "/lynette-portfolio/static/css/main.06b028a8.css.map",
+    "main.f771f7f9.css.map": "/lynette-portfolio/static/css/main.f771f7f9.css.map",
     "main.66665664.js.map": "/lynette-portfolio/static/js/main.66665664.js.map"
   },
   "entrypoints": [
-    "static/css/main.06b028a8.css",
+    "static/css/main.f771f7f9.css",
     "static/js/main.66665664.js"
   ]
 }
