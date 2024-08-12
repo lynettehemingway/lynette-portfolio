@@ -5,7 +5,7 @@ import logo from '../../assets/logo.jpg'
 export default function TextGenerate() {
   const [text, setText] = useState("");
   const [index, setIndex] = useState(0);
-  const message = "hi, im lynette";
+  const message = "hi, i am lynette";
   
   useEffect(() => {
     if (index < message.length) {
