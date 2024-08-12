@@ -19,7 +19,7 @@ const Intro = () => {
                         <li>JavaScript</li>
                         <li>MATLAB</li>
                     </ul>  
-                    <p className="introPara">Beyond school, I enjoy playing otome games and exploring how data analysis and computer science intersect to create engaging, interactive experiences.</p>                         
+                    <p className="introPara">Outside of my academic pursuits, I have a passion for food blogging and exploring the intersection of data analysis and computer science. I am particularly interested in how these fields can be combined to create engaging and interactive experiences.</p>                         
                     </div>
                     <img src={me} alt="net" className="img-mobile" />
                  
