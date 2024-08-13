@@ -120,6 +120,20 @@ const Projects = () => {
                         <div className="box">
                         <img src={mark} alt="mark" className="mark-icon" />
                         
+                        <a href="https://github.com/lynettehemingway/pantry-management" target="_blank" rel="noopener noreferrer">
+                            <img src={github} alt="github" className="github-icon" />
+                        </a>
+
+                        </div>
+                        <h2 className="name">Pantry Management</h2>
+                        <p className="description">a dynamic inventory management tool that allows users to seamlessly manage and search through a list of items. Users can add new items to the inventory, adjust the quantity of existing items, and remove items when necessary. Additionally, the integrated search functionality enables users to quickly filter and locate specific items within the inventory.
+                        <br></br><br></br><br></br>Skills: Next.js, React, Firebase, GCP, Vercel</p>
+                    </div>
+
+                    <div className="card">
+                        <div className="box">
+                        <img src={mark} alt="mark" className="mark-icon" />
+                        
                         <a href="https://github.com/lynettehemingway/lynette-portfolio" target="_blank" rel="noopener noreferrer">
                             <img src={github} alt="github" className="github-icon" />
                         </a>                       
