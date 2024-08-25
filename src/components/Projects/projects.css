@@ -41,7 +41,7 @@
     width: 20rem;
     height: 22rem;
     border-radius: 25px;
-    background-color: rgb(78, 72, 72);
+    background-color: rgb(35, 28, 28);
     color: white;
     border-width: 2px;
     border-color: #424242;
@@ -54,7 +54,7 @@
 .card:hover {
     margin-top: -7px;
     margin-bottom: 7px;
-    filter: brightness(140%);
+    filter: brightness(200%);
 }
 
 .name {
@@ -113,7 +113,7 @@
     .projContent {
         width: 10px;
         height: 10px;
-        margin-top: 250px;
+        margin-top: 350px;
     }
 
     .description {

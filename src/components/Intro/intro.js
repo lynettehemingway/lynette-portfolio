@@ -1,6 +1,7 @@
 import React from "react";
 import './intro.css';
 import me from "../../assets/me.jpg";
+
 const Intro = () => {
     return (
         <>

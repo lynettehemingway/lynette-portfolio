@@ -9,7 +9,8 @@
   "@testing-library/user-event": "^13.5.0",
   "common-tags": "^1.8.2",
   "framer-motion": "^11.3.24",
-  "node-modules": "^1.0.1",
+  "joi": "^17.13.3",
+  "node-modules": "^0.0.1",
   "react": "^18.3.1",
   "react-dom": "^18.3.1",
   "react-intersection-observer": "^9.13.0",
@@ -44,6 +45,22 @@
   ]
  },
  "devDependencies": {
-  "gh-pages": "^6.1.1"
+  "@babel/core": "^7.25.2",
+  "@babel/plugin-proposal-class-properties": "^7.18.6",
+  "@babel/plugin-proposal-private-methods": "^7.18.6",
+  "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+  "@babel/plugin-transform-react-display-name": "^7.24.7",
+  "@babel/plugin-transform-react-jsx": "^7.25.2",
+  "@babel/plugin-transform-react-jsx-development": "^7.24.7",
+  "@babel/plugin-transform-react-pure-annotations": "^7.24.7",
+  "@babel/preset-env": "^7.25.3",
+  "@babel/preset-react": "^7.24.7",
+  "@babel/traverse": "^7.25.3",
+  "babel-cli": "^6.26.0",
+  "cssnano": "^7.0.5",
+  "gh-pages": "^6.1.1",
+  "postcss": "^8.4.41",
+  "postcss-preset-env": "^10.0.1",
+  "shlex": "^2.1.2"
  }
 }

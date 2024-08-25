@@ -70,5 +70,6 @@
   .text {
     font-size: 3rem;
     margin-left: 10px;
+    margin-top: 5px;
   }
 }

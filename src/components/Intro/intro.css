@@ -75,6 +75,10 @@ li {
     font-size: 14px;
 }
 
+.section1 li::marker {
+    color: #d3add0; 
+    font-size: 14px; 
+}
 
 /* mobile */
 @media (max-width: 550px){
