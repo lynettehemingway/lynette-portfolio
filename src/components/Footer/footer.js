@@ -2,7 +2,7 @@ import React from 'react';
 import './footer.css';
 import resumeIcon from '../../assets/iconmonstr-cv-2.svg';
 import linkedin from '../../assets/iconmonstr-linkedin-1.svg';
-import resumePDF from '../../assets/LynetteHemingwayResume.pdf'; // Import your PDF here
+import resumePDF from '../../assets/LynetteHemingway_Resume.pdf'; // Import your PDF here
 
 
 
@@ -10,8 +10,7 @@ const Footer = () => {
     return (
         <section id="footer">
             <div className="footer">
-                Built and designed by Lynette Hemingway.
-                <br></br><br></br>All rights reserved. ©
+                Built and designed by Lynette Hemingway. 
             </div>
 
             <div className="contactt">

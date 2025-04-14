@@ -24,14 +24,14 @@ const Projects = () => {
                    
                     
                     <div className="box">
-                        <h2 className="name">MelodyHub</h2>
-                    <a href="https://github.com/lynettehemingway/melodyhub" target="_blank" rel="noopener noreferrer">
+                        <h2 className="name">uweather ☁</h2>
+                    <a href="https://github.com/NivedhaaS/uweather" target="_blank" rel="noopener noreferrer">
                             <img src={github} alt="github" className="github-icon" />
                         </a></div>
-                        <p className="description">A music recommendation platform designed to deliver a seamless and responsive user experience across all devices.
-                        <br></br><br></br><br></br>Skills: HTML, CSS, Python, JavaScript</p><br></br>
+                        <p className="description">Developed a weather tracking platform aimed at providing year-by-year comparisons of temperature and precipitation changes to highlight global warming trends and significant weather shifts.
+                        <br></br><br></br><br></br>Skills: Data Structures (Hash Map, Heap), Climate Data Analysis, Web Development</p><br></br>
                     
-                    
+
                     <div className="box">
                         <h2 className="name">Sudoku</h2>
                     <a href="https://github.com/thadavale/Sudoku" target="_blank" rel="noopener noreferrer">
@@ -49,12 +49,12 @@ const Projects = () => {
                         <br></br><br></br><br></br>Skills: Python</p><br></br>
                     
                     <div className="box">
-                    <h2 className="name">Personal Portfolio</h2>
-                    <a href="https://github.com/lynettehemingway/lynette-portfolio" target="_blank" rel="noopener noreferrer">
+                    <h2 className="name">CostCompass</h2>
+                    <a href="https://github.com/CloudRazerz/CostCompass" target="_blank" rel="noopener noreferrer">
                             <img src={github} alt="github" className="github-icon" />
                     </a></div>   
-                        <p className="description">Showcasing sections on my background, skill set, and individual projects.
-                        <br></br><br></br><br></br>Skills: React, JS, Python, HTML</p><br></br>
+                    <p className="description">Designed a GIS-powered platform integrating Google Maps API, U.S. Census API, and OpenAI API to provide real-time cost-of-living insights for informed relocation decisions.
+                    <br></br><br></br><br></br>Skills: GIS, Google Maps API, OpenAI API, U.S. Census API</p><br></br>
 
                     <div className="box">
                     <h2 className="name">Pantry Management</h2>
@@ -62,7 +62,7 @@ const Projects = () => {
                             <img src={github} alt="github" className="github-icon" />
                     </a></div>
                     <p className="description">Dynamic inventory management tool that allows users to seamlessly manage and search through a list of items. Users can add new items to the inventory, adjust the quantity of existing items, and remove items when necessary.
-                    <br></br><br></br><br></br>Skills: Next.js, React, Firebase, GCP, Vercel</p>
+                    <br></br><br></br><br></br>Skills: Next.js, React, Firebase, GCP, Vercel</p><br></br><br></br>
                     </div>
 
 
@@ -87,14 +87,14 @@ const Projects = () => {
                         <div className="box">
                         <img src={mark} alt="mark" className="mark-icon" />
                         
-                        <a href="https://github.com/lynettehemingway/melodyhub" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/NivedhaaS/uweather" target="_blank" rel="noopener noreferrer">
                             <img src={github} alt="github" className="github-icon" />
                         </a>
 
                         </div>
-                        <h2 className="name">MelodyHub</h2>
-                        <p className="description">A music recommendation platform designed to deliver a seamless and responsive user experience across all devices.
-                        <br></br><br></br><br></br>Skills: HTML, CSS, Python, JavaScript</p>
+                        <h2 className="name">uweather ☁</h2>
+                        <p className="description">Developed a weather tracking platform aimed at providing year-by-year comparisons of temperature and precipitation changes to highlight global warming trends and significant weather shifts.
+                        <br></br><br></br><br></br>Skills: JS, C++</p><br></br>
                     </div>
 
                     <div className="card">
@@ -142,15 +142,17 @@ const Projects = () => {
                         <div className="box">
                         <img src={mark} alt="mark" className="mark-icon" />
                         
-                        <a href="https://github.com/lynettehemingway/lynette-portfolio" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/CloudRazerz/CostCompass" target="_blank" rel="noopener noreferrer">
                             <img src={github} alt="github" className="github-icon" />
                         </a>                       
 
                         </div>
-                        <h2 className="name">Personal Portfolio</h2>
-                        <p className="description">Showcasing sections on my background, skill set, and individual projects.
-                        <br></br><br></br><br></br>Skills: React, JS, Python, HTML</p>
+                        <h2 className="name">CostCompass</h2>
+                        <p className="description">Designed a GIS-powered platform integrating Google Maps API, U.S. Census API, and OpenAI API to provide real-time cost-of-living insights for informed relocation decisions.
+                        <br></br><br></br><br></br>Skills: JS, C++</p><br></br>
                     </div>
+
+
                 </div> 
             </div>
         </section>
