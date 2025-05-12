@@ -14,12 +14,12 @@ const Projects = () => {
 
                 <div className="mobileproj">
                     <div className="box">
-                        <p className="name">Minesweeper</p>
-                    <a href="https://github.com/lynettehemingway/minesweeper" target="_blank" rel="noopener noreferrer">
+                        <p className="name">Centsible</p>
+                    <a href="https://github.com/lynettehemingway/centsible" target="_blank" rel="noopener noreferrer">
                             <img src={github} alt="github" className="github-icon" />
                         </a> </div>
-                    <p className="description">Accurately flag all hidden mines to complete the game. The application allows for customizable dimensions, and includes a leaderboard to track and display the top completion times. 
-                    <br></br><br></br><br></br>Skills: C++, SFML</p> 
+                    <p className="description"> A responsive web budgeting platform built to directly address the financial challenges faced by students. Features automation, gamification, and clear visual feedback to help students stay informed with their finances.
+                    <br></br><br></br><br></br>Skills: React Native Web, Node.js, MongoDB</p> 
                     <br></br>
                    
                     
@@ -33,12 +33,12 @@ const Projects = () => {
                     
 
                     <div className="box">
-                        <h2 className="name">Sudoku</h2>
-                    <a href="https://github.com/thadavale/Sudoku" target="_blank" rel="noopener noreferrer">
+                        <h2 className="name">Deadbeat</h2>
+                    <a href="https://github.com/TiniToni/winghacks2025" target="_blank" rel="noopener noreferrer">
                             <img src={github} alt="github" className="github-icon" />
                     </a></div>
-                        <p className="description">A traditional 9x9 Sudoku game featuring dynamic win and loss screens. Developed collaboratively, this project integrates a user-friendly interface with a robust backend, ensuring a smooth and interactive gameplay experience.
-                        <br></br><br></br><br></br>Skills: Pygame, Python</p><br></br>
+                        <p className="description">Developed a horror game that features original pixeled art designs and integrates rhythm-based mechanics to immerse players in a chilling narrative filled with tension and jump scares.
+                        <br></br><br></br><br></br>Skills: C#, Unity</p><br></br>
                     
                     <div className="box">
                         <h2 className="name">UFFSA Wolfbot</h2>
@@ -72,15 +72,15 @@ const Projects = () => {
                         <div className="box">
                         <img src={mark} alt="mark" className="mark-icon" />
                         
-                        <a href="https://github.com/lynettehemingway/minesweeper" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/lynettehemingway/centsible" target="_blank" rel="noopener noreferrer">
                             <img src={github} alt="github" className="github-icon" />
                         </a>
                     
 
                         </div>
-                        <h2 className="name">Minesweeper Game</h2>
-                        <p className="description">Accurately flag all hidden mines to complete the game. The application allows for customizable dimensions, and includes a leaderboard to track and display the top completion times. 
-                        <br></br><br></br><br></br>Skills: C++, SFML</p>
+                        <h2 className="name">Centsible</h2>
+                        <p className="description">A responsive web budgeting platform built to directly address the financial challenges faced by students. Features automation, gamification, and clear visual feedback to help students stay informed with their finances.
+                        <br></br><br></br><br></br>Skills: React Native Web, Node.js, MongoDB</p>
                     </div>
 
                     <div className="card">
@@ -101,13 +101,13 @@ const Projects = () => {
                         <div className="box">
                         <img src={mark} alt="mark" className="mark-icon" />
                         
-                        <a href="https://github.com/thadavale/Sudoku" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/TiniToni/winghacks2025" target="_blank" rel="noopener noreferrer">
                             <img src={github} alt="github" className="github-icon" />
                         </a>
                         </div>
-                        <h2 className="name">Sudoku</h2>
-                        <p className="description">A traditional 9x9 Sudoku game featuring dynamic win and loss screens. Developed collaboratively, this project integrates a user-friendly interface with a robust backend, ensuring a smooth and interactive gameplay experience.
-                        <br></br><br></br><br></br>Skills: Pygame, Python</p>
+                        <h2 className="name">Deadbeat</h2>
+                        <p className="description">Developed a horror game that features original pixeled art designs and integrates rhythm-based mechanics to immerse players in a chilling narrative filled with tension and jump scares.
+                        <br></br><br></br><br></br>Skills: C#, Unity</p>
                     </div>
 
                     <div className="card">

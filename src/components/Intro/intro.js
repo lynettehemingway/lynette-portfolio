@@ -8,7 +8,7 @@ const Intro = () => {
             <section id="intro">
                 <div className="introContent">
                     <span className="about">// about me<span className="dash"></span></span>
-                    <p className="introPara">I am a sophomore Computer Science student currently working towards a minor in DAS and a certificate in GIS.<br></br><br></br>Skills: </p> 
+                    <p className="introPara">I am a junior Computer Science student currently working towards a minor in DAS and a certificate in GIS.<br></br><br></br>Skills: </p> 
                     <div className="raise">
                      <ul className="section1">
                         <li>HTML</li>

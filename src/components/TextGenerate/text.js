@@ -23,7 +23,7 @@ export default function TextGenerate() {
       <img src={logo} alt="logo" className="flower"/>
       <div className="text">
       {text}.<span className="cursor">|</span>
-      <p className="textPara">a sophomore computer science major at the university of florida.</p>
+      <p className="textPara">a junior computer science major at the university of florida.</p>
       </div>
     </section>
     
