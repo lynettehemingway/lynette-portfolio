@@ -1,21 +1,20 @@
 {
   "files": {
-    "main.css": "/lynette-portfolio/static/css/main.2c0e3123.css",
-    "main.js": "/lynette-portfolio/static/js/main.57765a98.js",
+    "main.css": "/lynette-portfolio/static/css/main.dc071c54.css",
+    "main.js": "/lynette-portfolio/static/js/main.c521e526.js",
     "static/media/me.jpg": "/lynette-portfolio/static/media/me.28ae2b28b15daf842c05.jpg",
     "static/media/logo.jpg": "/lynette-portfolio/static/media/logo.2b045ffdc8d77e75de32.jpg",
     "static/media/LynetteHemingway_Resume.pdf": "/lynette-portfolio/static/media/LynetteHemingway_Resume.5a29952878c52653b0fe.pdf",
-    "static/media/minesweeper.png": "/lynette-portfolio/static/media/minesweeper.bff0e17e90c87b422e31.png",
     "static/media/iconmonstr-cv-2.svg": "/lynette-portfolio/static/media/iconmonstr-cv-2.0b69d7c372dcfdaa853e95ee78e702b5.svg",
     "index.html": "/lynette-portfolio/index.html",
     "static/media/mark-github.svg": "/lynette-portfolio/static/media/mark-github.06cbf6003f0503529f8552f9aa0e6491.svg",
     "static/media/iconmonstr-linkedin-1.svg": "/lynette-portfolio/static/media/iconmonstr-linkedin-1.1633a96222d704c5ee5222386dd242bd.svg",
     "static/media/bookmark-fill.svg": "/lynette-portfolio/static/media/bookmark-fill.26c60424607162f7434054082920c35a.svg",
-    "main.2c0e3123.css.map": "/lynette-portfolio/static/css/main.2c0e3123.css.map",
-    "main.57765a98.js.map": "/lynette-portfolio/static/js/main.57765a98.js.map"
+    "main.dc071c54.css.map": "/lynette-portfolio/static/css/main.dc071c54.css.map",
+    "main.c521e526.js.map": "/lynette-portfolio/static/js/main.c521e526.js.map"
   },
   "entrypoints": [
-    "static/css/main.2c0e3123.css",
-    "static/js/main.57765a98.js"
+    "static/css/main.dc071c54.css",
+    "static/js/main.c521e526.js"
   ]
 }
