@@ -7,9 +7,9 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="logo">lynette</div>
             <div className="desktopMenu">
-                <ScrollLink className="desktopMenuListItem" to="text" smooth={true} duration={500}>home</ScrollLink>
-                <ScrollLink className="desktopMenuListItem" to="intro" smooth={true} duration={500}>about</ScrollLink>
-                <ScrollLink className="desktopMenuListItem" to="projects" smooth={true} duration={500}>projects</ScrollLink>
+                <ScrollLink className="desktopMenuListItem" to="text" smooth={true} duration={500} offset={-80}>home</ScrollLink>
+                <ScrollLink className="desktopMenuListItem" to="intro" smooth={true} duration={500} offset={-80}>about</ScrollLink>
+                <ScrollLink className="desktopMenuListItem" to="projects" smooth={true} duration={500} offset={-80}>projects</ScrollLink>
             </div>
         </nav>
     );

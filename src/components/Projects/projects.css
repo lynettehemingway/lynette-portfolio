@@ -1,13 +1,13 @@
 #projects {
-    height: calc(100vh - 3rem);
     width: 100vw;
     max-width: 75rem;
     margin: auto;
-    padding: 3rem 1rem;
-    margin-top: -100px;
-    margin-bottom: 10px;
+    padding: 1rem 1rem 0 1rem;
+    margin-top: 3rem; 
+    margin-bottom: 3rem;
     box-sizing: border-box;
 }
+
 
 .projContent {
     padding: 2rem;
@@ -20,36 +20,38 @@
     display:none;
 }
 
-.proj {
+.about, .proj {
     font-weight: bold;
-    color: rgb(211, 173, 208);
-    font-size: 2.2rem;
-    padding: 10px;
+    color: #b1efb8;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
 }
+
 
 /* project cards */
 .card-wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 10px; 
     justify-content: center;
-    max-width: 100px;
-    margin: 50 auto;
+    padding: 0; 
+    margin: 0 auto;
+    max-width: 90rem;
 }
 
 .card {
-    width: 20rem;
-    height: 22rem;
+    width: 100%;
+    height: auto;
     border-radius: 25px;
     background-color: rgb(35, 28, 28);
     color: white;
-    border-width: 2px;
-    border-color: #424242;
-    border-radius: 5%;
     text-align: left;
-    padding: 2rem 2rem;
-    transition: all 0.3s ease;
+    padding: 2rem;
+    transition: all 0.1s ease;
 }
+
 
 .card:hover {
     margin-top: -7px;
@@ -61,7 +63,7 @@
     margin-top: 20px;
     font-size: 18px;
     font-weight: 500;
-    color: rgb(221, 217, 220);
+    color: #e7f7e9;
     font-weight: bold;
 }
 
@@ -83,7 +85,7 @@
 
 .mark-icon {
     height:30px;
-    filter: invert(96%) sepia(55%) saturate(6147%) hue-rotate(191deg) brightness(87%) contrast(88%);
+    filter: brightness(0) saturate(100%) invert(94%) sepia(12%) saturate(956%) hue-rotate(61deg) brightness(97%) contrast(94%);
 }
 
 
@@ -95,47 +97,46 @@
 }
 
 /* mobile */
-
 @media (max-width: 960px) {
-    .proj{
-        font-size: 30px;
-        white-space: nowrap;
-        font-weight: bold;
-        margin-left: -30px;
-    }
+    .card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
 
-    .mobileproj {
-        display:contents;
-        color: gray;
-        font-size: 15px;
-    }
 
-    .projContent {
-        width: 10px;
-        height: 10px;
-        margin-top: 350px;
-    }
-
-    .description {
-        margin-top: 10px;
+    .card {
         width: 400px;
-        font-size: 15px;
-        padding: 0rem 2rem;
-        margin-left: -50px;
+        height: 300px;
+        padding: 1rem 1rem;
+        border-radius: 15px;
+        text-align: left;
+    }
+
+    .box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
     }
 
     .name {
-        font-size: 19px;
-        white-space: nowrap;
-        margin-left: -20px;
+        font-size: 1.2rem;
+        color: #e3f5e5;
     }
 
-    .github-icon{
-        margin-left: 30px;
-        margin-bottom: -50px;
+    .description {
+        font-size: 0.9rem;
+        line-height: 1.4;
     }
 
-    .card-wrapper {
-       display:none;
+    .mark-icon {
+        height: 25px;
+    }
+
+    .github-icon {
+        height: 20px;
     }
 }

@@ -30,9 +30,9 @@
 
 
 .desktopMenuListItem:hover {
-    color: rgb(211, 173, 208);
+    color: #b1efb8;
     /* padding-bottom: 0.5rem; */
-    border-color: 3px solid rgb(211, 173, 208);
+    border-color: 3px solid #b1efb8;
     
 }
 

@@ -23,12 +23,6 @@
     padding: 2rem 1rem;
 }
 
-.about {
-    font-weight: bold;
-    color: rgb(211, 173, 208);
-    font-size: 2.2rem;
-    padding: 10px 10px;
-}
 
 .dash {
     color: gray;
@@ -76,7 +70,7 @@ li {
 }
 
 .section1 li::marker {
-    color: #d3add0; 
+    color: #b1efb8; 
     font-size: 14px; 
 }
 
