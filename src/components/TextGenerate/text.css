@@ -12,12 +12,17 @@
     object-fit: cover;
     height: 25rem;
     width: 25rem;
-    margin-bottom: 0rem;
+    margin-bottom: 1rem;
     filter: brightness(200%);
   }
   
+  .highlight-name {
+  color: #b1efb8;
+}
+
+  
   .text {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 700;
     margin-top: -10px;
   }
@@ -31,14 +36,10 @@
   }
 
   @keyframes blink {
-    from, to {
-      background-color: transparent;
-    }
-    50% {
-      background-color: rgba(16, 15, 16, 0.71);
-    }
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
   }
-
   .highlight {
     color: #b1efb8;
   }
@@ -60,7 +61,7 @@
   }
 
   .text {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 700;
   }
 }
@@ -69,6 +70,28 @@
 @media (max-width: 960px){
   .text {
     font-size: 3rem;
+    margin-left: 10px;
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 960px){
+  .flower{
+    height: 20rem;
+    width: 20rem;
+    margin-top: 15px;
+  }
+
+  .text {
+    font-size: 3rem;
+    font-weight: 700;
+  }
+}
+
+/* mobile menu */
+@media (max-width: 960px){
+  .text {
+    font-size: 2.5rem;
     margin-left: 10px;
     margin-top: 5px;
   }
