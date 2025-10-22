@@ -1,15 +1,17 @@
 .navbar {
     height: 4rem;
-    width: 100vw;
+    width: 100%;
     max-width: 100rem;
     margin: 0 auto;
     padding: 2rem 3rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 3;
-    background-color: black;
-    position: fixed;
+    position: sticky;
+    top: 0;
+    background: black;
+    z-index: 999;
+    box-sizing: border-box;
 }
 
 .logo {
@@ -19,23 +21,20 @@
     color: white;
 }
 
+.desktopMenu {
+    display: flex;
+    gap: 2rem;
+}
 
 .desktopMenuListItem {
-    margin: 1rem;
-    margin-top: -20px;
     color: white;
     cursor: pointer;
     text-align: left;
 }
 
-
 .desktopMenuListItem:hover {
     color: #b1efb8;
-    /* padding-bottom: 0.5rem; */
-    border-color: 3px solid #b1efb8;
-    
 }
-
 
 .desktopMenuBtn {
     background: #fff;
@@ -46,7 +45,6 @@
     justify-content: center;
     padding: 0rem 1rem;
     border-radius: 5rem;
-   
 }
 
 .desktopMenuImg {
@@ -56,6 +54,32 @@
     margin: 1rem;
 }
 
-/* mobile*/
+/* Hamburger menu hidden by default */
+.hamburger-menu {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+}
 
+/* Mobile view */
+@media (max-width: 550px) {
+    .desktopMenu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background: black;
+        padding: 1rem;
+        border-radius: 10px;
+    }
 
+    .desktopMenu.show {
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+}

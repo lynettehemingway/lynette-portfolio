@@ -86,13 +86,19 @@
     font-size: 3rem;
     font-weight: 700;
   }
+  
+  .textPara {
+    font-size: 1.0rem;
+    padding: 2rem 3rem;
+    color: gray;
+  }
 }
 
 /* mobile menu */
 @media (max-width: 960px){
   .text {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     margin-left: 10px;
-    margin-top: 5px;
+    margin-top: -20px;
   }
 }

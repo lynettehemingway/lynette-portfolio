@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 import './navbar.css'; 
 
 const Navbar = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => setMenuOpen(!menuOpen);
+
     return (
         <nav className="navbar">
             <div className="logo">lynette</div>
-            <div className="desktopMenu">
+
+            <div className="hamburger-menu" onClick={toggleMenu}>
+                &#9776;
+            </div>
+
+            <div className={`desktopMenu ${menuOpen ? "show" : ""}`}>
                 <ScrollLink className="desktopMenuListItem" to="text" smooth={true} duration={500} offset={-80}>home</ScrollLink>
                 <ScrollLink className="desktopMenuListItem" to="intro" smooth={true} duration={500} offset={-80}>about</ScrollLink>
-                <ScrollLink className="desktopMenuListItem" to="projects" smooth={true} duration={500} offset={-80}>projects</ScrollLink>
+                <ScrollLink className="desktopMenuListItem" to="projects" smooth={true} duration={500} offset={-200}>projects</ScrollLink>
             </div>
         </nav>
     );

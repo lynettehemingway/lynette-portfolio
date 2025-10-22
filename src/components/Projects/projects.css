@@ -1,19 +1,131 @@
+.carousel-container {
+    position: relative;
+    margin: 0 auto;
+    width: 90%; 
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.slider-card:hover::before {
+    background: rgba(0, 0, 0, 0.6); 
+}
+.slider-card {
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.slider-image {
+    width: 100%;
+    height: 500px; 
+    object-fit:fill;
+    filter: brightness(40%);
+}
+
+/* Slide-up overlay container */
+.slider-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: black;
+    color: white;
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    z-index: 2;
+    text-align: center;
+    border-top: 1px dashed #b1efb8;
+}
+
+/* On hover, slide up the overlay */
+.slider-card:hover .slider-overlay {
+    transform: translateY(0);
+}
+
+
+.slider-overlay h3 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.slider-overlay p {
+    font-size: 1rem;
+}
+
+.slider-overlay .tech {
+    color: #b1efb8;
+    margin-top: 0.5rem;
+}
+
+.link-icon {
+    width: 20px;
+    margin-top: 0.5rem;
+}
+.swiper-slide {
+    margin-bottom: 0 !important;
+}
+
+
+
+.swiper-button-prev,
+.swiper-button-next {
+    color:#b1efb8;
+    width: 2px;
+    height: 2px;
+    top: 40%;
+    filter: brightness(100%);
+    transform: translateY(-100%);
+    z-index: 10;
+}
+
+.swiper-button-prev {
+    left: 30px;
+}
+
+.swiper-button-next {
+    right: 30px;
+}
+.swiper-pagination-bullet {
+    width: 30px; 
+    height: 6px;  
+    border-radius: 4px;
+    background-color: #b1efb8;
+    opacity: 0.3;
+    margin: 0 4px;
+}
+
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background-color: #b1efb8;
+}
+
+.swiper-pagination {
+    bottom: 100px !important;
+}
+
 #projects {
     width: 100vw;
     max-width: 75rem;
     margin: auto;
     padding: 1rem 1rem 0 1rem;
     margin-top: 3rem; 
-    margin-bottom: 3rem;
     box-sizing: border-box;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 
 .projContent {
-    padding: 2rem;
+    padding: 1rem;
     font-size: 2rem;
     font-weight: 300;
     width: 100%;
+    margin-top: -10rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 .mobileproj {
@@ -23,22 +135,26 @@
 .about, .proj {
     font-weight: bold;
     color: #b1efb8;
-    font-size: 2.5rem;
+    font-size: 2rem;
     text-align: center;
     margin-top: 3rem;
     margin-bottom: 2rem;
+    margin-left: 1rem;
+}
+.proj{
+    margin-left: 1rem;
 }
 
-
-/* project cards */
 .card-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 10px; 
-    justify-content: center;
-    padding: 0; 
+    justify-content: center; 
     margin: 0 auto;
     max-width: 90rem;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0;
 }
 
 .card {
@@ -83,10 +199,15 @@
     
 }
 
-.mark-icon {
+.mark-icon{
     height:30px;
     filter: brightness(0) saturate(100%) invert(94%) sepia(12%) saturate(956%) hue-rotate(61deg) brightness(97%) contrast(94%);
 }
+
+.link-icon {
+    filter: brightness(0) saturate(100%) invert(94%) sepia(12%) saturate(956%) hue-rotate(61deg) brightness(97%) contrast(94%);
+}
+
 
 
 .box{
@@ -97,7 +218,25 @@
 }
 
 /* mobile */
+
+/* mobile */
 @media (max-width: 960px) {
+    .projContent {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        display: hidden;
+    }
+
+    #projects {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    .carousel-container {
+        margin-top: 0 !important;
+        display:none;
+    }
+
     .card-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -107,13 +246,18 @@
 }
 
 
-    .card {
-        width: 400px;
-        height: 300px;
-        padding: 1rem 1rem;
-        border-radius: 15px;
-        text-align: left;
-    }
+.card {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    padding: 1rem 1rem;
+    border-radius: 25px;
+    background-color: rgb(35, 28, 28);
+    color: white;
+    text-align: left;
+    transition: all 0.1s ease;
+}
+
 
     .box {
         display: flex;
