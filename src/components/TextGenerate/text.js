@@ -42,7 +42,7 @@ export default function TextGenerate() {
           <span className="cursor">|</span>
         </h1>
         <p className="textPara">
-          a junior computer science major at the university of florida.
+          a senior computer science major at the university of florida.
         </p>
       </div>
     </section>
