@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/lynette-portfolio/static/css/main.1b7cc8e0.css",
-    "main.js": "/lynette-portfolio/static/js/main.eb65d806.js",
-    "static/media/uffsa.png": "/lynette-portfolio/static/media/uffsa.e6da3bf2ddf68e6f1cb1.png",
-    "static/media/navigator.png": "/lynette-portfolio/static/media/navigator.073f4ed56f42ef665305.png",
-    "static/media/cc.png": "/lynette-portfolio/static/media/cc.58e65cabd67dda627c1d.png",
-    "static/media/ldt.png": "/lynette-portfolio/static/media/ldt.e1f06ca2e8dac5581895.png",
-    "static/media/db.png": "/lynette-portfolio/static/media/db.76f2242cdc1c403c31c0.png",
-    "static/media/uweather.png": "/lynette-portfolio/static/media/uweather.e18b9ce563f4e0c3b44f.png",
-    "static/media/pickleportal.png": "/lynette-portfolio/static/media/pickleportal.a18a94427ac805a012a1.png",
-    "static/media/me.jpg": "/lynette-portfolio/static/media/me.a90b8dd2e155118a515b.jpg",
-    "static/media/centsible.jpg": "/lynette-portfolio/static/media/centsible.821cdbd750a489adbe55.jpg",
-    "static/media/carto.jpg": "/lynette-portfolio/static/media/carto.1c2b6844eac49531b993.jpg",
-    "index.html": "/lynette-portfolio/index.html",
-    "static/media/mark-github.svg": "/lynette-portfolio/static/media/mark-github.06cbf6003f0503529f8552f9aa0e6491.svg",
-    "main.1b7cc8e0.css.map": "/lynette-portfolio/static/css/main.1b7cc8e0.css.map",
-    "main.eb65d806.js.map": "/lynette-portfolio/static/js/main.eb65d806.js.map"
+    "main.css": "/static/css/main.1b7cc8e0.css",
+    "main.js": "/static/js/main.bd947553.js",
+    "static/media/uffsa.png": "/static/media/uffsa.e6da3bf2ddf68e6f1cb1.png",
+    "static/media/navigator.png": "/static/media/navigator.073f4ed56f42ef665305.png",
+    "static/media/cc.png": "/static/media/cc.58e65cabd67dda627c1d.png",
+    "static/media/ldt.png": "/static/media/ldt.e1f06ca2e8dac5581895.png",
+    "static/media/db.png": "/static/media/db.76f2242cdc1c403c31c0.png",
+    "static/media/uweather.png": "/static/media/uweather.e18b9ce563f4e0c3b44f.png",
+    "static/media/pickleportal.png": "/static/media/pickleportal.a18a94427ac805a012a1.png",
+    "static/media/me.jpg": "/static/media/me.a90b8dd2e155118a515b.jpg",
+    "static/media/centsible.jpg": "/static/media/centsible.821cdbd750a489adbe55.jpg",
+    "static/media/carto.jpg": "/static/media/carto.1c2b6844eac49531b993.jpg",
+    "index.html": "/index.html",
+    "static/media/mark-github.svg": "/static/media/mark-github.06cbf6003f0503529f8552f9aa0e6491.svg",
+    "main.1b7cc8e0.css.map": "/static/css/main.1b7cc8e0.css.map",
+    "main.bd947553.js.map": "/static/js/main.bd947553.js.map"
   },
   "entrypoints": [
     "static/css/main.1b7cc8e0.css",
-    "static/js/main.eb65d806.js"
+    "static/js/main.bd947553.js"
   ]
 }
