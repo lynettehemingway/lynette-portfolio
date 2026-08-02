@@ -20,7 +20,7 @@
 .about {
     display: inline-block;
     margin: 0 0 2rem;
-    color: #b1efb8;
+    color: #ffffff;
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: -.025em;
@@ -38,22 +38,65 @@
 }
 
 
-.img {
+.ascii-portrait {
+    width: min(48vw, 34rem);
+    aspect-ratio: 1 / 1.08;
+    margin: auto;
+    position: relative;
+    flex: 0 1 34rem;
+    cursor: crosshair;
+}
+
+.about-highlight {
+    color: #b1efb8;
+    font-weight: inherit;
+}
+
+.skills-lead {
+    margin-top: 1.8rem;
+}
+
+.personal-note {
+    margin-top: 1.6rem;
+}
+
+.ascii-portrait canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.ascii-portrait figcaption {
+    position: absolute;
+    right: 8%;
+    bottom: 4%;
+    color: rgba(177, 239, 184, .42);
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: .65rem;
+    letter-spacing: .12em;
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+
+.ascii-portrait:hover figcaption {
+    opacity: 1;
+}
+
+.portrait-photo {
+    width: min(42vw, 31rem);
+    aspect-ratio: 1 / 1;
+    margin: auto;
+    flex: 0 1 31rem;
+    overflow: hidden;
+    border-radius: 1.25rem;
+}
+
+.portrait-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    max-width: 70%;
-    max-height: 90%;
-    margin-left: 100px;
-    border-radius: 25px;
-    width: 500px;
-    height: 500px;
-}
-
-#intro > .img {
-    align-self: center;
-}
-
-.img-mobile {
-    display: none;
+    object-position: 50% 30%;
 }
 
 .skills-container {
@@ -66,15 +109,26 @@
 }
 
 .section1 {
-    list-style-type: disc;
-    padding-left: 1.5rem;
+    list-style: none;
+    padding-left: 0;
     margin: 0;
 }
 
 .section1 li {
+    position: relative;
     margin-bottom: 0.5rem;
-    color: #c9eecc;
+    padding-left: 1.2rem;
+    color: gray;
     font-size: 14px;
+}
+
+.section1 li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    top: -.05em;
+    color: #b1efb8;
+    font-size: 1.05em;
 }
 
 /* Mobile Adjustments */
@@ -95,29 +149,39 @@
         font-size: 15px;
     }
 
-    .img {
-        margin-left: -10px;
-        max-width: 90%;
-        max-height: 80%;
-        margin-top: 40px;
+    .ascii-portrait {
+        width: min(90vw, 30rem);
+        flex-basis: auto;
+        margin: 2rem auto 0;
+    }
+
+    .portrait-photo {
+        width: min(90vw, 27rem);
+        flex-basis: auto;
+        margin: 2rem auto 0;
     }
 }
 
 @media (max-width: 768px) {
     #intro {
         display: block;
-        padding: 1.75rem 1.25rem 3.5rem;
+        padding: 3.25rem 1.25rem 3.5rem;
     }
 
     .introContent {
         width: 100%;
+        max-width: 23rem;
         margin: 0;
         padding: 0;
+        margin-inline: auto;
+        text-align: left;
     }
 
     .about {
+        display: block;
         margin: 0 0 2rem;
         font-size: 1.85rem;
+        text-align: left;
     }
 
     .introPara {
@@ -125,18 +189,21 @@
         padding: 0;
         font-size: .98rem;
         line-height: 1.55;
+        text-align: left;
     }
 
     .skills-container {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: .35rem 1rem;
-        margin: -.25rem 0 1.75rem;
+        width: min(100%, 20rem);
+        margin: -.25rem auto 1.75rem;
         padding-left: 1.1rem;
+        text-align: left;
     }
 
     .section1 {
-        padding-left: .9rem;
+        padding-left: 0;
     }
 
     .section1 li {
@@ -145,18 +212,14 @@
         line-height: 1.35;
     }
 
-    .img {
-        display: none;
+    .ascii-portrait {
+        width: min(100%, 24rem);
+        margin-top: 2.25rem;
     }
 
-    .img-mobile {
-        display: block;
+    .portrait-photo {
         width: min(100%, 20rem);
-        height: auto;
-        aspect-ratio: 1 / 1;
         margin: 2.5rem auto 0;
-        object-fit: cover;
-        border-radius: 1.25rem;
     }
 }
 
@@ -171,10 +234,12 @@
         font-size: .95rem;
     }
 
-    .img {
-        margin-left: -10px;
-        max-width: 80%;
-        max-height: 70%;
-        margin-top: 40px;
+    .skills-container {
+        width: min(100%, 18rem);
+        padding-left: .65rem;
+    }
+
+    .ascii-portrait figcaption {
+        display: none;
     }
 }

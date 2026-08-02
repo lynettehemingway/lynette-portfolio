@@ -1,0 +1,613 @@
+.koi-pond {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  display: block;
+  pointer-events: none;
+}
+
+.App.game-active > .koi-pond {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+}
+
+.App {
+  position: relative;
+  z-index: 1;
+}
+
+.App > :not(.koi-pond) {
+  position: relative;
+  z-index: 1;
+}
+
+.App > .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  overflow: visible;
+}
+
+.App.game-active > :not(.koi-pond):not(.navbar):not(.pond-game-layer) {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.App > .pond-game-layer {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 100%;
+  z-index: 10;
+  overflow: hidden;
+  background: transparent;
+  pointer-events: none;
+  animation: pond-appear .55s ease both;
+}
+
+.pond-moonlight {
+  position: absolute;
+  top: -22rem;
+  left: 50%;
+  width: 52rem;
+  height: 36rem;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(226, 246, 236, .1), rgba(177, 239, 184, .025) 48%, transparent 72%);
+  filter: blur(14px);
+  transform: translateX(-50%);
+  transition: opacity .8s ease, filter .8s ease;
+}
+
+.pond-game-layer.dimmed .pond-moonlight {
+  opacity: .08;
+  filter: blur(35px);
+}
+
+.pond-game-layer.dimmed {
+  background: radial-gradient(circle at 50% 45%, rgba(7, 15, 11, .08), rgba(0, 0, 0, .72));
+}
+
+.pond-mist {
+  position: absolute;
+  width: 45%;
+  height: 32%;
+  border-radius: 50%;
+  background: rgba(191, 223, 207, .035);
+  filter: blur(50px);
+  animation: mist-drift 11s ease-in-out infinite alternate;
+}
+
+.pond-mist-left { bottom: -12%; left: -13%; }
+.pond-mist-right { top: 24%; right: -18%; animation-delay: -5s; }
+
+@keyframes mist-drift {
+  to { transform: translate3d(28px, -12px, 0) scale(1.08); }
+}
+
+.pond-particles {
+  position: absolute;
+  inset: 0;
+}
+
+.pond-particles i {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: rgba(205, 255, 223, .6);
+  box-shadow: 0 0 7px rgba(177, 239, 184, .5);
+  animation: particle-drift 6s ease-in-out infinite;
+}
+
+.pond-rain {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.pond-rain i {
+  position: absolute;
+  top: -2rem;
+  width: 1px;
+  height: 1.5rem;
+  background: linear-gradient(transparent, rgba(205, 255, 223, .32));
+  animation: rain-fall .9s linear infinite;
+}
+
+@keyframes rain-fall {
+  to { transform: translate3d(-3rem, calc(100vh + 4rem), 0); }
+}
+
+@keyframes particle-drift {
+  0%, 100% { opacity: .08; transform: translateY(6px); }
+  45% { opacity: .65; transform: translateY(-11px); }
+}
+
+.pond-flow {
+  position: absolute;
+  inset: 10% 4% 3%;
+  z-index: 1;
+  width: 92%;
+  height: 87%;
+  fill: none;
+  stroke: rgba(177, 239, 184, .09);
+  stroke-width: 1.3;
+  stroke-dasharray: 4 12;
+  animation: water-flow 15s linear infinite;
+}
+
+.pond-flow .flow-echo {
+  stroke: rgba(255, 255, 255, .045);
+  stroke-dasharray: 2 16;
+}
+
+@keyframes water-flow {
+  to { stroke-dashoffset: -128; }
+}
+
+@keyframes pond-appear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.pond-game-intro {
+  position: absolute;
+  top: 7rem;
+  left: 2rem;
+  color: rgba(255, 255, 255, .5);
+  text-align: left;
+}
+
+.pond-complete {
+  position: absolute;
+  left: 50%;
+  bottom: 7%;
+  color: rgba(177, 239, 184, .72);
+  font-size: .7rem;
+  letter-spacing: .12em;
+  transform: translateX(-50%);
+  animation: complete-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes complete-glow {
+  to { color: #fff; text-shadow: 0 0 14px rgba(177, 239, 184, .8); }
+}
+
+.pond-game-intro span {
+  color: #b1efb8;
+  font-size: .7rem;
+  letter-spacing: .22em;
+}
+
+.pond-game-intro p {
+  margin-top: .45rem;
+  font-size: .78rem;
+}
+
+.pearl-counter {
+  position: fixed;
+  top: 7rem;
+  right: 3rem;
+  display: flex;
+  align-items: baseline;
+  gap: .25rem;
+  color: rgba(255, 255, 255, .46);
+  font: .7rem/1 ui-monospace, monospace;
+}
+
+.pearl-counter strong {
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+
+.pond-dpad {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(3, 2.1rem);
+  grid-template-rows: repeat(2, 2.1rem);
+  gap: .3rem;
+  pointer-events: auto;
+}
+
+.pond-dpad button {
+  color: rgba(255, 255, 255, .62);
+  background: rgba(5, 12, 18, .78);
+  border: 1px solid rgba(177, 239, 184, .22);
+  border-radius: .4rem;
+  font: .85rem ui-monospace, monospace;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.pond-dpad button:hover,
+.pond-dpad button:active {
+  color: #b1efb8;
+  border-color: #b1efb8;
+}
+
+.dpad-up { grid-column: 2; }
+.dpad-left { grid-column: 1; grid-row: 2; }
+.dpad-down { grid-column: 2; grid-row: 2; }
+.dpad-right { grid-column: 3; grid-row: 2; }
+
+.moon-pearl {
+  position: absolute;
+  z-index: 3;
+  width: .58rem;
+  height: .58rem;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 5px #fff, 0 0 15px rgba(177, 239, 184, .9), 0 0 34px rgba(177, 239, 184, .38);
+  translate: -50% -50%;
+  animation: pearl-pulse 2.2s ease-in-out infinite;
+}
+
+.moon-pearl::after {
+  content: "";
+  position: absolute;
+  inset: -.8rem;
+  border: 1px solid rgba(177, 239, 184, .22);
+  border-radius: 50%;
+  animation: pearl-ring 2.2s ease-out infinite;
+}
+
+@keyframes pearl-pulse {
+  50% { scale: 1.25; filter: brightness(1.35); }
+}
+
+@keyframes pearl-ring {
+  from { opacity: .8; scale: .35; }
+  to { opacity: 0; scale: 1.25; }
+}
+
+.pearl-complete {
+  position: fixed;
+  left: 50%;
+  bottom: 12%;
+  color: #b1efb8;
+  font-size: .75rem;
+  letter-spacing: .12em;
+  text-shadow: 0 0 14px rgba(177, 239, 184, .65);
+  translate: -50% 0;
+  animation: complete-glow 1.7s ease-in-out infinite alternate;
+}
+
+.game-complete-backdrop {
+  position: fixed !important;
+  inset: 0;
+  z-index: 3000 !important;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: rgba(0, 0, 0, .7);
+  backdrop-filter: blur(6px);
+  animation: pond-appear .35s ease both;
+}
+
+.game-complete-modal {
+  width: min(100%, 27rem);
+  padding: 2.4rem;
+  color: #b8bdc5;
+  text-align: center;
+  background: #070d11;
+  border: 1px solid rgba(177, 239, 184, .28);
+  border-radius: 1.2rem;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, .7);
+}
+
+.complete-sparkle {
+  color: #b1efb8;
+  font-size: 1.6rem;
+  text-shadow: 0 0 18px rgba(177, 239, 184, .7);
+}
+
+.complete-eyebrow {
+  margin-top: .7rem;
+  color: #b1efb8;
+  font-size: .62rem;
+  letter-spacing: .18em;
+}
+
+.game-complete-modal h2 {
+  margin: .45rem 0 .75rem;
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+.game-complete-modal > p:last-of-type {
+  font-size: .84rem;
+  line-height: 1.55;
+}
+
+.complete-actions {
+  display: flex;
+  justify-content: center;
+  gap: .65rem;
+  margin-top: 1.5rem;
+}
+
+.complete-actions button {
+  padding: .7rem 1rem;
+  color: #07100a;
+  background: #b1efb8;
+  border: 1px solid #b1efb8;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.complete-actions .complete-secondary {
+  color: #aeb4bd;
+  background: transparent;
+  border-color: #303944;
+}
+
+.pond-controls {
+  position: absolute;
+  top: 6.8rem;
+  right: 2.5rem;
+  z-index: 4;
+  display: flex;
+  gap: .45rem;
+  pointer-events: auto;
+}
+
+.pond-controls button {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .42rem .62rem;
+  color: rgba(255, 255, 255, .46);
+  background: rgba(4, 10, 8, .62);
+  border: 1px solid rgba(177, 239, 184, .16);
+  border-radius: 999px;
+  font-size: .68rem;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+
+.pond-controls button.active,
+.pond-controls button:hover {
+  color: #dff7e2;
+  border-color: rgba(177, 239, 184, .55);
+}
+
+.lily-pad {
+  position: absolute;
+  z-index: 2;
+  width: 8.5rem;
+  height: 5.7rem;
+  color: #dff7e2;
+  background: radial-gradient(circle at 35% 28%, #2b5034, #173521 58%, #0b2314);
+  border: 1px solid rgba(177, 239, 184, .34);
+  border-radius: 50%;
+  box-shadow: inset 8px 7px 18px rgba(177, 239, 184, .08), 0 10px 35px rgba(0, 0, 0, .5);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform .25s ease, filter .25s ease, border-color .25s ease;
+  animation: lily-float 4s ease-in-out infinite;
+}
+
+.lily-pad::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border: 1px solid rgba(177, 239, 184, 0);
+  border-radius: 50%;
+  transform: scale(.7);
+  transition: border-color .25s ease, transform .65s ease, opacity .65s ease;
+}
+
+.lily-pad::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: 5%;
+  width: 45%;
+  height: 52%;
+  background: #010302;
+  clip-path: polygon(100% 0, 0 0, 62% 100%);
+}
+
+.lily-pad span {
+  position: relative;
+  z-index: 1;
+  font-size: .78rem;
+  letter-spacing: .08em;
+  opacity: .38;
+  transition: opacity .25s ease, text-shadow .25s ease;
+}
+
+.lily-pad b {
+  position: absolute;
+  top: 17%;
+  left: 20%;
+  color: #b1efb8;
+  font-size: .6rem;
+  opacity: 0;
+}
+
+.lily-pad.visited b { opacity: .8; }
+.lily-pad.visited { border-color: rgba(177, 239, 184, .58); }
+
+.lily-pad:hover,
+.lily-pad:focus-visible {
+  filter: brightness(1.3);
+  border-color: #b1efb8;
+  transform: translateY(-5px) scale(1.05);
+  outline: none;
+}
+
+.lily-pad:hover::before,
+.lily-pad:focus-visible::before {
+  border-color: rgba(177, 239, 184, .28);
+  opacity: 0;
+  transform: scale(1.35);
+}
+
+.lily-pad:hover span,
+.lily-pad:focus-visible span {
+  opacity: 1;
+  text-shadow: 0 0 9px rgba(177, 239, 184, .55);
+}
+
+.movable-lily {
+  translate: -50% -50%;
+  touch-action: none;
+  user-select: none;
+}
+
+.movable-lily span {
+  opacity: 0;
+  font-size: .62rem;
+  text-transform: uppercase;
+}
+
+.movable-lily:hover span,
+.movable-lily:focus-visible span {
+  opacity: .68;
+}
+
+.lily-small { width: 5.9rem; height: 4rem; }
+.lily-medium { width: 8rem; height: 5.2rem; }
+.lily-large { width: 10rem; height: 6.5rem; }
+
+.lily-skills { top: 25%; right: 23%; width: 6.8rem; height: 4.6rem; rotate: 7deg; animation-delay: -1.6s; }
+.lily-about { top: 39%; left: 24%; width: 8.1rem; height: 5.4rem; rotate: -6deg; }
+.lily-projects { top: 57%; left: 43%; width: 10rem; height: 6.6rem; rotate: 4deg; animation-delay: -.8s; }
+.lily-contact { top: 73%; right: 15%; width: 8rem; height: 5.2rem; rotate: -8deg; animation-delay: -2.4s; }
+
+@keyframes lily-float {
+  0%, 100% { margin-top: 0; }
+  50% { margin-top: -7px; }
+}
+
+.koi-game-hud {
+  position: fixed !important;
+  top: 5.2rem;
+  left: 3rem;
+  z-index: 998 !important;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: .15rem .65rem;
+  padding: .6rem .8rem;
+  color: #fff;
+  background: rgba(4, 10, 18, .76);
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: .7rem;
+  backdrop-filter: blur(8px);
+  pointer-events: none;
+}
+
+.koi-game-hud span {
+  color: rgba(255, 255, 255, .62);
+  font-size: .62rem;
+  letter-spacing: .14em;
+}
+
+.koi-game-hud strong {
+  grid-row: span 2;
+  font: 400 1.3rem/1 ui-monospace, monospace;
+}
+
+.koi-game-hud time {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  align-self: center;
+  color: rgba(255, 255, 255, .7);
+  font: .72rem/1 ui-monospace, monospace;
+}
+
+.koi-game-hud small {
+  color: rgba(255, 255, 255, .4);
+  font-size: .58rem;
+}
+
+@media (max-width: 550px) {
+  .App > .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .koi-game-hud {
+    left: 1rem;
+    top: 7rem;
+  }
+
+  .pond-game-intro {
+    top: 7.8rem;
+    left: 1rem;
+    width: 72%;
+  }
+
+  .pond-controls {
+    top: 7.4rem;
+    right: 1rem;
+  }
+
+  .pearl-counter {
+    top: 7.6rem;
+    right: 1.2rem;
+  }
+
+  .pond-dpad {
+    right: 1.1rem;
+    bottom: 1.15rem;
+    grid-template-columns: repeat(3, 2.8rem);
+    grid-template-rows: repeat(2, 2.8rem);
+    gap: .38rem;
+  }
+
+  .pond-dpad button {
+    border-color: rgba(177, 239, 184, .42);
+    border-radius: .65rem;
+    font-size: 1.1rem;
+    background: rgba(4, 12, 16, .9);
+    box-shadow: 0 5px 18px rgba(0, 0, 0, .38);
+  }
+
+  .pond-controls button {
+    width: 2rem;
+    height: 2rem;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .pond-controls button span {
+    display: none;
+  }
+
+  .lily-small { width: 4.5rem; height: 3rem; }
+  .lily-medium { width: 6.2rem; height: 4.1rem; }
+  .lily-large { width: 7.5rem; height: 5rem; }
+
+  .lily-pad {
+    width: 6.5rem;
+    height: 4.3rem;
+  }
+
+  .lily-skills { top: 27%; right: 11%; width: 5.5rem; height: 3.7rem; }
+  .lily-about { top: 39%; left: 9%; width: 6.5rem; height: 4.3rem; }
+  .lily-projects { top: 57%; left: 42%; width: 7.7rem; height: 5.1rem; }
+  .lily-contact { top: 75%; right: 8%; width: 6.3rem; height: 4.2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .koi-pond {
+    opacity: .72;
+  }
+
+  .pond-particles i,
+  .pond-rain i,
+  .pond-mist,
+  .lily-pad {
+    animation: none;
+  }
+}

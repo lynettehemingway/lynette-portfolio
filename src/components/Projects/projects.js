@@ -11,6 +11,7 @@ import ldt from "../../assets/ldt.png";
 import db from "../../assets/db.png";
 import cc from "../../assets/cc.png";
 import uweather from "../../assets/uweather.png";
+import pickle from "../../assets/pickleportal.png";
 
 const projects = [
     {
@@ -22,6 +23,15 @@ const projects = [
         size: "tall",
         liveLink: "https://navigatoruf.org/",
         featured: true
+    },
+        {
+        name: "PicklePortal",
+        description: "An IoT-powered court monitoring system that uses computer vision and sensors to track availability, queues, and live video for pickleball courts.",
+        skills: ["Figma", "Typescript", "React", "ESP32","Arduino"],
+        image: pickle,
+        imagePosition: "center",
+        size: "short",
+        githubLink: "https://github.com/RJ-Tabelon/PicklePortal"
     },
     {
         name: "UFFSA",
@@ -60,9 +70,9 @@ const projects = [
     {
         name: "Cartograph",
         description: "Grocery-planning optimization that helps users save time and money. Chart your cart!",
-        skills: ["Figma", "UI Design", "Esri"],
+        skills: ["Figma", "UI Design", "Esri Hackathon 2nd Place Winner"],
         image: carto,
-        size: "medium",
+        size: "tall",
         liveLink: "https://devpost.com/software/cartograph",
         featured: true
     },

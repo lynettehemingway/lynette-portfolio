@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     text-align: center;
   }
   
@@ -21,7 +21,7 @@
     width: 25rem;
     height: 25rem;
     margin-bottom: 1rem;
-    color: #f4fff5;
+    color: #b1efb8;
     filter: drop-shadow(0 0 5px rgba(177, 239, 184, .16));
     transform-box: fill-box;
     transform-origin: 50% 82%;
@@ -45,7 +45,7 @@
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
     opacity: 0;
-    animation: branch-blossom 6.5s cubic-bezier(.45, 0, .2, 1) infinite;
+    animation: branch-blossom 3.4s cubic-bezier(.45, 0, .2, 1) 1 forwards;
     animation-delay: var(--branch-delay);
     animation-fill-mode: both;
   }
@@ -55,13 +55,9 @@
       stroke-dashoffset: 1;
       opacity: 0;
     }
-    38%, 68% {
+    38%, 100% {
       stroke-dashoffset: 0;
       opacity: 1;
-    }
-    94%, 100% {
-      stroke-dashoffset: 1;
-      opacity: 0;
     }
   }
   
@@ -162,22 +158,23 @@
 
 @media (max-width: 600px) {
   #text {
-    height: 100svh;
-    min-height: 100svh;
+    height: auto;
+    min-height: 0;
     justify-content: flex-start;
-    padding-top: 4.25rem;
+    padding: 7.25rem 0 4.5rem;
     box-sizing: border-box;
   }
 
   .binary-tree {
-    width: 15.5rem;
-    height: 15.5rem;
+    width: min(72vw, 15.5rem);
+    height: min(72vw, 15.5rem);
     margin: 0 0 .25rem;
   }
 
   .textPara {
     margin: 0;
-    padding: .75rem 2rem 0;
+    max-width: 23rem;
+    padding: .75rem 1.5rem 0;
     transform: translateY(-.4rem);
     line-height: 1.35;
   }
@@ -193,7 +190,7 @@
   .text h1 {
     max-width: 100%;
     margin: .35em 0 .25em;
-    font-size: clamp(2.7rem, 13vw, 3.25rem);
+    font-size: clamp(2.45rem, 12vw, 3.15rem);
     line-height: 1.12;
     overflow-wrap: anywhere;
   }

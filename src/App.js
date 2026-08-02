@@ -3,8 +3,11 @@ import Intro from "./components/Intro/intro";
 import TextGenerate from "./components/TextGenerate/text";
 import Footer from "./components/Footer/footer";
 import Projects from "./components/Projects/projects";
+import KoiPond from "./components/KoiPond/koiPond";
+import Experience from "./components/Experience/experience";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useState } from "react";
 
 const Section = ({ children }) => {
   return (
@@ -20,13 +23,19 @@ const Section = ({ children }) => {
 
 
 function App() {
+  const [gameMode, setGameMode] = useState(false);
+
   return (
-    <div className="App">
-      <Navbar />
+    <div className={`App ${gameMode ? "game-active" : ""}`}>
+      <KoiPond gameMode={gameMode} onExitGame={() => setGameMode(false)} onPlayAgain={() => setGameMode(true)} />
+      <Navbar gameMode={gameMode} onGameModeChange={setGameMode} />
       <TextGenerate />
       <Section>
         <Intro />
-      </Section>    
+      </Section>
+      <Section>
+        <Experience />
+      </Section>
       <Section>
         <Projects />
       </Section>

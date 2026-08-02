@@ -11,21 +11,20 @@ const Intro = () => {
                 </span>
 
                 <p className="introPara">
-                    I am a senior Computer Science student focused on product
-                    design, user experience, and front-end development. I am
-                    also pursuing a minor in Digital Arts & Sciences and a
-                    certificate in GIS.
+                    I’m a senior Computer Science student at the University of
+                    Florida, passionate about building products that simplify complexity and create meaningful, human-centered user experiences.
                 </p>
 
                 <p className="introPara">
-                    I design thoughtful, accessible digital products by
-                    combining user research, interaction design, prototyping,
-                    and technical implementation.
+                    My work lives at the intersection of <span className="about-highlight">product design</span>,{" "}
+                    <span className="about-highlight">user experience</span>, and{" "}
+                    <span className="about-highlight">front-end development</span>. I’m also pursuing a minor
+                    in Digital Arts &amp; Sciences and a certificate in GIS.
                 </p>
 
-                <p className="introPara">Core skills:</p>
+                <p className="introPara skills-lead">Here are some of my skills:</p>
 
-                <div className="skills-container">
+                <div className="skills-container" id="skills">
                     <ul className="section1">
                         <li>Product Design</li>
                         <li>UX Research</li>
@@ -36,33 +35,22 @@ const Intro = () => {
                     <ul className="section1">
                         <li>Figma</li>
                         <li>React</li>
-                        <li>JavaScript</li>
+                        <li>Typescript / JavaScript</li>
                         <li>HTML & CSS</li>
                     </ul>
                 </div>
 
-                <p className="introPara">
-                    I am especially interested in creating intuitive products
-                    that turn complex information into clear, engaging
-                    experiences. My background in computer science allows me to
-                    collaborate effectively with engineers and design solutions
-                    that are both user-centered and technically feasible.
+                <p className="introPara personal-note">
+                    Away from my screen, I’m usually microblogging food photos, binge-reading manga,
+                    or convincing someone to play one more game of badminton
+                    with me.
                 </p>
 
-                <img
-                    src={me}
-                    alt="Lynette Hemingway"
-                    className="img-mobile"
-                />
             </div>
 
-            <div className="img">
-                <img
-                    src={me}
-                    alt="Lynette Hemingway"
-                    className="img"
-                />
-            </div>
+            <figure className="portrait-photo">
+                <img src={me} alt="Lynette Hemingway" />
+            </figure>
         </section>
     );
 };

@@ -1,0 +1,186 @@
+#experience {
+    width: 100%;
+    max-width: 75rem;
+    min-height: 42rem;
+    margin: 0 auto;
+    padding: 6rem 3rem 7rem;
+}
+
+.experience-heading {
+    margin-bottom: 2.5rem;
+}
+
+.experience-heading h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -.025em;
+    line-height: 1.15;
+}
+
+.experience-layout {
+    display: grid;
+    grid-template-columns: 10.5rem minmax(0, 1fr);
+    gap: 2.2rem;
+    max-width: 67rem;
+    margin: 0 auto;
+}
+
+.experience-tabs {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(177, 239, 184, .2);
+}
+
+.experience-tabs button {
+    position: relative;
+    min-height: 4.5rem;
+    padding: 0 1.4rem;
+    color: #8d929a;
+    text-align: left;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    transition: color .2s ease, background .2s ease;
+}
+
+.experience-tabs button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -1px;
+    width: 2px;
+    height: 100%;
+    background: transparent;
+}
+
+.experience-tabs button:hover {
+    color: #d8dbdf;
+    background: rgba(177, 239, 184, .035);
+}
+
+.experience-tabs button.active {
+    color: #b1efb8;
+    background: rgba(177, 239, 184, .055);
+}
+
+.experience-tabs button.active::after {
+    background: #b1efb8;
+    box-shadow: 0 0 10px rgba(177, 239, 184, .38);
+}
+
+.experience-role {
+    padding: .7rem 0 0;
+    animation: experience-in .35s ease both;
+}
+
+@keyframes experience-in {
+    from { opacity: 0; transform: translateY(7px); }
+    to { opacity: 1; transform: none; }
+}
+
+.experience-role h3 {
+    margin: 0;
+    color: #f4f4f3;
+    font-size: clamp(1.35rem, 2.5vw, 2rem);
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.experience-role h3 span {
+    color: #b1efb8;
+    font-weight: inherit;
+}
+
+.experience-date {
+    margin: .8rem 0 2rem;
+    color: #777e88;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.experience-role ul {
+    display: grid;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.experience-role li {
+    position: relative;
+    padding-left: 2rem;
+    color: #888e96;
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.experience-role li::before {
+    content: "▹";
+    position: absolute;
+    top: .02rem;
+    left: 0;
+    color: #b1efb8;
+}
+
+@media (max-width: 720px) {
+    #experience {
+        min-height: 0;
+        padding: 4.5rem 1.25rem 5.5rem;
+    }
+
+    .experience-heading {
+        margin-bottom: 2rem;
+    }
+
+    .experience-heading h2 {
+        font-size: 1.85rem;
+    }
+
+    .experience-layout {
+        display: block;
+    }
+
+    .experience-tabs {
+        flex-direction: row;
+        margin-bottom: 2rem;
+        overflow-x: auto;
+        border-right: 0;
+        border-bottom: 1px solid rgba(177, 239, 184, .2);
+        scrollbar-width: none;
+    }
+
+    .experience-tabs::-webkit-scrollbar { display: none; }
+
+    .experience-tabs button {
+        flex: 0 0 auto;
+        min-height: 3.2rem;
+        padding: 0 1rem;
+    }
+
+    .experience-tabs button::after {
+        top: auto;
+        right: 0;
+        bottom: -1px;
+        width: 100%;
+        height: 2px;
+    }
+
+    .experience-role {
+        padding-top: 0;
+    }
+
+    .experience-role li {
+        padding-left: 1.5rem;
+        font-size: .9rem;
+        line-height: 1.65;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .experience-role { animation: none; }
+}
