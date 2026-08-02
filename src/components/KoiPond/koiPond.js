@@ -12,7 +12,9 @@ export default function KoiPond({ gameMode = false, onExitGame, onPlayAgain }) {
   const [collectedPearls, setCollectedPearls] = useState([]);
   const [pearls, setPearls] = useState(MOON_PEARLS);
   const [showCompletion, setShowCompletion] = useState(false);
+  const [mobileDirection, setMobileDirection] = useState(null);
   const pearlsRef = useRef(MOON_PEARLS);
+  const mobileDirectionRef = useRef(null);
 
   useEffect(() => {
     if (!gameMode) return undefined;
@@ -72,6 +74,33 @@ export default function KoiPond({ gameMode = false, onExitGame, onPlayAgain }) {
     window.dispatchEvent(new KeyboardEvent(type, { key, bubbles: true }));
   };
 
+  const startControl = (event, key) => {
+    event.preventDefault();
+    if (event.pointerType === "touch" || event.pointerType === "pen") {
+      if (mobileDirectionRef.current && mobileDirectionRef.current !== key) {
+        controlKey("keyup", mobileDirectionRef.current);
+      }
+      mobileDirectionRef.current = key;
+      setMobileDirection(key);
+      controlKey("keydown", key);
+      return;
+    }
+    controlKey("keydown", key);
+  };
+
+  const endControl = (event, key) => {
+    if (event.pointerType !== "touch" && event.pointerType !== "pen") {
+      controlKey("keyup", key);
+    }
+  };
+
+  useEffect(() => {
+    if (gameMode) return;
+    if (mobileDirectionRef.current) controlKey("keyup", mobileDirectionRef.current);
+    mobileDirectionRef.current = null;
+    setMobileDirection(null);
+  }, [gameMode]);
+
   const playAgain = () => {
     setCollectedPearls([]);
     setShowCompletion(false);
@@ -128,25 +157,32 @@ export default function KoiPond({ gameMode = false, onExitGame, onPlayAgain }) {
       lastRipple = { x, y, time: now };
     };
 
-    const onPointerMove = (event) => {
-      const canvasBounds = canvas.getBoundingClientRect();
-      const pointerX = event.clientX - canvasBounds.left;
-      const pointerY = event.clientY - canvasBounds.top;
-      addRipple(pointerX, pointerY);
+    const reactFishNear = (pointerX, pointerY) => {
       const now = performance.now();
       if (gameMode) return;
       fishPositions.forEach((fish, index) => {
         if (fish.x === undefined || now < fishReactions[index].cooldown) return;
-        if (Math.hypot(pointerX - fish.x, pointerY - fish.y) < 58) {
+        if (Math.hypot(pointerX - fish.x, pointerY - fish.y) < 76) {
           fishReactions[index].until = now + 1050;
           fishReactions[index].started = now;
           fishReactions[index].cooldown = now + 1750;
         }
       });
     };
+
+    const onPointerMove = (event) => {
+      const canvasBounds = canvas.getBoundingClientRect();
+      const pointerX = event.clientX - canvasBounds.left;
+      const pointerY = event.clientY - canvasBounds.top;
+      addRipple(pointerX, pointerY);
+      reactFishNear(pointerX, pointerY);
+    };
     const onPointerDown = (event) => {
       const canvasBounds = canvas.getBoundingClientRect();
-      addRipple(event.clientX - canvasBounds.left, event.clientY - canvasBounds.top, true);
+      const pointerX = event.clientX - canvasBounds.left;
+      const pointerY = event.clientY - canvasBounds.top;
+      addRipple(pointerX, pointerY, true);
+      reactFishNear(pointerX, pointerY);
       if (gameMode || event.target.closest?.(".game-mode-toggle")) return;
     };
 
@@ -187,7 +223,9 @@ export default function KoiPond({ gameMode = false, onExitGame, onPlayAgain }) {
     };
 
     const drawKoi = (now, variant = 0) => {
-      const clock = reducedMotion ? 1.2 : now / 1000;
+      // Keep the pond alive on devices that request reduced motion, but slow it
+      // down instead of freezing it completely.
+      const clock = (now / 1000) * (reducedMotion ? .35 : 1);
       const t = clock + variant * 17.35;
       const direction = variant === 1 ? -1 : 1;
       const swimSpeed = 34 + variant * 4;
@@ -229,7 +267,7 @@ export default function KoiPond({ gameMode = false, onExitGame, onPlayAgain }) {
       }
 
       const reaction = fishReactions[variant];
-      const reacting = !reducedMotion && now < reaction.until;
+      const reacting = now < reaction.until;
       if (reacting) {
         const reactionProgress = Math.min(1, (now - reaction.started) / (reaction.until - reaction.started));
         const dart = Math.sin(reactionProgress * Math.PI) * 68;
@@ -537,11 +575,11 @@ export default function KoiPond({ gameMode = false, onExitGame, onPlayAgain }) {
           <div className="pearl-counter">
             <strong>{collectedPearls.length}</strong><span>/ 10</span>
           </div>
-          <div className="pond-dpad" aria-label="Koi movement controls">
-            <button className="dpad-up" aria-label="Move up" onPointerDown={() => controlKey("keydown", "ArrowUp")} onPointerUp={() => controlKey("keyup", "ArrowUp")} onPointerCancel={() => controlKey("keyup", "ArrowUp")} onPointerLeave={() => controlKey("keyup", "ArrowUp")}>↑</button>
-            <button className="dpad-left" aria-label="Move left" onPointerDown={() => controlKey("keydown", "ArrowLeft")} onPointerUp={() => controlKey("keyup", "ArrowLeft")} onPointerCancel={() => controlKey("keyup", "ArrowLeft")} onPointerLeave={() => controlKey("keyup", "ArrowLeft")}>←</button>
-            <button className="dpad-down" aria-label="Move down" onPointerDown={() => controlKey("keydown", "ArrowDown")} onPointerUp={() => controlKey("keyup", "ArrowDown")} onPointerCancel={() => controlKey("keyup", "ArrowDown")} onPointerLeave={() => controlKey("keyup", "ArrowDown")}>↓</button>
-            <button className="dpad-right" aria-label="Move right" onPointerDown={() => controlKey("keydown", "ArrowRight")} onPointerUp={() => controlKey("keyup", "ArrowRight")} onPointerCancel={() => controlKey("keyup", "ArrowRight")} onPointerLeave={() => controlKey("keyup", "ArrowRight")}>→</button>
+          <div className="pond-dpad" aria-label="Koi movement controls" onContextMenu={(event) => event.preventDefault()}>
+            <button className={`dpad-up ${mobileDirection === "ArrowUp" ? "active" : ""}`} aria-label="Swim up" onPointerDown={(event) => startControl(event, "ArrowUp")} onPointerUp={(event) => endControl(event, "ArrowUp")} onPointerCancel={(event) => endControl(event, "ArrowUp")} onPointerLeave={(event) => endControl(event, "ArrowUp")}>↑</button>
+            <button className={`dpad-left ${mobileDirection === "ArrowLeft" ? "active" : ""}`} aria-label="Swim left" onPointerDown={(event) => startControl(event, "ArrowLeft")} onPointerUp={(event) => endControl(event, "ArrowLeft")} onPointerCancel={(event) => endControl(event, "ArrowLeft")} onPointerLeave={(event) => endControl(event, "ArrowLeft")}>←</button>
+            <button className={`dpad-down ${mobileDirection === "ArrowDown" ? "active" : ""}`} aria-label="Swim down" onPointerDown={(event) => startControl(event, "ArrowDown")} onPointerUp={(event) => endControl(event, "ArrowDown")} onPointerCancel={(event) => endControl(event, "ArrowDown")} onPointerLeave={(event) => endControl(event, "ArrowDown")}>↓</button>
+            <button className={`dpad-right ${mobileDirection === "ArrowRight" ? "active" : ""}`} aria-label="Swim right" onPointerDown={(event) => startControl(event, "ArrowRight")} onPointerUp={(event) => endControl(event, "ArrowRight")} onPointerCancel={(event) => endControl(event, "ArrowRight")} onPointerLeave={(event) => endControl(event, "ArrowRight")}>→</button>
           </div>
           {pearls.map((pearl, index) => !collectedPearls.includes(index) && (
             <i className="moon-pearl" key={index} style={{ left: `${pearl.x}px`, top: `${pearl.y}px`, animationDelay: `${-index * .19}s` }} />

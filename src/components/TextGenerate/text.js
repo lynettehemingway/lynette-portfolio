@@ -51,6 +51,34 @@ export default function TextGenerate() {
     }
   }, [index, message]);
 
+  useEffect(() => {
+    const tree = document.querySelector(".binary-tree");
+    const touchCapable = window.matchMedia("(pointer: coarse)").matches || navigator.maxTouchPoints > 0;
+    if (!tree || !touchCapable) return undefined;
+    let resetTimer;
+
+    const moveTree = (event) => {
+      const bounds = tree.getBoundingClientRect();
+      const horizontal = Math.max(-1, Math.min(1, (event.clientX - (bounds.left + bounds.width / 2)) / (window.innerWidth * .5)));
+      const vertical = Math.max(-1, Math.min(1, (event.clientY - (bounds.top + bounds.height / 2)) / (window.innerHeight * .5)));
+      tree.style.setProperty("--touch-lean", `${horizontal * 3.5}deg`);
+      tree.style.setProperty("--touch-shift", `${vertical * 2}px`);
+      window.clearTimeout(resetTimer);
+      resetTimer = window.setTimeout(() => {
+        tree.style.setProperty("--touch-lean", "0deg");
+        tree.style.setProperty("--touch-shift", "0px");
+      }, 500);
+    };
+
+    window.addEventListener("pointerdown", moveTree, { passive: true });
+    window.addEventListener("pointermove", moveTree, { passive: true });
+    return () => {
+      window.clearTimeout(resetTimer);
+      window.removeEventListener("pointerdown", moveTree);
+      window.removeEventListener("pointermove", moveTree);
+    };
+  }, []);
+
   const highlightedText = () => {
     const nameStart = message.indexOf("lynette");
     const beforeName = text.slice(0, nameStart);
