@@ -1,126 +1,136 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import './projects.css';
+import React from "react";
+import "./projects.css";
 
 import nav from "../../assets/navigator.png";
 import uffsa from "../../assets/uffsa.png";
 import github from "../../assets/mark-github.svg";
-import mark from "../../assets/bookmark-fill.svg";
 import linkIcon from "../../assets/external-link.png";
+import centsible from "../../assets/centsible.jpg";
+import carto from "../../assets/carto.jpg";
+import ldt from "../../assets/ldt.png";
+import db from "../../assets/db.png";
+import cc from "../../assets/cc.png";
+import uweather from "../../assets/uweather.png";
 
-const sliderProjects = [
+const projects = [
     {
-        title: "NaviGator",
-        description: "Machine Intelligence Laboratory's autonomous maritime system, NaviGator",
+        name: "NaviGator",
+        description: "UF's autonomous maritime system, built with the Machine Intelligence Laboratory.",
+        skills: ["UX Research", "Interaction Design", "Figma"],
         image: nav,
-        liveDemo: "https://navigatoruf.org/"
+        imagePosition: "center",
+        size: "tall",
+        liveLink: "https://navigatoruf.org/",
+        featured: true
     },
     {
-        title: "UFFSA",
-        description: "University of Florida's Filipino Student Association website showcasing events and programs",
+        name: "UFFSA",
+        description: "A home for the Filipino Student Association's events, programs, and community.",
+        skills: ["Visual Design", "Figma", "React"],
         image: uffsa,
-        liveDemo: "https://uffsa.net/"
-    }
-];
-
-const cardProjects = [
+        imagePosition: "top",
+        size: "medium",
+        liveLink: "https://uffsa.net/",
+        featured: true
+    },
     {
         name: "Centsible",
-        description: "A responsive web budgeting platform built to address financial challenges faced by students.",
-        skills: "React Native Web, Node.js, MongoDB",
+        description: "A responsive budgeting platform designed around the financial challenges students face.",
+        skills: ["Product Design", "Prototyping", "React Native"],
+        image: centsible,
+        size: "medium",
         githubLink: "https://github.com/lynettehemingway/centsible"
     },
     {
         name: "uweather ☁",
-        description: "Weather tracking platform for year-by-year comparisons to highlight global warming trends.",
-        skills: "C++",
+        description: "Year-over-year weather comparisons that make long-term climate trends easier to see.",
+        skills: ["Data Visualization", "UX Design", "C++"],
+        image: uweather,
+        size: "short",
         githubLink: "https://github.com/NivedhaaS/uweather"
     },
     {
         name: "Deadbeat",
-        description: "Horror game with original pixel art and rhythm mechanics for immersive tension and jumpscares.",
-        skills: "C#, Unity",
+        description: "An original pixel-art horror game where rhythm mechanics build tension and trigger scares.",
+        skills: ["Game UX", "Visual Design", "Unity"],
+        image: db,
+        size: "tall",
         githubLink: "https://github.com/TiniToni/winghacks2025"
     },
     {
-        name: "UFFSA Wolfbot",
-        description: "Discord bot for UF's Filipino Student Association to manage events, reminders, and engagement.",
-        skills: "Python",
-        githubLink: "https://github.com/lynettehemingway/wolfbot"
+        name: "Cartograph",
+        description: "Grocery-planning optimization that helps users save time and money. Chart your cart!",
+        skills: ["Figma", "UI Design", "Esri"],
+        image: carto,
+        size: "medium",
+        liveLink: "https://devpost.com/software/cartograph",
+        featured: true
     },
     {
         name: "CostCompass",
-        description: "GIS-powered platform for real-time cost-of-living insights using Google Maps & Census API.",
-        skills: "GIS, Google Maps API, OpenAI API, U.S. Census API",
+        description: "Real-time cost-of-living context powered by maps, census data, and AI.",
+        skills: ["Information Architecture", "Map UX", "Figma"],
+        image: cc,
+        size: "short",
         githubLink: "https://github.com/CloudRazerz/CostCompass"
     },
     {
-        name: "Pantry Management",
-        description: "Inventory management tool for adding, editing, and searching items with a clean UI.",
-        skills: "Next.js, React, Firebase, GCP, Vercel",
-        githubLink: "https://github.com/lynettehemingway/pantry-management"
+        name: "Lion Dance Team",
+        description: "A website for the UF Lion Dance Team, showcasing their performances, history, and community.",
+        skills: ["UI Design", "Prototyping", "JS"],
+        image: ldt,
+        size: "medium",
+        liveLink: "https://www.ufldt.com/"
     }
 ];
 
-const Projects = () => {
-    return (
-        <section id="projects">
-            <div className="projContent">
-                <span className="proj">// projects</span>
+const Projects = () => (
+    <section id="projects" aria-labelledby="projects-title">
+        <div className="projContent">
+            <header className="projects-heading">
+                <h2 id="projects-title" className="proj">// projects</h2>
+            </header>
 
-                {/* Swiper Slider */}
-                <div className="carousel-container">
-                    <Swiper
-    modules={[Navigation, Pagination]}
-    navigation
-    pagination={{ clickable: true }}
-    spaceBetween={30}
-    slidesPerView={1}
->
-    {sliderProjects.map((project, index) => (
-        <SwiperSlide key={index}>
-            <div className="slider-card">
-                <img src={project.image} alt={project.title} className="slider-image" />
-                <div className="slider-overlay">
-                    <h3>{project.title}</h3>
-                    <p>{project.description}</p>
-                    <p className="tech">{project.tech}</p>
-                    <a href={project.liveDemo} target="_blank" rel="noopener noreferrer">
-                        <img src={linkIcon} alt="Live Demo" className="link-icon" />
-                    </a>
-                </div>
-            </div>
-        </SwiperSlide>
-    ))}
-</Swiper>
-
-                </div>
-
-                {/* Project Cards */}
-                <div className="card-wrapper">
-                    {cardProjects.map((project, index) => (
-                        <div key={index} className="card">
-                            <div className="box">
-                                <img src={mark} alt="mark" className="mark-icon" />
-                                <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                                    <img src={github} alt="github" className="github-icon" />
-                                </a>
+            <div className="projects-grid">
+                {projects.map((project) => (
+                    <article className={`project-card project-card--${project.size}`} key={project.name}>
+                        <div className="project-image-wrap">
+                            <img
+                                src={project.image}
+                                alt={`${project.name} project preview`}
+                                className="project-image"
+                                style={{ objectPosition: project.imagePosition || "center" }}
+                                loading="lazy"
+                            />
+                            <div className="project-image-shade" />
+                            {project.featured && <span className="featured-pill">Featured</span>}
+                            <div className="project-actions">
+                                {project.githubLink && (
+                                    <a href={project.githubLink} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.name} on GitHub`}>
+                                        <img src={github} alt="" />
+                                        <span>Code</span>
+                                    </a>
+                                )}
+                                {project.liveLink && (
+                                    <a href={project.liveLink} target="_blank" rel="noopener noreferrer" aria-label={`Visit the ${project.name} website`}>
+                                        <img src={linkIcon} alt="" />
+                                        <span>Visit</span>
+                                    </a>
+                                )}
                             </div>
-                            <h2 className="name">{project.name}</h2>
-                            <p className="description">
-                                {project.description}
-                                <br /><br />Skills: {project.skills}
-                            </p>
                         </div>
-                    ))}
-                </div>
+                        <div className="project-info">
+                            <h3>{project.name}</h3>
+                            <p>{project.description}</p>
+                            <ul className="project-tags" aria-label={`${project.name} technologies`}>
+                                {project.skills.map((skill) => <li key={skill}>{skill}</li>)}
+                            </ul>
+                        </div>
+                    </article>
+                ))}
             </div>
-        </section>
-    );
-};
+        </div>
+    </section>
+);
 
 export default Projects;

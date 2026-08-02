@@ -17,6 +17,16 @@
     margin-top: -15px;
 }
 
+.about {
+    display: inline-block;
+    margin: 0 0 2rem;
+    color: #b1efb8;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -.025em;
+    line-height: 1.15;
+}
+
 .introPara {
     text-align: left;
     color: gray;
@@ -36,6 +46,10 @@
     border-radius: 25px;
     width: 500px;
     height: 500px;
+}
+
+#intro > .img {
+    align-self: center;
 }
 
 .img-mobile {
@@ -65,8 +79,16 @@
 
 /* Mobile Adjustments */
 @media (max-width: 960px) {
+    #intro {
+        height: auto;
+        min-height: 0;
+        flex-direction: column;
+        padding: 3rem 2rem 4rem;
+    }
+
     .introContent {
         width: 100%;
+        box-sizing: border-box;
     }
 
     .introPara {
@@ -81,15 +103,46 @@
     }
 }
 
-@media (max-width: 670px) {
+@media (max-width: 768px) {
+    #intro {
+        display: block;
+        padding: 1.75rem 1.25rem 3.5rem;
+    }
+
     .introContent {
         width: 100%;
-        margin-top: -90px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .about {
+        margin: 0 0 2rem;
+        font-size: 1.85rem;
     }
 
     .introPara {
-        font-size: 15px;
-        margin-top: 20px;
+        margin: 0 0 1.35rem;
+        padding: 0;
+        font-size: .98rem;
+        line-height: 1.55;
+    }
+
+    .skills-container {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: .35rem 1rem;
+        margin: -.25rem 0 1.75rem;
+        padding-left: 1.1rem;
+    }
+
+    .section1 {
+        padding-left: .9rem;
+    }
+
+    .section1 li {
+        margin-bottom: .55rem;
+        font-size: .82rem;
+        line-height: 1.35;
     }
 
     .img {
@@ -97,26 +150,25 @@
     }
 
     .img-mobile {
-        display: grid;
-        place-items: center;
+        display: block;
+        width: min(100%, 20rem);
+        height: auto;
+        aspect-ratio: 1 / 1;
+        margin: 2.5rem auto 0;
         object-fit: cover;
-        height: 15rem;
-        width: 15rem;
-        border-radius: 13px;
-        margin: auto;
-        margin-top: 30px;
+        border-radius: 1.25rem;
     }
 }
 
 @media (max-width: 550px) {
     .about {
-        font-size: 30px;
-        margin-top: -30px;
-        margin-left: -30px;
+        font-size: 1.85rem;
+        margin-top: 0;
+        margin-left: 0;
     }
 
     .introPara {
-        font-size: 13px;
+        font-size: .95rem;
     }
 
     .img {

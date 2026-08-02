@@ -15,6 +15,55 @@
     margin-bottom: 1rem;
     filter: brightness(200%);
   }
+
+  .binary-tree {
+    display: block;
+    width: 25rem;
+    height: 25rem;
+    margin-bottom: 1rem;
+    color: #f4fff5;
+    filter: drop-shadow(0 0 5px rgba(177, 239, 184, .16));
+    transform-box: fill-box;
+    transform-origin: 50% 82%;
+    animation: tree-breathe 5.5s ease-in-out infinite;
+  }
+
+  @keyframes tree-breathe {
+    0%, 100% {
+      transform: scaleX(.96) scaleY(.98) translateY(3px);
+      filter: drop-shadow(0 0 3px rgba(177, 239, 184, .1));
+      opacity: .9;
+    }
+    48% {
+      transform: scaleX(1.035) scaleY(1.025) translateY(-3px);
+      filter: drop-shadow(0 0 8px rgba(177, 239, 184, .3));
+      opacity: 1;
+    }
+  }
+
+  .tree-branch {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    opacity: 0;
+    animation: branch-blossom 6.5s cubic-bezier(.45, 0, .2, 1) infinite;
+    animation-delay: var(--branch-delay);
+    animation-fill-mode: both;
+  }
+
+  @keyframes branch-blossom {
+    0%, 8% {
+      stroke-dashoffset: 1;
+      opacity: 0;
+    }
+    38%, 68% {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+    94%, 100% {
+      stroke-dashoffset: 1;
+      opacity: 0;
+    }
+  }
   
   .highlight-name {
   color: #b1efb8;
@@ -100,5 +149,69 @@
     font-size: 1.8rem;
     margin-left: 10px;
     margin-top: -20px;
+  }
+}
+
+@media (max-width: 960px) {
+  .binary-tree {
+    width: 20rem;
+    height: 20rem;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  #text {
+    height: 100svh;
+    min-height: 100svh;
+    justify-content: flex-start;
+    padding-top: 4.25rem;
+    box-sizing: border-box;
+  }
+
+  .binary-tree {
+    width: 15.5rem;
+    height: 15.5rem;
+    margin: 0 0 .25rem;
+  }
+
+  .textPara {
+    margin: 0;
+    padding: .75rem 2rem 0;
+    transform: translateY(-.4rem);
+    line-height: 1.35;
+  }
+
+  .text {
+    width: 100%;
+    margin-left: 0;
+    margin-top: -.5rem;
+    padding: 0 1.25rem;
+    box-sizing: border-box;
+  }
+
+  .text h1 {
+    max-width: 100%;
+    margin: .35em 0 .25em;
+    font-size: clamp(2.7rem, 13vw, 3.25rem);
+    line-height: 1.12;
+    overflow-wrap: anywhere;
+  }
+
+  .name-line {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .binary-tree {
+    animation: none;
+    transform: none;
+  }
+
+  .tree-branch {
+    animation: none;
+    stroke-dashoffset: 0;
+    opacity: 1;
   }
 }

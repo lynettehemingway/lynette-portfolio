@@ -16,9 +16,9 @@ const Navbar = () => {
             </div>
 
             <div className={`desktopMenu ${menuOpen ? "show" : ""}`}>
-                <ScrollLink className="desktopMenuListItem" to="text" smooth={true} duration={500} offset={-80}>home</ScrollLink>
-                <ScrollLink className="desktopMenuListItem" to="intro" smooth={true} duration={500} offset={-80}>about</ScrollLink>
-                <ScrollLink className="desktopMenuListItem" to="projects" smooth={true} duration={500} offset={-200}>projects</ScrollLink>
+                <ScrollLink className="desktopMenuListItem" to="text" smooth={true} duration={500} offset={-64} onClick={() => setMenuOpen(false)}>home</ScrollLink>
+                <ScrollLink className="desktopMenuListItem" to="intro" smooth={true} duration={500} offset={-64} onClick={() => setMenuOpen(false)}>about</ScrollLink>
+                <ScrollLink className="desktopMenuListItem" to="projects" smooth={true} duration={500} offset={-64} onClick={() => setMenuOpen(false)}>projects</ScrollLink>
             </div>
         </nav>
     );

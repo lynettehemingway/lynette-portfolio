@@ -1,6 +1,39 @@
 import React, { useEffect, useState } from "react";
 import './text.css';
-import logo from '../../assets/logo.jpg';
+
+const Branch = ({ depth, length, level = 0 }) => {
+  if (depth === 0) return null;
+
+  const nextLength = length * 0.72;
+
+  return (
+    <g>
+      <line
+        className="tree-branch"
+        pathLength="1"
+        style={{ "--branch-delay": `${level * 0.13}s` }}
+        x1="0"
+        y1="0"
+        x2="0"
+        y2={-length}
+      />
+      <g transform={`translate(0 ${-length}) rotate(-34)`}>
+        <Branch depth={depth - 1} length={nextLength} level={level + 1} />
+      </g>
+      <g transform={`translate(0 ${-length}) rotate(34)`}>
+        <Branch depth={depth - 1} length={nextLength} level={level + 1} />
+      </g>
+    </g>
+  );
+};
+
+const BinaryTreeGraphic = () => (
+  <svg className="binary-tree" viewBox="0 0 500 500" role="img" aria-label="A geometric binary tree">
+    <g transform="translate(250 455)" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+      <Branch depth={8} length={112} />
+    </g>
+  </svg>
+);
 
 export default function TextGenerate() {
   const message = "hi, i'm lynette.";
@@ -27,19 +60,21 @@ export default function TextGenerate() {
     return (
       <>
         {beforeName}
-        <span className="highlight-name">{namePart}</span>
-        {afterName}
+        <span className="name-line">
+          <span className="highlight-name">{namePart}</span>
+          {afterName}
+          <span className="cursor">|</span>
+        </span>
       </>
     );
   };
 
   return (
     <section id="text">
-      <img src={logo} alt="logo" className="flower" />
+      <BinaryTreeGraphic />
       <div className="text">
         <h1>
           {highlightedText()}
-          <span className="cursor">|</span>
         </h1>
         <p className="textPara">
           a senior computer science major at the university of florida.
