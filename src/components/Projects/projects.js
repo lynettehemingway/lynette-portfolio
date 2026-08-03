@@ -208,7 +208,7 @@ const Projects = () => {
             <div className="case-studies" aria-label="Featured case studies">
                 <article className="case-study-feature" aria-live="polite">
                     {study.image ? (
-                        <img key={study.name} src={study.image} alt={`${study.name} case study preview`} className={`case-study-image ${study.imageFit === "contain" ? "case-study-image--contained" : ""}`} style={{ objectPosition: study.imagePosition, objectFit: study.imageFit || "cover" }} />
+                        <img key={study.name} src={study.image} alt={`${study.name} case study preview`} className={`case-study-image ${study.imageFit === "contain" ? "case-study-image--contained" : ""} ${study.name === "CARTograph" ? "case-study-image--cartograph" : ""}`} style={{ objectPosition: study.imagePosition, objectFit: study.imageFit || "cover" }} />
                     ) : (
                         <div key={study.name} className="case-study-image case-study-image--placeholder" aria-hidden="true"><span>{study.placeholder || "UN"}</span></div>
                     )}

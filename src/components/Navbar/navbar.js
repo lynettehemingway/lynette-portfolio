@@ -89,23 +89,23 @@ const Navbar = ({ gameMode, onGameModeChange }) => {
                     <section className="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-title" onMouseDown={(event) => event.stopPropagation()}>
                         <button className="contact-close" type="button" onClick={() => setContactOpen(false)} aria-label="Close contact form">×</button>
                         <span className="contact-eyebrow">SAY HELLO</span>
-                        <h2 id="contact-title">Contact me!</h2>
-                        <p>Have a project, opportunity, food recommendation, or just want to chat? I’d love to hear from you.</p>
+                        <h2 id="contact-title">contact me!</h2>
+                        <p>i would love to connect and hear from you!</p>
                         <form action="https://formsubmit.co/lynette.hemingway@gmail.com" method="POST">
                             <input type="hidden" name="_subject" value="New portfolio message" />
                             <input type="hidden" name="_captcha" value="false" />
                             <input type="text" name="_honey" className="contact-honey" tabIndex="-1" autoComplete="off" />
                             <label>
-                                From who?
-                                <input name="name" type="text" placeholder="Your name" required autoFocus />
+                                from who?
+                                <input name="name" type="text" placeholder="your name" required />
                             </label>
                             <label>
-                                Your email
+                                your email
                                 <input name="email" type="email" placeholder="you@example.com" required />
                             </label>
                             <label>
-                                What’s on your mind?
-                                <textarea name="message" rows="4" placeholder="Write your message here…" required />
+                                what's on your mind?
+                                <textarea name="message" rows="4" placeholder="write your message here…" required />
                             </label>
                             <button className="contact-submit" type="submit">send message <span>→</span></button>
                         </form>

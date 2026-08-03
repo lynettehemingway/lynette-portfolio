@@ -7,9 +7,9 @@ const roles = [
         title: "Software Developer Intern",
         dates: "May 2026 — Present",
         bullets: [
-            "Designed high-fidelity Figma prototypes and user flows for an ArcGIS Utility Network splice editor used by telecom engineers.",
-            "Built ColorFinder, reducing a multi-step telecom fiber color lookup workflow into a single interactive interface.",
-            "Collaborated with engineers to transform UX concepts into production-ready React and TypeScript components.",
+            "Prioritized inefficiencies in telecom fiber color lookup and designed ColorFinder, transforming a multi-step workflow into a single intuitive experience.",
+            "Synthesized feedback from telecom engineers to identify workflow pain points and redesigned an ArcGIS Utility Network splice editor, creating 10+ high-fidelity Figma screens and user flows.",
+            "Collaborated with engineers and stakeholders to translate validated UX concepts into production-ready React and TypeScript components while preserving design fidelity and scalability.",
         ],
     },
     {
@@ -17,29 +17,19 @@ const roles = [
         title: "Technical Writer",
         dates: "January 2026 — Present",
         bullets: [
-            "Authored documentation and onboarding resources for collaboration tools supporting more than 7,000 users.",
-            "Organized Markdown guides, FAQs, and troubleshooting workflows to improve navigation and information accessibility.",
-            "Documented Zoom, Microsoft Teams, and learning-platform workflows using ongoing feedback from users and IT staff.",
-        ],
-    },
-    {
-        company: "University of Florida",
-        tab: "UF",
-        title: "Information Technology Assistant",
-        dates: "April 2025 — Present",
-        bullets: [
-            "Provide first-line technical support for 300+ students and faculty across classrooms, labs, and academic environments.",
-            "Resolve recurring technical issues through accessible documentation, troubleshooting, and clear communication with end users.",
+            "Identified onboarding challenges through stakeholder collaboration and designed documentation supporting 7,000+ users.",
+            "Improved knowledge-base usability by maintaining 30+ Markdown guides, FAQs, and troubleshooting resources.",
+            "Synthesized user feedback with technical requirements to improve documentation clarity and reduce support friction.",
         ],
     },
     {
         company: "EduTrend",
-        title: "Frontend Developer",
+        title: "Frontend Developer (UI/UX)",
         dates: "December 2025 — March 2026",
         bullets: [
-            "Built reusable React components that improved design consistency across the platform.",
-            "Translated UI mockups into responsive, production-ready React experiences within an Agile development environment.",
-            "Refactored frontend architecture to improve scalability, maintainability, and long-term code quality.",
+            "Partnered with designers to translate UX concepts into responsive, production-ready React interfaces.",
+            "Built reusable React components that supported a scalable design system and improved UI consistency.",
+            "Streamlined component architecture to improve maintainability and accelerate future feature development.",
         ],
     },
 ];
