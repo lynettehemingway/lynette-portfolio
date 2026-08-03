@@ -24,9 +24,9 @@
 }
 
 .App > .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 999;
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1500;
   overflow: visible;
 }
 
@@ -539,9 +539,7 @@
 @media (max-width: 550px) {
   .App > .navbar {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    inset: 0 0 auto;
   }
 
   .koi-game-hud {

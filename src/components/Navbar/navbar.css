@@ -1,16 +1,16 @@
 .navbar {
     height: 4rem;
     width: 100%;
-    max-width: 100rem;
-    margin: 0 auto;
-    padding: 2rem 3rem;
+    max-width: none;
+    margin: 0;
+    padding: 0 3rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: sticky;
-    top: 0;
+    position: fixed;
+    inset: 0 0 auto;
     background: black;
-    z-index: 999;
+    z-index: 1500;
     box-sizing: border-box;
 }
 
@@ -22,13 +22,9 @@
 }
 
 .brand-stack {
-    position: absolute;
-    top: 1.15rem;
-    left: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.35rem;
+    position: relative;
+    display: block;
+    margin-right: 2rem;
     z-index: 1001;
     pointer-events: none;
 }
@@ -243,11 +239,13 @@
 }
 
 .game-actions {
-    position: relative;
+    position: absolute;
+    top: 2.7rem;
+    left: 0;
     display: flex;
     align-items: center;
     gap: .55rem;
-    transform: translateY(1.15rem);
+    transform: none;
     pointer-events: auto;
 }
 
@@ -388,13 +386,15 @@
         right: 0;
         width: 100%;
         max-width: none;
-        z-index: 999;
+        transform: none;
+        z-index: 1500;
     }
 
     .brand-stack {
-        top: 1.35rem;
+        position: absolute;
+        top: 1.2rem;
         left: 1rem;
-        gap: 1.8rem;
+        margin-right: 0;
     }
 
     .brand-topline {

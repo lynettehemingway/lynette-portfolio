@@ -81,7 +81,7 @@ const Navbar = ({ gameMode, onGameModeChange }) => {
                 <ScrollLink className="desktopMenuListItem" to="text" smooth={true} duration={500} offset={-64} onClick={() => setMenuOpen(false)}>home</ScrollLink>
                 <ScrollLink className="desktopMenuListItem" to="intro" smooth={true} duration={500} offset={-64} onClick={() => setMenuOpen(false)}>about</ScrollLink>
                 <ScrollLink className="desktopMenuListItem" to="experience" smooth={true} duration={500} offset={-64} onClick={() => setMenuOpen(false)}>experience</ScrollLink>
-                <ScrollLink className="desktopMenuListItem" to="projects" smooth={true} duration={500} offset={-64} onClick={() => setMenuOpen(false)}>projects</ScrollLink>
+                <ScrollLink className="desktopMenuListItem" to="projects" smooth={true} duration={500} offset={-64} onClick={() => setMenuOpen(false)}>work</ScrollLink>
             </div>
 
             {contactOpen && (
