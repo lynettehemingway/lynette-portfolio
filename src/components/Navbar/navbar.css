@@ -260,7 +260,7 @@
     background: rgba(6, 13, 26, .82);
     border: 1px solid #29344a;
     border-radius: 50%;
-    font: italic 1rem/1 Georgia, serif;
+    font: 500 .65rem/1 Varela Round, sans-serif;
     cursor: pointer;
 }
 
@@ -321,17 +321,19 @@
     background: rgba(18, 28, 43, .96);
 }
 
-.game-mode-dot {
-    width: .42rem;
-    height: .42rem;
-    border-radius: 50%;
-    background: #8993aa;
-    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+.game-mode-icon {
+    width: 1rem;
+    height: 1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.7;
 }
 
-.game-mode-toggle.active .game-mode-dot {
-    background: #fff;
-    box-shadow: 0 0 9px rgba(255, 255, 255, .8);
+.game-mode-toggle.active .game-mode-icon {
+    color: #b1efb8;
+    filter: drop-shadow(0 0 5px rgba(177, 239, 184, .55));
 }
 
 .desktopMenu {

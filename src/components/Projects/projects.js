@@ -208,7 +208,7 @@ const Projects = () => {
             <div className="case-studies" aria-label="Featured case studies">
                 <article className="case-study-feature" aria-live="polite">
                     {study.image ? (
-                        <img key={study.name} src={study.image} alt={`${study.name} case study preview`} className={`case-study-image ${study.imageFit === "contain" ? "case-study-image--contained" : ""} ${study.name === "CARTograph" ? "case-study-image--cartograph" : ""}`} style={{ objectPosition: study.imagePosition, objectFit: study.imageFit || "cover" }} />
+                        <img key={study.name} src={study.image} alt={`${study.name} case study preview`} className={`case-study-image ${study.imageFit === "contain" ? "case-study-image--contained" : ""} ${study.name === "CARTograph" ? "case-study-image--cartograph" : ""}`} style={{ objectPosition: study.imagePosition, objectFit: "cover" }} />
                     ) : (
                         <div key={study.name} className="case-study-image case-study-image--placeholder" aria-hidden="true"><span>{study.placeholder || "UN"}</span></div>
                     )}
@@ -222,7 +222,10 @@ const Projects = () => {
                         <ul className="case-study-tags" aria-label={`${study.name} disciplines`}>
                             {study.skills.map((skill) => <li key={skill}>{skill}</li>)}
                         </ul>
-                        <button className="case-study-open" type="button" onClick={() => setSelectedStudy(study)}>Read full case study <span aria-hidden="true">↗</span></button>
+                        <button className="case-study-open" type="button" onClick={() => setSelectedStudy(study)}>
+                            Read full case study
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z" /><path d="M14 3.5v4h4M10 12h5M10 15h5" /><path d="m15.5 11 2-2 2 2" /></svg>
+                        </button>
                     </div>
                     <div className="case-study-pagination" aria-label="Choose a case study">
                         {visibleCaseStudies.map((item, index) => (
@@ -337,7 +340,7 @@ const Projects = () => {
                                 <div className="case-study-phase">
                                     <header className="case-study-phase-heading"><span>05</span><p>Resolution</p></header>
                                     {selectedStudy.decisions && <section className="case-study-story-block case-study-decisions-section"><p className="case-study-step">Design decisions</p><h3>Why the interface works this way</h3><div className="case-study-decisions">{selectedStudy.decisions.map((decision) => <article key={decision.title}><h4>{decision.title}</h4><p>{decision.text}</p></article>)}</div></section>}
-                                    {(selectedStudy.image || selectedStudy.figmaLink) && <section className="case-study-final-design">{selectedStudy.figmaEmbed ? <iframe src={selectedStudy.figmaEmbed} title={`${selectedStudy.name} interactive prototype`} allowFullScreen /> : selectedStudy.image ? <img src={selectedStudy.image} alt={`${selectedStudy.name} final interface preview`} /> : <div className="case-study-final-placeholder" aria-hidden="true">{selectedStudy.placeholder}</div>}<div><p className="case-study-step">Final UI</p><h3>The final experience</h3><p>Click through the interactive prototype to explore the experience.</p>{selectedStudy.figmaLink && <a href={selectedStudy.figmaLink} target="_blank" rel="noopener noreferrer">Open prototype in Figma <span aria-hidden="true">↗</span></a>}</div></section>}
+                                    {(selectedStudy.image || selectedStudy.figmaLink) && <section className="case-study-final-design">{selectedStudy.figmaEmbed ? <iframe src={selectedStudy.figmaEmbed} title={`${selectedStudy.name} interactive prototype`} allowFullScreen /> : selectedStudy.image ? <img src={selectedStudy.image} alt={`${selectedStudy.name} final interface preview`} /> : <div className="case-study-final-placeholder" aria-hidden="true">{selectedStudy.placeholder}</div>}<div><p className="case-study-step">Final UI</p><h3>The final experience</h3><p>{selectedStudy.name === "CARTograph" ? "Open the Figma file to explore the interface and design details." : "Click through the interactive prototype to explore the experience."}</p>{selectedStudy.figmaLink && <a href={selectedStudy.figmaLink} target="_blank" rel="noopener noreferrer">{selectedStudy.name === "CARTograph" ? "Open in Figma" : "Open prototype in Figma"} <span aria-hidden="true">↗</span></a>}</div></section>}
                                 </div>
                             )}
 

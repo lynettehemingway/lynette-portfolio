@@ -203,6 +203,41 @@
   font-weight: 400;
 }
 
+.koi-scroll-hint {
+  position: fixed;
+  top: calc(52% - 7rem);
+  left: calc(14% + 2.8rem);
+  width: min(17rem, calc(100vw - 6rem));
+  padding: .85rem 1rem;
+  color: #dce8dd;
+  background: rgba(5, 12, 9, .94);
+  border: 1px solid rgba(177, 239, 184, .48);
+  border-radius: 1rem 1rem 1rem .25rem;
+  box-shadow: 0 14px 38px rgba(0, 0, 0, .48), 0 0 20px rgba(177, 239, 184, .08);
+  animation: koi-hint-in .28s ease both;
+}
+
+.koi-scroll-hint::after {
+  content: "";
+  position: absolute;
+  left: -.55rem;
+  bottom: -.05rem;
+  width: 1rem;
+  height: 1rem;
+  background: rgba(5, 12, 9, .94);
+  border-bottom: 1px solid rgba(177, 239, 184, .48);
+  transform: skew(-35deg);
+}
+
+.koi-scroll-hint strong,
+.koi-scroll-hint span { display: block; }
+.koi-scroll-hint strong { color: #b1efb8; font-size: .75rem; }
+.koi-scroll-hint span { margin-top: .35rem; color: #aeb8af; font-size: .68rem; line-height: 1.5; }
+
+@keyframes koi-hint-in {
+  from { opacity: 0; transform: translateY(7px) scale(.97); }
+}
+
 .pond-dpad {
   position: fixed;
   right: 2rem;

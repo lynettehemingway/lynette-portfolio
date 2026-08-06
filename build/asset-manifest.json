@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.51138b9e.css",
+    "main.js": "/static/js/main.d791bc1e.js",
+    "static/media/uffsa.png": "/static/media/uffsa.e6da3bf2ddf68e6f1cb1.png",
+    "static/media/carto.jpg": "/static/media/carto.948fc461db309430b4a0.jpg",
+    "static/media/navigator.png": "/static/media/navigator.073f4ed56f42ef665305.png",
+    "static/media/cc.png": "/static/media/cc.58e65cabd67dda627c1d.png",
+    "static/media/ldt.png": "/static/media/ldt.e1f06ca2e8dac5581895.png",
+    "static/media/db.png": "/static/media/db.76f2242cdc1c403c31c0.png",
+    "static/media/uweather.png": "/static/media/uweather.e18b9ce563f4e0c3b44f.png",
+    "static/media/pickleportal.png": "/static/media/pickleportal.a18a94427ac805a012a1.png",
+    "static/media/me.jpg": "/static/media/me.a90b8dd2e155118a515b.jpg",
+    "static/media/classmail.png": "/static/media/classmail.36e88e88264bb2edba29.png",
+    "static/media/centsible.jpg": "/static/media/centsible.821cdbd750a489adbe55.jpg",
+    "index.html": "/index.html",
+    "static/media/mark-github.svg": "/static/media/mark-github.06cbf6003f0503529f8552f9aa0e6491.svg",
+    "main.51138b9e.css.map": "/static/css/main.51138b9e.css.map",
+    "main.d791bc1e.js.map": "/static/js/main.d791bc1e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.51138b9e.css",
+    "static/js/main.d791bc1e.js"
+  ]
+}

@@ -58,7 +58,10 @@ const Navbar = ({ gameMode, onGameModeChange }) => {
                             aria-pressed={gameMode}
                             onClick={() => onGameModeChange(!gameMode)}
                         >
-                            <span className="game-mode-dot" />
+                            <svg className="game-mode-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.2 8.2h7.6a4.7 4.7 0 0 1 4.5 3.4l1 3.6a2.6 2.6 0 0 1-4.4 2.5l-1.8-1.8H8.9l-1.8 1.8a2.6 2.6 0 0 1-4.4-2.5l1-3.6a4.7 4.7 0 0 1 4.5-3.4Z" />
+                                <path d="M8 11v3M6.5 12.5h3M16.8 11.7h.01M18.4 13.3h.01" />
+                            </svg>
                             {gameMode ? "EXIT GAME" : "GAME MODE"}
                         </button>
                         {gameMode && <button className="game-info-button" type="button" aria-label="How to play" aria-expanded={gameInfoOpen} onClick={() => setGameInfoOpen((open) => !open)}>i</button>}

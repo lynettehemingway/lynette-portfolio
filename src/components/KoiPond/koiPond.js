@@ -13,6 +13,7 @@ export default function KoiPond({ gameMode = false, onExitGame, onPlayAgain }) {
   const [pearls, setPearls] = useState(MOON_PEARLS);
   const [showCompletion, setShowCompletion] = useState(false);
   const [mobileDirection, setMobileDirection] = useState(null);
+  const [showScrollHint, setShowScrollHint] = useState(false);
   const pearlsRef = useRef(MOON_PEARLS);
   const mobileDirectionRef = useRef(null);
 
@@ -100,6 +101,38 @@ export default function KoiPond({ gameMode = false, onExitGame, onPlayAgain }) {
     mobileDirectionRef.current = null;
     setMobileDirection(null);
   }, [gameMode]);
+
+  useEffect(() => {
+    if (!gameMode) {
+      setShowScrollHint(false);
+      return undefined;
+    }
+
+    setShowScrollHint(true);
+    const startingScrollY = window.scrollY;
+    let hasMovedKoi = false;
+    let hasExited = false;
+    const hideHint = (event) => {
+      if (["arrowup", "arrowdown", "arrowleft", "arrowright", "w", "a", "s", "d"].includes(event.key?.toLowerCase?.() || event.key)) {
+        hasMovedKoi = true;
+        setShowScrollHint(false);
+      }
+    };
+    const exitIdleGameOnScroll = () => {
+      if (!hasMovedKoi && !hasExited && Math.abs(window.scrollY - startingScrollY) > 180) {
+        hasExited = true;
+        setShowScrollHint(false);
+        onExitGame();
+      }
+    };
+
+    window.addEventListener("keydown", hideHint);
+    window.addEventListener("scroll", exitIdleGameOnScroll, { passive: true });
+    return () => {
+      window.removeEventListener("keydown", hideHint);
+      window.removeEventListener("scroll", exitIdleGameOnScroll);
+    };
+  }, [gameMode, onExitGame]);
 
   const playAgain = () => {
     setCollectedPearls([]);
@@ -500,7 +533,7 @@ export default function KoiPond({ gameMode = false, onExitGame, onPlayAgain }) {
             (pressedKeys.has("arrowleft") || pressedKeys.has("a") ? 1 : 0);
           let moveY = (pressedKeys.has("arrowdown") || pressedKeys.has("s") ? 1 : 0) -
             (pressedKeys.has("arrowup") || pressedKeys.has("w") ? 1 : 0);
-          const distance = Math.min(40, elapsed) / 1000 * 175;
+          const distance = Math.min(40, elapsed) / 1000 * 190;
           if (moveX || moveY) {
             const magnitude = Math.hypot(moveX, moveY);
             moveX /= magnitude;
@@ -527,6 +560,7 @@ export default function KoiPond({ gameMode = false, onExitGame, onPlayAgain }) {
               setCollectedPearls((collected) => [...collected, index]);
             }
           });
+
         }
         if (now - lastVisibilityCheck > 120) {
           lastVisibilityCheck = now;
@@ -572,6 +606,12 @@ export default function KoiPond({ gameMode = false, onExitGame, onPlayAgain }) {
       <canvas ref={canvasRef} className="koi-pond" aria-hidden="true" />
       {gameMode && (
         <div className="pond-game-layer moonlit moon-pearl-game">
+          {showScrollHint && (
+            <div className="koi-scroll-hint" role="status">
+              <strong>collect the moon pearls!</strong>
+              <span>guide me around to collect the moon pearls through my portfolio & click the “i” button (next to the game mode toggle) for details.</span>
+            </div>
+          )}
           <div className="pearl-counter">
             <strong>{collectedPearls.length}</strong><span>/ 10</span>
           </div>
