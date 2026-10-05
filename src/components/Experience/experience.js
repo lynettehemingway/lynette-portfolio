@@ -5,33 +5,33 @@ const roles = [
     {
         company: "Esri",
         title: "Software Developer Intern",
-        dates: "May 2026 — Present",
-        bullets: [
-            "Prioritized inefficiencies in telecom fiber color lookup and designed ColorFinder, transforming a multi-step workflow into a single intuitive experience.",
-            "Synthesized feedback from telecom engineers to identify workflow pain points and redesigned an ArcGIS Utility Network splice editor, creating 10+ high-fidelity Figma screens and user flows.",
-            "Collaborated with engineers and stakeholders to translate validated UX concepts into production-ready React and TypeScript components while preserving design fidelity and scalability.",
-        ],
-    },
-    {
-        company: "TechSol",
-        title: "Technical Writer",
-        dates: "January 2026 — Present",
-        bullets: [
-            "Identified onboarding challenges through stakeholder collaboration and designed documentation supporting 7,000+ users.",
-            "Improved knowledge-base usability by maintaining 30+ Markdown guides, FAQs, and troubleshooting resources.",
-            "Synthesized user feedback with technical requirements to improve documentation clarity and reduce support friction.",
-        ],
-    },
-    {
-        company: "EduTrend",
-        title: "Frontend Developer (UI/UX)",
-        dates: "December 2025 — March 2026",
-        bullets: [
-            "Partnered with designers to translate UX concepts into responsive, production-ready React interfaces.",
-            "Built reusable React components that supported a scalable design system and improved UI consistency.",
-            "Streamlined component architecture to improve maintainability and accelerate future feature development.",
-        ],
-    },
+        dates: "May 2026 — August 2026",
+bullets: [
+    "Identified inefficiencies in telecom fiber color lookup and designed ColorFinder, simplifying a multi-step workflow into a faster, more intuitive experience.",
+    "Synthesized feedback from telecom engineers to uncover workflow pain points and redesigned the ArcGIS Utility Network Splice Editor, producing 10+ high-fidelity Figma screens and end-to-end user flows.",
+    "Partnered with engineers and stakeholders to refine interactions, validate design decisions, and translate UX concepts into production-ready React and TypeScript interfaces.",
+],
+},
+{
+    company: "TechSol",
+    title: "Technical Writer",
+    dates: "January 2026 — September 2026",
+    bullets: [
+        "Identified onboarding pain points through stakeholder and user feedback, then redesigned documentation experiences supporting 7,000+ users.",
+        "Improved information architecture and usability across 30+ guides, FAQs, and troubleshooting resources, making technical content easier to navigate and understand.",
+        "Synthesized user needs and technical constraints to simplify complex workflows, improve content clarity, and reduce friction throughout the support experience.",
+    ],
+},
+{
+    company: "EduTrend",
+    title: "Product Design Intern",
+    dates: "December 2025 — March 2026",
+    bullets: [
+        "Collaborated with designers to translate product requirements and UX concepts into responsive, polished interfaces across key user flows.",
+        "Designed and built reusable UI components that strengthened the product’s design system and improved consistency across experiences.",
+        "Refined component patterns and interaction behaviors to improve usability, scalability, and handoff between design and engineering.",
+    ],
+},
 ];
 
 export default function Experience() {
@@ -41,7 +41,7 @@ export default function Experience() {
     return (
         <section id="experience" aria-labelledby="experience-title">
             <header className="experience-heading">
-                <h2 id="experience-title">{"// experience"}</h2>
+                <h2 id="experience-title" className="section-label">{"// experience"}</h2>
             </header>
 
             <div className="experience-layout">

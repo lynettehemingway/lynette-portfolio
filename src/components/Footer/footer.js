@@ -1,14 +1,3 @@
-import React from 'react';
-import './footer.css';
-
-const Footer = () => {
-    return (
-        <footer id="footer">
-            <div className="footer-text">
-                Built and designed by Lynette Hemingway.
-            </div>
-        </footer>
-    );
-};
-
-export default Footer;
+export default function Footer() {
+  return <footer className="site-footer"><p>Designed &amp; built by Lynette Hemingway.</p><a href="#text">Back to the surface ↑</a></footer>;
+}

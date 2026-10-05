@@ -1,113 +1,46 @@
-import React, { useEffect, useState } from "react";
-import './text.css';
+import { useEffect, useState } from 'react';
+import koi from '../../assets/koi-cutout.png';
 
-const Branch = ({ depth, length, level = 0 }) => {
-  if (depth === 0) return null;
-
-  const nextLength = length * 0.72;
-
+export function WaterLines() {
   return (
-    <g>
-      <line
-        className="tree-branch"
-        pathLength="1"
-        style={{ "--branch-delay": `${level * 0.13}s` }}
-        x1="0"
-        y1="0"
-        x2="0"
-        y2={-length}
-      />
-      <g transform={`translate(0 ${-length}) rotate(-34)`}>
-        <Branch depth={depth - 1} length={nextLength} level={level + 1} />
+    <svg className="water-lines" viewBox="0 0 1400 900" preserveAspectRatio="none" fill="none" aria-hidden="true">
+      <g stroke="currentColor" strokeWidth=".8">
+        {[0, 1, 2, 3, 4, 5].map((line) => <path key={line} transform={`translate(${line * 9} ${line * 12})`} d="M-100 670C130 470 420 810 700 610S1200 350 1500 470M-100 280C200 90 340 340 650 180S1170 140 1480-20M450 920C260 730 1090 850 1230 680S1080 500 1420 470" />)}
+        <ellipse cx="1030" cy="770" rx="250" ry="65" /><ellipse cx="1030" cy="770" rx="280" ry="79" />
       </g>
-      <g transform={`translate(0 ${-length}) rotate(34)`}>
-        <Branch depth={depth - 1} length={nextLength} level={level + 1} />
-      </g>
-    </g>
+    </svg>
   );
-};
+}
 
-const BinaryTreeGraphic = () => (
-  <svg className="binary-tree" viewBox="0 0 500 500" role="img" aria-label="A geometric binary tree">
-    <g transform="translate(250 455)" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-      <Branch depth={8} length={112} />
-    </g>
-  </svg>
-);
-
-export default function TextGenerate() {
+export default function TextGenerate({ onPondOpen }) {
   const message = "hi, i'm lynette.";
-  const [text, setText] = useState("");
-  const [index, setIndex] = useState(0);
-
+  const [text, setText] = useState('');
   useEffect(() => {
-    if (index < message.length) {
-      const timer = setTimeout(() => {
-        setText((prevText) => prevText + message[index]);
-        setIndex((prevIndex) => prevIndex + 1);
-      }, 100);
-
-      return () => clearTimeout(timer);
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setText(message);
+      return undefined;
     }
-  }, [index, message]);
-
-  useEffect(() => {
-    const tree = document.querySelector(".binary-tree");
-    const touchCapable = window.matchMedia("(pointer: coarse)").matches || navigator.maxTouchPoints > 0;
-    if (!tree || !touchCapable) return undefined;
-    let resetTimer;
-
-    const moveTree = (event) => {
-      const bounds = tree.getBoundingClientRect();
-      const horizontal = Math.max(-1, Math.min(1, (event.clientX - (bounds.left + bounds.width / 2)) / (window.innerWidth * .5)));
-      const vertical = Math.max(-1, Math.min(1, (event.clientY - (bounds.top + bounds.height / 2)) / (window.innerHeight * .5)));
-      tree.style.setProperty("--touch-lean", `${horizontal * 3.5}deg`);
-      tree.style.setProperty("--touch-shift", `${vertical * 2}px`);
-      window.clearTimeout(resetTimer);
-      resetTimer = window.setTimeout(() => {
-        tree.style.setProperty("--touch-lean", "0deg");
-        tree.style.setProperty("--touch-shift", "0px");
-      }, 500);
-    };
-
-    window.addEventListener("pointerdown", moveTree, { passive: true });
-    window.addEventListener("pointermove", moveTree, { passive: true });
-    return () => {
-      window.clearTimeout(resetTimer);
-      window.removeEventListener("pointerdown", moveTree);
-      window.removeEventListener("pointermove", moveTree);
-    };
+    let index = 0;
+    const timer = window.setInterval(() => {
+      index += 1;
+      setText(message.slice(0, index));
+      if (index === message.length) window.clearInterval(timer);
+    }, 100);
+    return () => window.clearInterval(timer);
   }, []);
-
-  const highlightedText = () => {
-    const nameStart = message.indexOf("lynette");
-    const beforeName = text.slice(0, nameStart);
-    const namePart = text.slice(nameStart, nameStart + 7);
-    const afterName = text.slice(nameStart + 7);
-
-    return (
-      <>
-        {beforeName}
-        <span className="name-line">
-          <span className="highlight-name">{namePart}</span>
-          {afterName}
-          <span className="cursor">|</span>
-        </span>
-      </>
-    );
-  };
-
   return (
-    <section id="text">
-      <BinaryTreeGraphic />
-      <div className="text">
-        <h1>
-          {highlightedText()}
-        </h1>
-        <p className="textPara">
-          a senior computer science major at the university of florida.
-        </p>
+    <section id="text" className="pond-hero" aria-labelledby="hero-title">
+      <WaterLines />
+      <div className="hero-copy">
+        <h1 id="hero-title" className="animated-intro"><span className="sr-only">{message}</span><span aria-hidden="true">{text}<span className="typing-cursor">|</span></span></h1>
+        <p className="hero-description">An aspiring product designer studying computer science at UF. I turn complex problems into clear, considered experiences.</p>
+        <a className="pill-link" href="#projects-title">View my work <span aria-hidden="true">→</span></a>
       </div>
+      <div className="hero-art" aria-hidden="true"><img className="hero-koi" src={koi} alt="" loading="eager" /></div>
+      <button className="pond-entry" type="button" aria-label="Open interactive koi pond" aria-haspopup="dialog" onClick={(event) => onPondOpen(event.currentTarget)}>
+        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M22 6C10 2 5 13 12 20c5 5 12 0 10-6-1-4-7-5-8-1" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" /><path d="m22 6 5-3-2 7m-13 10-5 5 7-1m5-11 4-3" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" /><circle cx="13.5" cy="13.5" r="1" fill="currentColor" /><path d="M7 29c6-2 13-2 19 0" stroke="currentColor" opacity=".5" /></svg>
+        <span>A moment by the pond</span>
+      </button>
     </section>
   );
 }

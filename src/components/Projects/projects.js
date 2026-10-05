@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./projects.css";
+import { createPortal } from "react-dom";
 
 import nav from "../../assets/navigator.png";
 import uffsa from "../../assets/uffsa.png";
@@ -177,23 +178,33 @@ const visibleCaseStudies = caseStudies
     .sort((a, b) => caseStudyOrder.indexOf(a.name) - caseStudyOrder.indexOf(b.name));
 
 const Projects = () => {
-    const [activeStudy, setActiveStudy] = useState(0);
     const [selectedStudy, setSelectedStudy] = useState(null);
-    const study = visibleCaseStudies[activeStudy];
-    const showStudy = (direction) => {
-        setActiveStudy((current) => (current + direction + visibleCaseStudies.length) % visibleCaseStudies.length);
-    };
+    const dialogRef = useRef(null);
 
     useEffect(() => {
         if (!selectedStudy) return undefined;
         const previousOverflow = document.body.style.overflow;
+        const trigger = document.activeElement;
+        const dialog = dialogRef.current;
+        const site = document.querySelector('.pond-site');
+        site?.setAttribute('inert', '');
+        dialog?.querySelector('button')?.focus();
         const closeOnEscape = (event) => {
             if (event.key === "Escape") setSelectedStudy(null);
+            if (event.key === "Tab" && dialog) {
+                const items = [...dialog.querySelectorAll('button, a[href], iframe')];
+                const first = items[0];
+                const last = items[items.length - 1];
+                if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+                else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+            }
         };
         document.body.style.overflow = "hidden";
         document.addEventListener("keydown", closeOnEscape);
         return () => {
             document.body.style.overflow = previousOverflow;
+            site?.removeAttribute('inert');
+            trigger?.focus();
             document.removeEventListener("keydown", closeOnEscape);
         };
     }, [selectedStudy]);
@@ -201,40 +212,26 @@ const Projects = () => {
     return (
     <section id="projects" aria-labelledby="projects-title">
         <div className="projContent">
-            <header className="projects-heading projects-heading--work">
-                <h2 id="projects-title" className="proj">// work</h2>
+            <header className="work-heading">
+                <h2 id="projects-title" className="section-label">{'// featured work'}</h2>
             </header>
-
-            <div className="case-studies" aria-label="Featured case studies">
-                <article className="case-study-feature" aria-live="polite">
-                    {study.image ? (
-                        <img key={study.name} src={study.image} alt={`${study.name} case study preview`} className={`case-study-image ${study.imageFit === "contain" ? "case-study-image--contained" : ""} ${study.name === "CARTograph" ? "case-study-image--cartograph" : ""}`} style={{ objectPosition: study.imagePosition, objectFit: "cover" }} />
-                    ) : (
-                        <div key={study.name} className="case-study-image case-study-image--placeholder" aria-hidden="true"><span>{study.placeholder || "UN"}</span></div>
-                    )}
-                    <div className="case-study-overlay" />
-                    <button className="case-study-arrow case-study-arrow--previous" type="button" onClick={() => showStudy(-1)} aria-label="Previous case study">←</button>
-                    <button className="case-study-arrow case-study-arrow--next" type="button" onClick={() => showStudy(1)} aria-label="Next case study">→</button>
-                    <div className="case-study-content">
-                        <p className="case-study-eyebrow">{study.eyebrow}</p>
-                        <h3>{study.name}</h3>
-                        <p className="case-study-description">{study.description}</p>
-                        <ul className="case-study-tags" aria-label={`${study.name} disciplines`}>
-                            {study.skills.map((skill) => <li key={skill}>{skill}</li>)}
-                        </ul>
-                        <button className="case-study-open" type="button" onClick={() => setSelectedStudy(study)}>
-                            Read full case study
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z" /><path d="M14 3.5v4h4M10 12h5M10 15h5" /><path d="m15.5 11 2-2 2 2" /></svg>
+            <div className="study-grid" aria-label="Featured case studies">
+                {visibleCaseStudies.map((study) => (
+                    <article className="study-card" key={study.name}>
+                        <button className="study-card-button" type="button" onClick={() => setSelectedStudy(study)} aria-label={`Read ${study.name} case study`}>
+                            <div className={`study-card-art ${study.name === 'CARTograph' ? 'study-card-art--cartograph' : ''}`}><img src={study.image} alt={`${study.name} project artwork`} loading="lazy" /></div>
+                            <div className="study-card-copy">
+                                <p className="eyebrow">{study.name === 'CARTograph' ? 'Grocery planning / Hackathon runner-up' : 'Academic communication / MVP concept'}</p>
+                                <h3>{study.name}</h3>
+                                <p>{study.name === 'CARTograph' ? 'A more thoughtful route from grocery list to checkout.' : 'Less inbox overload. More clarity for students.'}</p>
+                                <span className="round-arrow" aria-hidden="true">↗</span>
+                            </div>
                         </button>
-                    </div>
-                    <div className="case-study-pagination" aria-label="Choose a case study">
-                        {visibleCaseStudies.map((item, index) => (
-                            <button key={item.name} className={index === activeStudy ? "is-active" : ""} type="button" onClick={() => setActiveStudy(index)} aria-label={`Show ${item.name}`} aria-pressed={index === activeStudy} />
-                        ))}
-                    </div>
-                </article>
+                    </article>
+                ))}
             </div>
-
+            <details className="other-work">
+                <summary>More explorations in design &amp; development</summary>
             <div className="projects-grid">
                 {projects.map((project) => (
                     <article className={`project-card project-card--${project.size}`} key={project.name}>
@@ -274,9 +271,12 @@ const Projects = () => {
                 ))}
             </div>
 
-            {selectedStudy && (
+            </details>
+
+            {selectedStudy && createPortal(
+                <div className="pond-site study-portal">
                 <div className="case-study-modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setSelectedStudy(null); }}>
-                    <section className="case-study-modal" role="dialog" aria-modal="true" aria-labelledby="case-study-modal-title">
+                    <section ref={dialogRef} className="case-study-modal" tabIndex={-1} role="dialog" aria-modal="true" aria-labelledby="case-study-modal-title">
                         <button className="case-study-modal-close" type="button" onClick={() => setSelectedStudy(null)} aria-label="Close case study">×</button>
 
                         <header className="case-study-modal-hero">
@@ -322,7 +322,7 @@ const Projects = () => {
                                 <div className="case-study-phase">
                                     <header className="case-study-phase-heading"><span>03</span><p>Definition</p></header>
                                     {selectedStudy.goals && <section className="case-study-story-block"><p className="case-study-step">Design goals</p><h3>What success looked like</h3><ul className="case-study-goals">{selectedStudy.goals.map((goal) => <li key={goal}>{goal}</li>)}</ul></section>}
-                                    {selectedStudy.journey && <section className="case-study-story-block"><p className="case-study-step">User journey</p><h3>From planning to shopping</h3><ol className="case-study-process">{selectedStudy.journey.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>)}</ol></section>}
+                                    {selectedStudy.journey && <section className="case-study-story-block"><p className="case-study-step">User journey</p><h3>The core user flow</h3><ol className="case-study-process">{selectedStudy.journey.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>)}</ol></section>}
                                     {selectedStudy.informationArchitecture && <section className="case-study-story-block case-study-information-architecture"><p className="case-study-step">Information architecture</p><h3>Organizing the experience</h3><ul className="case-study-goals">{selectedStudy.informationArchitecture.map((item) => <li key={item}>{item}</li>)}</ul></section>}
                                 </div>
                             )}
@@ -363,6 +363,7 @@ const Projects = () => {
                         </div>
                     </section>
                 </div>
+                </div>, document.body
             )}
         </div>
     </section>
