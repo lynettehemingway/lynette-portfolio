@@ -182,10 +182,10 @@ export default function App() {
             <div className="home-side-notes"><a className="previous-experience" href="#work"><div><span aria-hidden="true">×</span><p><strong>Previous experience</strong><br />SWE intern at Esri</p></div><img src={esri} alt="Esri headquarters sign" /></a><HomeStory /></div>
             <div className="portfolio-bio">
               <p className="home-selected-work"><a href="#projects">View selected work <span aria-hidden="true">→</span></a></p>
-              <p>I’m Lynette Hemingway, a product designer at the University of Florida.</p>
+              <div className="portfolio-bio-copy"><p>I’m Lynette Hemingway, a product designer at the University of Florida.</p>
               <p>I enjoy creating thoughtful digital experiences that feel intuitive, useful, and visually engaging.</p>
               <p>With a background in computer science and digital arts, I’m especially interested in the space where design and technology overlap.</p>
-              <p>Outside of design, I love trying new foods, making them myself, and blogging about whatever turns out well.</p>
+              <p>Outside of design, I love trying new foods, making them myself, and blogging about whatever turns out well.</p></div>
             </div>
             <HomeKoi />
           </div>
