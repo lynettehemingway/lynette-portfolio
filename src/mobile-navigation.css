@@ -25,62 +25,67 @@
 @media(prefers-reduced-motion:reduce){.mobile-menu-toggle span{transition:none}}
 .figma-site .portfolio-navigation .portfolio-theme-toggle span+span{display:inline}
 
-/* Mobile homepage: introduction first, then one composed project moment. */
+/* A focused mobile introduction followed by two equal project/experience previews. */
+.home-greeting-layout{display:contents}
+.mobile-home-copy,.mobile-greeting-koi{display:none}
 @media(max-width:700px){
- .figma-site .portfolio-page--home{padding-top:calc(86px + env(safe-area-inset-top))}
- .figma-site .portfolio-page--home h1.portfolio-greeting{font-size:clamp(36px,10.8vw,60px);line-height:1.08;margin-bottom:18px}
- .figma-site .portfolio-tags{margin-bottom:22px;gap:6px}
+ .figma-site .mobile-home-copy{display:block}
+ .figma-site .desktop-home-copy{display:none}
+ .figma-site .portfolio-page--home{padding:calc(88px + env(safe-area-inset-top)) 24px calc(52px + env(safe-area-inset-bottom))}
+ .home-greeting-layout{display:grid;grid-template-columns:70% minmax(0,1fr);align-items:center;min-height:138px;margin-bottom:14px}
+ .figma-site .portfolio-page--home h1.portfolio-greeting{font-size:clamp(28px,8.8vw,40px);line-height:1.15;margin:0;max-width:none}
+ .mobile-greeting-koi{display:block;transform:scaleX(-1);pointer-events:none;align-self:center;width:130%;margin-left:-10%}
+ .mobile-greeting-koi img{display:block;width:100%;height:142px;object-fit:contain}
+ .figma-site .portfolio-tags{gap:6px;margin-bottom:24px}
  .figma-site .portfolio-tags li{font-size:9px;padding:5px 7px}
- .figma-site .portfolio-intro{grid-template-columns:58% 42%;gap:24px 0}
- .figma-site .portfolio-bio{grid-row:1;grid-column:1/-1;display:flex;flex-direction:column;font-size:13px;line-height:1.6;max-width:none}
- .figma-site .portfolio-bio .portfolio-bio-copy p{display:block;margin-bottom:12px}
- .figma-site .portfolio-bio .portfolio-bio-copy p:nth-child(n+3){display:none}
- .figma-site .portfolio-bio .home-selected-work{display:block;order:2;margin:2px 0 0;font-size:12px}
- .figma-site .home-side-notes{grid-row:2;grid-column:1/-1;display:grid;grid-template-columns:56% minmax(0,1fr);gap:20px;position:relative;align-items:start}
- .figma-site .home-story{grid-column:1;grid-row:1;width:100%;border:0;padding:0}
- .figma-site .home-story-label{font-size:9px;margin-bottom:7px}
- .figma-site .home-story h2{font-size:15px;line-height:1.45;max-width:22ch;margin-bottom:12px}
- .figma-site .home-side-notes .previous-experience{display:block;grid-column:2;grid-row:1;align-self:end;margin-bottom:8px;background:none;border-top:1px solid var(--line);border-radius:0;padding:12px 0 0;font-size:10px;line-height:1.5;width:100%;color:var(--cream)}
- .figma-site .previous-experience br,.figma-site .previous-experience>div>span{display:none}
- .figma-site .previous-experience strong{display:block;font-size:9px;line-height:1.5;margin-bottom:4px}
- .figma-site .home-side-notes .previous-experience img{display:block;width:100%;aspect-ratio:1.6;object-fit:cover;margin-top:10px;border:1px solid var(--line)}
- .figma-site .previous-experience>div{margin:0;display:block}
- .figma-site .portfolio-page--home .portfolio-koi{position:relative;grid-row:2;grid-column:2;align-self:start;width:100%;margin:-102px 0 0;top:auto;right:auto}
- .figma-site .portfolio-koi>.koi-parallax{width:92%;left:4%;top:10%}
- .figma-site .home-story-demo{height:118px}
- .figma-site .story-message,.figma-site .story-clear-message{inset:0 10px auto 0;padding:8px 10px;gap:4px;box-shadow:none}
- .figma-site .story-message span,.figma-site .story-clear-message span{font-size:8px}
- .figma-site .story-message strong,.figma-site .story-clear-message strong{font-size:9px;line-height:1.4}
- .figma-site .story-message i,.figma-site .story-clear-message i{display:none}
- .figma-site .story-message--email{transform:none}
- .figma-site .story-message--canvas{transform:translate(4px,32px)}
- .figma-site .story-message--calendar{transform:translate(8px,64px)}
- .figma-site .story-clear-message{min-height:104px;justify-content:center}
- .figma-site .home-story-demo[data-clear=true] .story-message{opacity:0;transform:translateY(-12px) scale(.94)}
- .figma-site .home-story-demo[data-clear=true] .story-clear-message{transform:none}
- .figma-site .home-story-toggle{font-size:10px;min-height:44px;gap:5px}
- .figma-site .home-story-caption{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;min-height:0;margin:0}
- .figma-site .home-story-link{font-size:10px;min-height:44px}
+ .figma-site .portfolio-intro{display:flex;flex-direction:column;gap:26px}
+ .figma-site .portfolio-intro>.portfolio-koi{display:none}
+ .figma-site .portfolio-bio{order:1;display:flex;flex-direction:column;max-width:none;font-size:14px;line-height:1.7}
+ .figma-site .portfolio-bio-copy{display:none}
+ .figma-site .portfolio-bio .mobile-home-introduction{margin:0 0 14px;font-size:14px;line-height:1.7;color:var(--cream)}
+ .figma-site .portfolio-bio .home-selected-work{display:block;order:2;margin:0;font-size:13px}
+ .figma-site .home-selected-work a{display:inline-flex;align-items:center;gap:10px;min-height:44px;text-decoration-thickness:1px}
+ .figma-site .home-side-notes{order:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:start}
+ .figma-site .home-story{grid-column:1;grid-row:1;width:100%;border-top:1px solid var(--line);padding-top:14px}
+ .figma-site .home-story-label{margin:0 0 7px;font-size:10px;line-height:1.5;color:var(--cream)}
+ .figma-site .home-story h2{font-size:18px;line-height:1.4;margin:0 0 5px;max-width:none}
+ .figma-site .home-story-subtitle{font-size:10px;line-height:1.5;margin:0 0 12px;min-height:30px;color:var(--cream)}
+ .figma-site .home-story-demo{height:104px;margin:0}
+ .figma-site .story-message{display:none}
+ .figma-site .story-clear-message{position:static;inset:auto;opacity:1;transform:none!important;min-height:104px;height:104px;display:flex;justify-content:center;padding:12px 10px;gap:6px;border-radius:4px;box-shadow:none;background:#e1ebdd;border:1px solid #c7d7c1}
+ .figma-site .story-clear-message span{font-size:8px;line-height:1.5}
+ .figma-site .story-clear-message strong{font-size:10px;line-height:1.5}
+ .figma-site .story-clear-message i,.figma-site .story-clear-message b{display:none}
+ .figma-site .home-story-toggle,.figma-site .home-story-caption{display:none}
+ .figma-site .home-story-link{display:flex;align-items:center;gap:8px;min-height:44px;font-size:11px;margin-top:8px}
+ .figma-site .home-side-notes .previous-experience{grid-column:2;grid-row:1;display:block;align-self:start;margin:0;width:100%;background:none;border-top:1px solid var(--line);border-radius:0;padding:14px 0 0;color:var(--cream);font-size:10px;line-height:1.5}
+ .figma-site .previous-experience>div{margin:0 0 12px;display:block}
+ .figma-site .previous-experience>div>span,.figma-site .previous-experience br{display:none}
+ .figma-site .previous-experience strong{display:block;font-size:10px;line-height:1.5;font-weight:400;margin-bottom:7px}
+ .figma-site .mobile-experience-company{font-size:18px;line-height:1.4;font-weight:700;margin-bottom:5px}
+ .figma-site .previous-experience p{min-height:83px}
+ .figma-site .home-side-notes .previous-experience img{display:block;margin:0;width:100%;height:104px;aspect-ratio:auto;object-fit:cover;border:1px solid var(--line);border-radius:4px}
+ .figma-site .previous-experience:after{content:'Experience ↗';display:flex;align-items:center;min-height:44px;margin-top:8px;font-size:11px;text-decoration:underline;text-decoration-color:var(--sage);text-underline-offset:5px}
+ .figma-site[data-theme=dark] .story-clear-message{background:#354331;border-color:#637a5b;color:#e4e7df}
 }
-@media(max-width:700px) and (max-height:660px){
- .figma-site .portfolio-page--home h1.portfolio-greeting{font-size:34px;margin-bottom:14px}
- .figma-site .portfolio-tags{margin-bottom:16px}
- .figma-site .portfolio-intro{row-gap:18px}
- .figma-site .portfolio-bio{font-size:12px;line-height:1.5}
- .figma-site .portfolio-bio .portfolio-bio-copy p{margin-bottom:10px}
- .figma-site .home-story h2{font-size:13px;margin-bottom:10px}
- .figma-site .home-story-demo{height:104px}
- .figma-site .story-message,.figma-site .story-clear-message{padding:7px 8px;gap:2px}
- .figma-site .story-message--canvas{transform:translate(3px,27px)}
- .figma-site .story-message--calendar{transform:translate(6px,54px)}
- .figma-site .story-clear-message{min-height:92px}
- .figma-site .home-side-notes{gap:16px}
- .figma-site .portfolio-page--home .portfolio-koi{margin-top:-82px}
- .figma-site .home-side-notes .previous-experience img{aspect-ratio:1.8}
- .figma-site .home-side-notes .previous-experience{font-size:9px;padding-top:10px}
+@media(max-width:700px) and (max-height:740px){
+ .figma-site .portfolio-page--home{padding-top:calc(80px + env(safe-area-inset-top));padding-bottom:calc(44px + env(safe-area-inset-bottom))}
+ .home-greeting-layout{min-height:92px;margin-bottom:10px}
+ .figma-site .portfolio-page--home h1.portfolio-greeting{font-size:28px}
+ .mobile-greeting-koi img{height:98px}
+ .figma-site .portfolio-tags{margin-bottom:14px;gap:5px}
+ .figma-site .portfolio-tags li{font-size:8px;padding:4px 5px}
+ .figma-site .portfolio-tags li:first-child{display:none}
+ .figma-site .portfolio-bio .mobile-home-introduction{font-size:13px;line-height:1.6;margin-bottom:8px}
+ .figma-site .portfolio-intro{gap:18px}
+ .figma-site .home-side-notes{gap:18px}
+ .figma-site .home-story,.figma-site .home-side-notes .previous-experience{padding-top:12px}
+ .figma-site .home-story h2,.figma-site .mobile-experience-company{font-size:16px}
+ .figma-site .home-story-subtitle{font-size:9px;min-height:15px}
+ .figma-site .previous-experience p{min-height:64px}
+ .figma-site .home-story-demo,.figma-site .story-clear-message,.figma-site .home-side-notes .previous-experience img{height:84px;min-height:84px}
+ .figma-site .story-clear-message{padding:10px;gap:4px}
 }
-
-@media(max-width:700px) and (max-height:660px){.figma-site .portfolio-bio .portfolio-bio-copy p:nth-child(2){display:none}}
 
 @media(max-width:700px){
  .figma-site.viewport-fixed #experience.work-experience{margin-top:36px}

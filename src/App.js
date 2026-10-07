@@ -73,8 +73,9 @@ function HomeKoi() {
 function HomeStory() {
   const [clear, setClear] = useState(false);
   return <section className="home-story" aria-labelledby="home-story-title">
-    <p className="home-story-label">A little less inbox.</p>
-    <h2 id="home-story-title">What if the important stuff found you?</h2>
+    <p className="home-story-label"><span className="desktop-home-copy">A little less inbox.</span><span className="mobile-home-copy">Selected project</span></p>
+    <h2 id="home-story-title"><span className="desktop-home-copy">What if the important stuff found you?</span><span className="mobile-home-copy">ClassMail</span></h2>
+    <p className="mobile-home-copy home-story-subtitle">Academic inbox concept</p>
     <div className="home-story-demo" data-clear={clear} aria-hidden="true">
       <div className="story-message story-message--email"><span>Email</span><strong>New course message</strong><i>Somewhere in your inbox.</i></div>
       <div className="story-message story-message--canvas"><span>Canvas</span><strong>Assignment due tomorrow</strong><i>One more tab to check.</i></div>
@@ -83,7 +84,7 @@ function HomeStory() {
     </div>
     <button className="home-story-toggle" type="button" aria-pressed={clear} aria-controls="home-story-caption" onClick={() => setClear(value => !value)}>{clear ? 'Replay the before' : 'Find the important stuff'}<span aria-hidden="true">{clear ? '↺' : '→'}</span></button>
     <p id="home-story-caption" className="home-story-caption" aria-live="polite">{clear ? 'A small illustration of the ClassMail concept.' : 'Three places to check. One thing to miss.'}</p>
-    <a className="home-story-link" href="#projects/classmail">Read the design story <span aria-hidden="true">↗</span></a>
+    <a className="home-story-link" aria-label="Read the design story" href="#projects/classmail"><span className="desktop-home-copy">Read the design story</span><span className="mobile-home-copy">Case study</span> <span aria-hidden="true">↗</span></a>
   </section>;
 }
 
@@ -176,13 +177,13 @@ export default function App() {
       </aside>
       <main id="page-content" className={`portfolio-page portfolio-page--${pageClass}${fixedPage ? ' portfolio-page--fixed' : ''}`} ref={heading} tabIndex={-1} key={page}>
         {page === 'home' && <div className="home-scene" ref={homeScene}>
-          <TypingGreeting />
+          <div className="home-greeting-layout"><TypingGreeting /><div className="mobile-greeting-koi" aria-hidden="true"><img className="koi-swimmer" src={koi} alt="" /></div></div>
           <ul className="portfolio-tags" aria-label="My background">{['Product designer', 'Computer science major', 'Digital Arts & Sciences minor'].map(tag => <li key={tag}><span aria-hidden="true">×</span> {tag}</li>)}</ul>
           <div className="portfolio-intro">
-            <div className="home-side-notes"><a className="previous-experience" href="#work"><div><span aria-hidden="true">×</span><p><strong>Previous experience</strong><br />SWE intern at Esri</p></div><img src={esri} alt="Esri headquarters sign" /></a><HomeStory /></div>
+            <div className="home-side-notes"><a className="previous-experience" href="#work"><div><span aria-hidden="true">×</span><p><strong>Previous experience</strong><span className="mobile-home-copy mobile-experience-company">Esri</span><br />SWE intern at Esri</p></div><img src={esri} alt="Esri headquarters sign" /></a><HomeStory /></div>
             <div className="portfolio-bio">
               <p className="home-selected-work"><a href="#projects">View selected work <span aria-hidden="true">→</span></a></p>
-              <div className="portfolio-bio-copy"><p>I’m Lynette Hemingway, a product designer at the University of Florida.</p>
+              <p className="mobile-home-copy mobile-home-introduction">Product designer at the University of Florida. I make complex things feel simple.</p><div className="portfolio-bio-copy"><p>I’m Lynette Hemingway, a product designer at the University of Florida.</p>
               <p>I enjoy creating thoughtful digital experiences that feel intuitive, useful, and visually engaging.</p>
               <p>With a background in computer science and digital arts, I’m especially interested in the space where design and technology overlap.</p>
               <p>Outside of design, I love trying new foods, making them myself, and blogging about whatever turns out well.</p></div>
