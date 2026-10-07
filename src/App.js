@@ -141,6 +141,22 @@ export default function App() {
       }
       const styles = getComputedStyle(main);
       const available = main.clientHeight - parseFloat(styles.paddingTop) - parseFloat(styles.paddingBottom);
+      if (page === 'work' && window.matchMedia('(max-width:700px)').matches) {
+        // Keep the rendered width constant when a short screen needs a smaller scale.
+        let low = 0.1;
+        let high = 1;
+        main.style.setProperty('--page-scale', 1);
+        if (scene.offsetHeight > available) {
+          for (let step = 0; step < 12; step += 1) {
+            const scale = (low + high) / 2;
+            main.style.setProperty('--page-scale', scale);
+            if (scene.offsetHeight * scale <= available) low = scale;
+            else high = scale;
+          }
+          main.style.setProperty('--page-scale', low);
+        }
+        return;
+      }
       main.style.setProperty('--page-scale', Math.min(1, available / Math.max(1, scene.offsetHeight)));
     };
     const observer = new ResizeObserver(fit);

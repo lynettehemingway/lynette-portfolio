@@ -148,3 +148,17 @@
  .figma-site.viewport-fixed .selected-project-grid--index .project-editorial-card{padding:8px 0}
 }
 @media(max-width:700px) and (max-height:650px){.figma-site.viewport-fixed .selected-project-grid--spotlight .project-editorial-image{height:80px}}
+
+@media(max-width:700px){
+ .figma-site .portfolio-page--work{padding-left:16px;padding-right:16px}
+ .figma-site--work .viewport-scene{width:calc(100% / var(--page-scale,1));transform-origin:top left}
+}
+@media(max-width:700px) and (max-height:740px){
+ .figma-site .portfolio-page--work{padding-top:calc(76px + env(safe-area-inset-top));padding-bottom:calc(38px + env(safe-area-inset-bottom))}
+ .figma-site.viewport-fixed #experience.work-experience{margin-top:28px}
+ .figma-site.viewport-fixed .work-timeline{margin-bottom:18px;padding-bottom:12px}
+ .figma-site.viewport-fixed .work-role-panel{gap:16px}
+ .figma-site.viewport-fixed .work-role-contributions{gap:12px}
+ .figma-site.viewport-fixed .work-role-contributions>li{padding-bottom:12px}
+ .figma-site.viewport-fixed .work-role-contributions p{line-height:1.5}
+}
