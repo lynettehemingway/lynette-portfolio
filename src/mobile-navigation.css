@@ -100,3 +100,51 @@
  .figma-site.viewport-fixed .work-role-contributions p{font-size:12px;line-height:1.65}
  .figma-site.viewport-fixed .work-role-contributions>li:last-child{border-bottom:0;padding-bottom:0}
 }
+
+/* Mobile project views share a full-width frame; only their content layout changes. */
+@media(max-width:700px){
+ .figma-site .portfolio-page--projects.portfolio-page--fixed{padding-left:16px;padding-right:16px}
+ .figma-site--projects .viewport-scene{transform:none}
+ .figma-site.viewport-fixed #projects{padding-top:0}
+ .figma-site.viewport-fixed .projects-editorial-header{flex-wrap:nowrap;gap:8px;margin-bottom:12px}
+ .figma-site.viewport-fixed .projects-editorial-title{font-size:26px!important}
+ .figma-site.viewport-fixed .projects-view-controls button{padding:8px 7px;letter-spacing:0;min-height:44px}
+ .figma-site.viewport-fixed .project-motion{margin-bottom:12px!important}
+ .figma-site.viewport-fixed .project-motion-header{padding-bottom:0}
+ .figma-site.viewport-fixed .project-motion-header h2{margin:0}
+ .figma-site.viewport-fixed .project-motion-item{font-size:10px;padding-top:2px;padding-bottom:2px}
+ .figma-site.viewport-fixed .project-motion-tag{padding:3px 6px}
+ .figma-site.viewport-fixed .selected-project-grid--index .project-editorial-card{padding:10px 0}
+ .figma-site.viewport-fixed .selected-project-grid--index .project-editorial-body{gap:4px}
+ .figma-site.viewport-fixed .selected-project-grid--index .project-editorial-actions{gap:0 12px}
+ .figma-site.viewport-fixed .selected-project-grid--index .project-editorial-actions a,.figma-site.viewport-fixed .selected-project-grid--index .project-editorial-actions button{font-size:10px;min-height:44px}
+ .figma-site.viewport-fixed .selected-project-grid--spotlight .project-editorial-card{gap:12px}
+ .figma-site.viewport-fixed .project-spotlight-navigation{margin-bottom:8px}
+ .figma-site.viewport-fixed .project-spotlight-navigation button{min-height:44px}
+}
+@media(max-width:700px) and (max-height:740px){
+ .figma-site .portfolio-page--projects.portfolio-page--fixed{padding-top:calc(76px + env(safe-area-inset-top));padding-bottom:calc(38px + env(safe-area-inset-bottom))}
+ .figma-site.viewport-fixed .projects-editorial-header{margin-bottom:4px}
+ .figma-site.viewport-fixed .project-motion{margin-bottom:8px!important}
+ .figma-site.viewport-fixed .projects-editorial-grid.selected-project-grid{padding-bottom:8px}
+ .figma-site.viewport-fixed .selected-project-grid--plates{gap:10px 14px}
+ .figma-site.viewport-fixed .selected-project-grid--plates .project-editorial-image{height:76px}
+ .figma-site.viewport-fixed .selected-project-grid--plates .project-editorial-body{padding-top:6px}
+ .figma-site.viewport-fixed .selected-project-grid--plates .project-editorial-card:last-child{padding-top:10px}
+ .figma-site.viewport-fixed .selected-project-grid--spotlight .project-editorial-image{height:100px}
+ .figma-site.viewport-fixed .selected-project-grid--spotlight .project-editorial-description{font-size:11px;line-height:1.5;margin-bottom:4px}
+ .figma-site.viewport-fixed .projects-more{padding-top:8px}
+}
+@media(max-width:700px) and (max-height:650px){
+ .figma-site.viewport-fixed .project-motion{position:relative}
+ .figma-site.viewport-fixed .project-motion-header{position:absolute;inset:0 0 auto auto;z-index:1;background:var(--forest)}
+ .figma-site.viewport-fixed .project-motion-header h2{display:none}
+ .figma-site.viewport-fixed .project-motion-header button{min-height:32px;padding:4px 0 4px 8px}
+ .figma-site.viewport-fixed .project-motion-window{padding-right:50px!important}
+ .figma-site.viewport-fixed .selected-project-grid .project-status{display:none}
+ .figma-site.viewport-fixed .selected-project-grid--plates .project-editorial-image{height:60px}
+ .figma-site.viewport-fixed .selected-project-grid--plates .project-editorial-actions{flex-wrap:nowrap;gap:8px}
+ .figma-site.viewport-fixed .selected-project-grid--plates .project-editorial-actions a,.figma-site.viewport-fixed .selected-project-grid--plates .project-editorial-actions button{font-size:9px;white-space:nowrap;gap:2px}
+ .figma-site.viewport-fixed .selected-project-grid--index .project-editorial-card{padding:8px 0}
+}
+@media(max-width:700px) and (max-height:650px){.figma-site.viewport-fixed .selected-project-grid--spotlight .project-editorial-image{height:80px}}

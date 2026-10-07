@@ -135,6 +135,10 @@ export default function App() {
     const main = heading.current;
     if (!scene || !main) return undefined;
     const fit = () => {
+      if (page === 'projects' && window.matchMedia('(max-width:700px)').matches) {
+        main.style.setProperty('--page-scale', 1);
+        return;
+      }
       const styles = getComputedStyle(main);
       const available = main.clientHeight - parseFloat(styles.paddingTop) - parseFloat(styles.paddingBottom);
       main.style.setProperty('--page-scale', Math.min(1, available / Math.max(1, scene.offsetHeight)));
