@@ -81,3 +81,17 @@
 }
 
 @media(max-width:700px) and (max-height:660px){.figma-site .portfolio-bio .portfolio-bio-copy p:nth-child(2){display:none}}
+
+@media(max-width:700px){
+ .figma-site.viewport-fixed #experience.work-experience{margin-top:36px}
+ .figma-site.viewport-fixed .work-timeline-tabs button{gap:12px}
+ .figma-site.viewport-fixed .work-timeline-company{height:36px;min-height:36px}
+ .figma-site.viewport-fixed .work-timeline-thread{top:53px}
+ .figma-site.viewport-fixed .work-timeline{margin-bottom:24px}
+ .figma-site.viewport-fixed .work-role-panel{gap:22px}
+ .figma-site.viewport-fixed .work-role-contributions{gap:16px;min-height:0;align-content:start}
+ .figma-site.viewport-fixed .work-role-contributions>li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;padding-bottom:16px}
+ .figma-site.viewport-fixed .work-role-contributions h4{margin-bottom:6px;font-size:12px;line-height:1.5}
+ .figma-site.viewport-fixed .work-role-contributions p{font-size:12px;line-height:1.65}
+ .figma-site.viewport-fixed .work-role-contributions>li:last-child{border-bottom:0;padding-bottom:0}
+}

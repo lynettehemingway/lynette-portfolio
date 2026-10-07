@@ -72,11 +72,7 @@ const roles = [
 
 export default function Experience() {
     const [activeRole, setActiveRole] = useState(roles.length - 1);
-    const [activeContribution, setActiveContribution] = useState(0);
-    const role = roles[activeRole];
-    const details = role;
     useEffect(() => {
-      setActiveContribution(0);
       const tab = document.getElementById('work-tab-' + activeRole);
       const timeline = tab?.closest('.work-timeline');
       if (timeline && timeline.scrollWidth > timeline.clientWidth) timeline.scrollLeft = Math.max(0, tab.offsetLeft + tab.offsetWidth / 2 - timeline.clientWidth / 2);
@@ -122,15 +118,12 @@ export default function Experience() {
           <ul className="work-role-focus" aria-label="Focus areas">{entry.focus.map(item => <li key={item}>{item}</li>)}</ul>
         </header>
         <ol className="work-role-contributions">
-          {entry.bullets.map((bullet, index) => <li key={bullet} data-active={activeContribution === index}>
+          {entry.bullets.map((bullet, index) => <li key={bullet}>
             <span className="work-contribution-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
             <div><h4>{entry.labels[index]}</h4><p>{bullet}</p></div>
           </li>)}
         </ol>
       </article>;
       })}</div>
-      <div className="work-contribution-controls" role="group" aria-label="Read each contribution">
-        {role.bullets.map((bullet, index) => <button type="button" key={bullet} aria-pressed={activeContribution === index} aria-label={'Contribution ' + (index + 1) + ': ' + details.labels[index]} onClick={() => setActiveContribution(index)}>{String(index + 1).padStart(2, '0')}</button>)}
-      </div>
     </section>;
 }

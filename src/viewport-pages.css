@@ -5,7 +5,7 @@ html.portfolio-home-active #root,html.portfolio-viewport-fixed #root{height:100%
 .figma-site.pond-site.viewport-fixed{height:100svh;min-height:0;overflow:hidden}
 .portfolio-page--fixed{height:100svh;min-height:0;overflow:hidden;padding-bottom:64px}
 .viewport-scene{display:flow-root;transform:scale(var(--page-scale,1));transform-origin:top center}
-.project-spotlight-navigation--plates,.work-contribution-controls{display:none}
+.project-spotlight-navigation--plates{display:none}
 .viewport-fixed #experience.work-experience{margin-bottom:0}
 @media(max-width:700px){
  .portfolio-page--fixed{height:calc(100svh - 70px - env(safe-area-inset-bottom));padding:18px 22px 40px}
@@ -51,14 +51,9 @@ html.portfolio-home-active #root,html.portfolio-viewport-fixed #root{height:100%
  .viewport-fixed .work-role-intro h3{font-size:20px;line-height:1.3;margin-bottom:8px}
  .viewport-fixed .work-role-dates{font-size:10px;margin-bottom:0}
  .viewport-fixed .work-role-contributions{gap:0}
- .viewport-fixed .work-role-contributions>li{display:none;padding-bottom:16px}
- .viewport-fixed .work-role-contributions>li[data-active=true]{display:grid}
+ .viewport-fixed .work-role-contributions>li{display:grid;padding-bottom:16px}
  .viewport-fixed .work-role-contributions h4{font-size:12px}
  .viewport-fixed .work-role-contributions p{font-size:12px;line-height:1.7}
- .work-contribution-controls{display:flex;gap:8px;margin-top:12px;justify-content:flex-end}
- .work-contribution-controls button{min-width:44px;min-height:44px;border:1px solid var(--work-line);background:transparent;color:var(--cream);font-size:11px;cursor:pointer}
- .work-contribution-controls button[aria-pressed=true]{background:var(--work-soft);border-color:var(--work-accent)}
- .work-contribution-controls button:focus-visible{outline:2px solid var(--work-accent);outline-offset:3px}
 }
 .work-role-stack{display:grid}
 .work-role-stack>.work-role-panel{grid-area:1 / 1;visibility:hidden;pointer-events:none}
@@ -67,4 +62,4 @@ html.portfolio-home-active #root,html.portfolio-viewport-fixed #root{height:100%
 .work-role-stack>.work-role-panel:not([data-active=true]) .work-role-contributions>li{animation:none}
 html.portfolio-home-active body,html.portfolio-viewport-fixed body{overflow:clip!important}
 html.portfolio-home-active #root,html.portfolio-viewport-fixed #root,.figma-site.pond-site.viewport-fixed,.portfolio-page--fixed{overflow:clip}
-@media(max-width:700px){.work-role-stack .work-role-contributions{min-height:174px;align-content:start}}
+

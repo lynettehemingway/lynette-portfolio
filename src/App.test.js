@@ -145,8 +145,8 @@ test('work timeline contains EduTrend, TechSol, and Esri with Esri selected at t
   ]);
   expect(document.documentElement).toHaveClass('portfolio-viewport-fixed');
   expect(tabs[2]).toHaveAttribute('aria-selected', 'true');
-  fireEvent.click(screen.getByRole('button', {name: 'Contribution 2: A simpler workflow'}));
-  expect(screen.getByText(/Conceived ColorFinder/).closest('li')).toHaveAttribute('data-active', 'true');
+  expect(screen.getByRole('tabpanel').querySelectorAll('.work-role-contributions>li')).toHaveLength(3);
+  expect(screen.queryByRole('group', {name: 'Read each contribution'})).not.toBeInTheDocument();
   expect(screen.getByRole('tabpanel')).toHaveTextContent('interactive strand-identification tool');
   tabs[2].focus();
   fireEvent.keyDown(tabs[2], {key: 'ArrowLeft'});
