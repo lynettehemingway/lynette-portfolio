@@ -2,18 +2,18 @@ import React, { useEffect, useRef, useState } from "react";
 import "./projects.css";
 import { createPortal } from "react-dom";
 
+
+import carto from "../../assets/carto.jpg";
+import classmail from "../../assets/classmail.png";
+
 import nav from "../../assets/navigator.png";
 import uffsa from "../../assets/uffsa.png";
-import github from "../../assets/mark-github.svg";
-import linkIcon from "../../assets/external-link.png";
 import centsible from "../../assets/centsible.jpg";
-import carto from "../../assets/carto.jpg";
 import ldt from "../../assets/ldt.png";
 import db from "../../assets/db.png";
 import cc from "../../assets/cc.png";
 import uweather from "../../assets/uweather.png";
 import pickle from "../../assets/pickleportal.png";
-import classmail from "../../assets/classmail.png";
 
 const projects = [
     {
@@ -21,93 +21,55 @@ const projects = [
         description: "UF's autonomous maritime system, built with the Machine Intelligence Laboratory.",
         skills: ["UX Research", "Interaction Design", "Figma"],
         image: nav,
-        imagePosition: "center",
-        size: "tall",
-        liveLink: "https://navigatoruf.org/",
+        imagePosition: "center",        liveLink: "https://navigatoruf.org/",
     },
     {
         name: "PicklePortal",
         description: "An IoT-powered court monitor that helps players check availability, queues, and live court status.",
         skills: ["Figma", "TypeScript", "React", "ESP32"],
         image: pickle,
-        imagePosition: "center",
-        size: "medium",
-        githubLink: "https://github.com/RJ-Tabelon/PicklePortal"
+        imagePosition: "center",        githubLink: "https://github.com/RJ-Tabelon/PicklePortal"
     },
     {
         name: "UFFSA",
         description: "A home for the Filipino Student Association's events, programs, and community.",
         skills: ["Visual Design", "Figma", "React"],
         image: uffsa,
-        imagePosition: "top",
-        size: "short",
-        liveLink: "https://uffsa.net/",
+        imagePosition: "top",        liveLink: "https://uffsa.net/",
     },
     {
         name: "Centsible",
         description: "A responsive budgeting platform designed around the financial challenges students face.",
         skills: ["Product Design", "Prototyping", "React Native"],
-        image: centsible,
-        size: "medium",
-        githubLink: "https://github.com/lynettehemingway/centsible"
+        image: centsible,        githubLink: "https://github.com/lynettehemingway/centsible"
     },
     {
         name: "uweather ☁",
         description: "Year-over-year weather comparisons that make long-term climate trends easier to see.",
         skills: ["Data Visualization", "UX Design", "C++"],
-        image: uweather,
-        size: "tall",
-        githubLink: "https://github.com/NivedhaaS/uweather"
+        image: uweather,        githubLink: "https://github.com/NivedhaaS/uweather"
     },
     {
         name: "Deadbeat",
         description: "An original pixel-art horror game where rhythm mechanics build tension and trigger scares.",
         skills: ["Game UX", "Visual Design", "Unity"],
-        image: db,
-        size: "short",
-        githubLink: "https://github.com/TiniToni/winghacks2025"
+        image: db,        githubLink: "https://github.com/TiniToni/winghacks2025"
     },
     {
         name: "CostCompass",
         description: "Real-time cost-of-living context powered by maps, census data, and AI.",
         skills: ["Information Architecture", "Map UX", "Figma"],
-        image: cc,
-        size: "short",
-        githubLink: "https://github.com/CloudRazerz/CostCompass"
+        image: cc,        githubLink: "https://github.com/CloudRazerz/CostCompass"
     },
     {
         name: "Lion Dance Team",
         description: "A website for the UF Lion Dance Team, showcasing their performances, history, and community.",
         skills: ["UI Design", "Prototyping", "JS"],
-        image: ldt,
-        size: "short",
-        liveLink: "https://www.ufldt.com/"
+        image: ldt,        liveLink: "https://www.ufldt.com/"
     }
 ];
 
 const caseStudies = [
-    {
-        name: "ArcGIS Utility Network",
-        hidden: true,
-        eyebrow: "Enterprise software - Flagship case study",
-        description: "Redesigning enterprise software to simplify telecom splice editing while preserving the power and context engineers need.",
-        skills: ["Product Design", "UX Research", "React"],
-        image: null,
-        imagePosition: "center",
-        meta: { role: "Frontend Developer", timeline: "May-August 2026", team: "Utility Networks & Geodatabase Team", tools: "Figma, FigJam, React, TypeScript" },
-        problem: "Telecom engineers needed to edit complex utility-network connections without losing context across a powerful enterprise workflow.",
-        users: "Telecom engineers who edit utility-network connections in ArcGIS.",
-        goals: ["Reduce unnecessary navigation", "Keep editing context visible", "Make common actions easier to discover", "Preserve advanced capabilities"],
-        approach: ["Mapped the existing splice-editing workflow", "Partnered with designers, engineers, and product stakeholders", "Explored flows and interaction patterns in Figma", "Translated approved patterns into production-facing React UI"],
-        decisions: [
-            { title: "Keep work in context", text: "Organized editing controls around the active task so engineers could make changes with fewer disruptive context switches." },
-            { title: "Design for expert users", text: "Favored predictability and information clarity over novelty, while retaining access to advanced functionality." },
-            { title: "Connect design and implementation", text: "Worked across Figma and React to keep interaction intent aligned with technical constraints." }
-        ],
-        outcome: "Delivered high-fidelity workflows and implementation work through cross-functional collaboration. Detailed visuals and measured results will be added when the work can be shared publicly.",
-        reflection: "Enterprise tools taught me that simplifying an experience does not mean removing its power. The strongest solution makes complexity easier to navigate.",
-        status: "Private work - process overview available"
-    },
     {
         name: "ClassMail",
         eyebrow: "Academic communication - MVP concept",
@@ -172,13 +134,58 @@ const caseStudies = [
     }
 ];
 
-const caseStudyOrder = ["CARTograph", "ClassMail", "ArcGIS Utility Network"];
+const caseStudyOrder = ["CARTograph", "ClassMail"];
 const visibleCaseStudies = caseStudies
-    .filter((caseStudy) => !caseStudy.hidden)
     .sort((a, b) => caseStudyOrder.indexOf(a.name) - caseStudyOrder.indexOf(b.name));
 
-const Projects = () => {
-    const [selectedStudy, setSelectedStudy] = useState(null);
+const movingProjects = [
+  ...visibleCaseStudies.map(study => ({name: study.name, description: study.name === 'CARTograph' ? 'grocery shopping, simplified' : 'a little less inbox. a lot more clarity.', tag: study.name === 'CARTograph' ? '2nd place · Esri hackathon' : 'product design'})),
+  ...projects.map(project => ({name: project.name, description: project.description, tag: project.skills[0]}))
+];
+
+const studyHighlights = {
+  CARTograph: {
+    status: 'Functional proof of concept',
+    problem: 'Grocery savings are hard to judge when prices, lists, and driving costs live in separate tools.',
+    contribution: 'I mapped the mobile shopping flow and designed the Figma interface. Teammates developed the engineering, AI, and GIS components.',
+    result: 'Our team built a functional proof of concept and earned second place at the Esri hackathon.',
+    before: 'Build a list → compare retailer prices → plan the trip separately.',
+    after: 'Create a list → compare stores → choose a route with cost and travel in view.',
+    signal: 'Reviewing the shopping workflow showed that lower grocery prices can come with extra travel costs. Team feedback helped prioritize a complete shopping flow.',
+    response: 'I connected list building, price comparison, and route selection in one mobile flow so shoppers could weigh the whole trip.',
+    validation: 'The documented result is a team proof of concept and hackathon award. Production release, live pricing, and shopper usability testing are not established outcomes.'
+  },
+  ClassMail: {
+    status: 'Interactive MVP prototype',
+    problem: 'Students track academic messages and deadlines across email, Canvas, calendars, and other portals.',
+    contribution: 'I helped translate team research and shared student experiences into the academic dashboard and interactive MVP prototype.',
+    result: 'We completed the core-feature design in two weeks. In the concept survey, 87.5% of respondents could see themselves using ClassMail.',
+    before: 'Check email → check Canvas → check calendars → piece together what needs attention.',
+    after: 'Open one dashboard → filter by class, urgency, or deadline → act on the relevant message.',
+    signal: 'In our team survey, 62.5% of respondents used multiple platforms, and 62.5% sometimes or often missed messages or deadlines.',
+    response: 'We proposed a central dashboard with class, urgency, and deadline filters to make the next action easier to identify.',
+    validation: 'These percentages describe the concept survey, not prototype usability results. Student usability testing and integration validation are next steps.'
+  }
+};
+
+const portfolioProjects = [
+  ...visibleCaseStudies.map(study => ({...study, study, destination: study.link || study.figmaLink, action: study.link ? 'Project' : 'Prototype'})),
+  ...projects.map(project => ({...project, destination: project.liveLink || project.githubLink, action: project.liveLink ? 'Live' : 'Source'}))
+];
+
+const selectedProjects = portfolioProjects.filter(project => project.study || project.name === 'PicklePortal');
+const otherProjects = portfolioProjects.filter(project => !selectedProjects.includes(project));
+
+const Projects = ({ theme = 'light', archive = false }) => {
+    const [selectedStudy, setSelectedStudy] = useState(() => window.location.hash === '#projects/classmail' ? caseStudies.find(study => study.name === 'ClassMail') : null);
+    const dismissStudy = React.useCallback(() => {
+      setSelectedStudy(null);
+      if (window.location.hash === '#projects/classmail') window.history.replaceState(null, '', '#projects');
+    }, []);
+    const [motionPaused, setMotionPaused] = useState(false);
+    const [view, setView] = useState('index');
+    const [spotlightIndex, setSpotlightIndex] = useState(0);
+
     const dialogRef = useRef(null);
 
     useEffect(() => {
@@ -190,7 +197,7 @@ const Projects = () => {
         site?.setAttribute('inert', '');
         dialog?.querySelector('button')?.focus();
         const closeOnEscape = (event) => {
-            if (event.key === "Escape") setSelectedStudy(null);
+            if (event.key === "Escape") dismissStudy();
             if (event.key === "Tab" && dialog) {
                 const items = [...dialog.querySelectorAll('button, a[href], iframe')];
                 const first = items[0];
@@ -201,83 +208,89 @@ const Projects = () => {
         };
         document.body.style.overflow = "hidden";
         document.addEventListener("keydown", closeOnEscape);
-        return () => {
+        
+
+    return () => {
             document.body.style.overflow = previousOverflow;
             site?.removeAttribute('inert');
-            trigger?.focus();
+            if (trigger?.isConnected && trigger !== document.body) trigger.focus({preventScroll: true});
+            else document.getElementById('projects-title')?.focus({preventScroll: true});
             document.removeEventListener("keydown", closeOnEscape);
         };
-    }, [selectedStudy]);
+    }, [selectedStudy, dismissStudy]);
+
+    if (archive) return <section id="projects" className="project-journal" aria-labelledby="project-journal-title">
+      <a className="project-journal-back" href="#projects"><span aria-hidden="true">← </span>Selected projects</a>
+      <header className="project-journal-header">
+        <p className="page-eyebrow">the project journal</p>
+        <h1 id="project-journal-title" className="projects-editorial-title">More projects</h1>
+        <p>More things I’ve designed and built, from student communities to maps and games.</p>
+      </header>
+      <div className="project-journal-entries">
+        {otherProjects.map((project, index) => <article className="project-journal-entry" key={project.name}>
+          <div className="project-journal-image"><img src={project.image} alt={`${project.name} project preview`} loading="lazy" style={{objectPosition: project.imagePosition || 'center'}} /></div>
+          <div className="project-journal-copy">
+            <p className="project-journal-number">ENTRY {String(index + 1).padStart(2, '0')} / {project.liveLink ? 'WEBSITE' : 'OPEN SOURCE'}</p>
+            <h2>{project.name}</h2>
+            <p className="project-journal-description">{project.description}</p>
+            <ul className="project-editorial-skills" aria-label={`${project.name} skills`}>{project.skills.map(skill => <li key={skill}>{skill}</li>)}</ul>
+            <div className="project-editorial-actions"><a href={project.destination} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.name} project`}>{project.action} ↗</a></div>
+          </div>
+        </article>)}
+      </div>
+      <a className="project-journal-back" href="#projects"><span aria-hidden="true">← </span>Back to selected projects</a>
+    </section>;
 
     return (
     <section id="projects" aria-labelledby="projects-title">
         <div className="projContent">
-            <header className="work-heading">
-                <h2 id="projects-title" className="section-label">{'// featured work'}</h2>
+            <header className="projects-editorial-header">
+              <h1 id="projects-title" className="projects-editorial-title" tabIndex={-1}>Projects</h1>
+              <div className="projects-view-controls" role="group" aria-label="Project layout">
+                {['index', 'plates', 'spotlight'].map(layout => <button key={layout} type="button" aria-pressed={view === layout} onClick={() => setView(layout)}>{layout[0].toUpperCase() + layout.slice(1)}</button>)}
+              </div>
             </header>
-            <div className="study-grid" aria-label="Featured case studies">
-                {visibleCaseStudies.map((study) => (
-                    <article className="study-card" key={study.name}>
-                        <button className="study-card-button" type="button" onClick={() => setSelectedStudy(study)} aria-label={`Read ${study.name} case study`}>
-                            <div className={`study-card-art ${study.name === 'CARTograph' ? 'study-card-art--cartograph' : ''}`}><img src={study.image} alt={`${study.name} project artwork`} loading="lazy" /></div>
-                            <div className="study-card-copy">
-                                <p className="eyebrow">{study.name === 'CARTograph' ? 'Grocery planning / Hackathon runner-up' : 'Academic communication / MVP concept'}</p>
-                                <h3>{study.name}</h3>
-                                <p>{study.name === 'CARTograph' ? 'A more thoughtful route from grocery list to checkout.' : 'Less inbox overload. More clarity for students.'}</p>
-                                <span className="round-arrow" aria-hidden="true">↗</span>
-                            </div>
-                        </button>
-                    </article>
-                ))}
-            </div>
-            <details className="other-work">
-                <summary>More explorations in design &amp; development</summary>
-            <div className="projects-grid">
-                {projects.map((project) => (
-                    <article className={`project-card project-card--${project.size}`} key={project.name}>
-                        <div className="project-image-wrap">
-                            <img
-                                src={project.image}
-                                alt={`${project.name} project preview`}
-                                className="project-image"
-                                style={{ objectPosition: project.imagePosition || "center" }}
-                                loading="lazy"
-                            />
-                            <div className="project-image-shade" />
-                            {project.featured && <span className="featured-pill">Featured</span>}
-                            <div className="project-actions">
-                                {project.githubLink && (
-                                    <a href={project.githubLink} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.name} on GitHub`}>
-                                        <img src={github} alt="" />
-                                        <span>Code</span>
-                                    </a>
-                                )}
-                                {project.liveLink && (
-                                    <a href={project.liveLink} target="_blank" rel="noopener noreferrer" aria-label={`Visit the ${project.name} website`}>
-                                        <img src={linkIcon} alt="" />
-                                        <span>Visit</span>
-                                    </a>
-                                )}
-                            </div>
-                        </div>
-                        <div className="project-info">
-                            <h3>{project.name}</h3>
-                            <p>{project.description}</p>
-                            <ul className="project-tags" aria-label={`${project.name} technologies`}>
-                                {project.skills.map((skill) => <li key={skill}>{skill}</li>)}
-                            </ul>
-                        </div>
-                    </article>
-                ))}
+            <section className="project-motion" aria-labelledby="project-motion-title">
+              <header className="project-motion-header"><h2 id="project-motion-title">/ selected work, in motion</h2><button type="button" aria-label={motionPaused ? 'Resume project strip' : 'Pause project strip'} aria-pressed={motionPaused} onClick={() => setMotionPaused(value => !value)}>{motionPaused ? 'play →' : 'pause Ⅱ'}</button></header>
+              <div className="project-motion-window">
+                <div className="project-motion-track" data-paused={motionPaused} style={{animationDuration: `${movingProjects.length * 21}s`}}>
+                  {[0, 1].map(copy => <div className="project-motion-group" key={copy} aria-hidden={copy === 1 ? true : undefined}>
+                    {movingProjects.map(project => <div className="project-motion-item" key={project.name}><span className="project-motion-name">{project.name}</span><span className="project-motion-description">{project.description}</span><span className="project-motion-tag">{project.tag}</span></div>)}
+                  </div>)}
+                </div>
+              </div>
+            </section>
+
+            <div className={`projects-editorial-grid selected-project-grid selected-project-grid--${view}`}>
+              {(view === 'spotlight' ? [selectedProjects[spotlightIndex]] : selectedProjects).map(project => <article className="project-editorial-card" data-project-active={project.name === selectedProjects[spotlightIndex].name} key={project.name}>
+                <div className="project-editorial-plate">
+                  <div className="project-editorial-image"><img src={project.image} alt={`${project.name} project preview`} loading="lazy" style={{objectPosition: project.imagePosition || 'center', objectFit: project.imageFit || 'cover'}} /></div>
+                </div>
+                <div className="project-editorial-body">
+                  <h2>{project.name}</h2>
+                  <p className="project-status">{project.study ? studyHighlights[project.name].status : project.name === 'PicklePortal' ? 'IoT project · Source available' : project.liveLink ? 'Website' : 'Source available'}</p>
+                  <p className="project-editorial-description">{project.description}</p>
+                  <ul className="project-editorial-skills" aria-label={`${project.name} skills`}>{project.skills.map(skill => <li key={skill}>{skill}</li>)}</ul>
+                  <div className="project-editorial-actions">
+                    <a href={project.destination} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.name} project`}>{project.action} <span aria-hidden="true">↗</span></a>
+                    {project.study && <button type="button" onClick={() => setSelectedStudy(project.study)} aria-label={`Read ${project.name} case study`}>Case study <span aria-hidden="true">↗</span></button>}
+                  </div>
+                </div>
+              </article>)}
             </div>
 
-            </details>
+            {(view === 'spotlight' || view === 'plates') && <div className={`project-spotlight-navigation project-spotlight-navigation--${view}`} aria-label="Browse spotlight projects">
+              <button type="button" onClick={() => setSpotlightIndex(value => (value + selectedProjects.length - 1) % selectedProjects.length)}>← Previous project</button>
+              <span aria-live="polite">{selectedProjects[spotlightIndex].name}</span>
+              <button type="button" onClick={() => setSpotlightIndex(value => (value + 1) % selectedProjects.length)}>Next project →</button>
+            </div>}
+            <div className="projects-more"><p>Browse through my projects :D</p><a className="projects-more-link" href="#project-journal">View more projects <span aria-hidden="true">↗</span></a></div>
 
             {selectedStudy && createPortal(
-                <div className="pond-site study-portal">
-                <div className="case-study-modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setSelectedStudy(null); }}>
+                <div className="pond-site study-portal" data-theme={theme}>
+                <div className="case-study-modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) dismissStudy(); }}>
                     <section ref={dialogRef} className="case-study-modal" tabIndex={-1} role="dialog" aria-modal="true" aria-labelledby="case-study-modal-title">
-                        <button className="case-study-modal-close" type="button" onClick={() => setSelectedStudy(null)} aria-label="Close case study">×</button>
+                        <button className="case-study-modal-close" type="button" onClick={dismissStudy} aria-label="Close case study">×</button>
 
                         <header className="case-study-modal-hero">
                             {selectedStudy.image ? (
@@ -300,6 +313,16 @@ const Projects = () => {
                                 ))}
                             </dl>
 
+                            <aside className="case-study-snapshot" aria-label="Project at a glance">
+                              <p className="case-study-step">At a glance / {studyHighlights[selectedStudy.name].status}</p>
+                              <dl className="study-highlights">{[['Problem', 'problem'], ['My contribution', 'contribution'], ['Result', 'result']].map(([label, field]) => <div key={field}><dt>{label}</dt><dd>{studyHighlights[selectedStudy.name][field]}</dd></div>)}</dl>
+                            </aside>
+                            <section className="study-evidence" aria-labelledby="study-evidence-title">
+                              <p className="case-study-step">A closer look at the decision</p><h3 id="study-evidence-title">From scattered steps to a clearer flow</h3>
+                              <div className="study-workflow"><article><h4>Existing workflow</h4><p>{studyHighlights[selectedStudy.name].before}</p></article><article><h4>Proposed experience</h4><p>{studyHighlights[selectedStudy.name].after}</p></article></div>
+                              <dl className="study-reasoning"><div><dt>What informed it</dt><dd>{studyHighlights[selectedStudy.name].signal}</dd></div><div><dt>The design response</dt><dd>{studyHighlights[selectedStudy.name].response}</dd></div></dl>
+                              <p className="study-validation"><strong>Validation so far.</strong> {studyHighlights[selectedStudy.name].validation}</p>
+                            </section>
                             <div className="case-study-phase">
                                 <header className="case-study-phase-heading"><span>01</span><p>Context</p></header>
                                 <section className="case-study-story-block"><p className="case-study-step">Overview</p><h3>The idea</h3><p>{selectedStudy.description}</p></section>
@@ -357,7 +380,7 @@ const Projects = () => {
 
                             {(selectedStudy.link || selectedStudy.status) && (
                                 <footer className="case-study-modal-footer">
-                                    {selectedStudy.link ? <a href={selectedStudy.link} target="_blank" rel="noopener noreferrer">View live project <span aria-hidden="true">↗</span></a> : <p>{selectedStudy.status}</p>}
+                                    {selectedStudy.link ? <a href={selectedStudy.link} target="_blank" rel="noopener noreferrer">View project on Devpost <span aria-hidden="true">↗</span></a> : <p>{selectedStudy.status}</p>}
                                 </footer>
                             )}
                         </div>

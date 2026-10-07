@@ -1,0 +1,71 @@
+.study-portal.pond-site[data-theme=light]{--study-surface:#fcfcfc;--study-panel:#eef2e9;--study-text:#242722;--study-muted:#53614f;--study-accent:#42613d;--study-line:#d1d9cc;color-scheme:light}
+.study-portal.pond-site[data-theme=dark]{--study-surface:#1b1e1a;--study-panel:#283124;--study-text:#edf0e9;--study-muted:#c7d0c2;--study-accent:#bdd5b5;--study-line:#46513f;color-scheme:dark}
+.study-portal.pond-site[data-theme] .case-study-modal{--forest:var(--study-panel);--forest-deep:var(--study-surface);--cream:var(--study-text);--ink:var(--study-text);--sage:var(--study-accent);--line:var(--study-line);background:var(--study-surface);color:var(--study-text);width:min(1120px,100%);max-height:calc(100dvh - 48px);border:1px solid var(--study-line);border-radius:12px;font-family:Portfolio Mono,monospace}
+.study-portal.pond-site[data-theme] .case-study-modal-backdrop{padding:24px;background:#11180fb3}
+.study-portal.pond-site[data-theme] .case-study-modal-close{background:var(--study-surface);color:var(--study-text);border:1px solid var(--study-line);width:44px;height:44px;font-size:26px;box-shadow:0 2px 8px #0002;backdrop-filter:none}
+.study-portal.pond-site[data-theme] .case-study-modal-hero{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;min-height:0;background:var(--study-panel);border-bottom:1px solid var(--study-line)}
+.study-portal.pond-site[data-theme] .case-study-modal-hero>img{position:static;order:1;width:100%;height:340px;opacity:1;transform:none;background:var(--study-panel)}
+.study-portal.pond-site[data-theme] .case-study-modal-hero-shade{display:none}
+.study-portal.pond-site[data-theme] .case-study-modal-intro{position:static;order:0;max-width:none;padding:44px 36px}
+.study-portal.pond-site[data-theme] .case-study-modal-intro h2{font-family:Portfolio Mono,monospace;color:var(--study-text);font-weight:700;font-size:clamp(32px,4vw,48px);line-height:1.15;overflow-wrap:anywhere}
+.study-portal.pond-site[data-theme] .case-study-modal-intro>p:first-child{color:var(--study-accent);font-size:12px;line-height:1.6;letter-spacing:.06em;font-weight:700}
+.study-portal.pond-site[data-theme] .case-study-modal-intro>p:last-child{color:var(--study-muted);font-size:18px;line-height:1.7;max-width:55ch}
+.study-portal.pond-site[data-theme] .case-study-modal-body{background:var(--study-surface);color:var(--study-text);padding:0 40px 48px}
+.study-portal.pond-site[data-theme] .case-study-modal-body p,.study-portal.pond-site[data-theme] .case-study-modal-body li,.study-portal.pond-site[data-theme] .case-study-meta dd{color:var(--study-muted);font-size:17px;line-height:1.75}
+.study-portal.pond-site[data-theme] .case-study-modal-body h3,.study-portal.pond-site[data-theme] .case-study-modal-body h4{color:var(--study-text);font-family:Portfolio Mono,monospace;font-weight:700;line-height:1.35}
+.study-portal.pond-site[data-theme] .case-study-story-block h3,.study-portal.pond-site[data-theme] .case-study-ending h3{font-size:26px;margin-bottom:16px}
+.study-portal.pond-site[data-theme] .case-study-meta{border-color:var(--study-line);margin-bottom:32px}
+.study-portal.pond-site[data-theme] .case-study-meta div{border-color:var(--study-line);padding:24px 16px}
+.study-portal.pond-site[data-theme] .case-study-meta dt{color:var(--study-accent);font-size:12px;font-weight:700;line-height:1.5}
+.study-portal.pond-site[data-theme] .case-study-meta dd{font-size:16px;margin-top:8px}
+.study-portal.pond-site[data-theme] .case-study-modal-body .case-study-step{color:var(--study-accent);font-size:12px;line-height:1.6;letter-spacing:.06em;font-weight:700;margin-bottom:12px}
+.study-portal.pond-site[data-theme] .case-study-phase{column-gap:32px;row-gap:24px;margin-bottom:48px}
+.study-portal.pond-site[data-theme] .case-study-phase-heading{border-color:var(--study-line);padding-bottom:16px;margin-bottom:8px}
+.study-portal.pond-site[data-theme] .case-study-phase-heading p{color:var(--study-text);font-size:21px;font-weight:700}
+.study-portal.pond-site[data-theme] .case-study-phase-heading span,.study-portal.pond-site[data-theme] .case-study-process span{color:var(--study-accent);font-size:13px;font-weight:700}
+.study-portal.pond-site[data-theme] .case-study-snapshot,.study-portal.pond-site[data-theme] .case-study-decisions article,.study-portal.pond-site[data-theme] .case-study-goals li,.study-portal.pond-site[data-theme] .case-study-final-design{background:var(--study-panel);color:var(--study-text);border-color:var(--study-line)}
+.study-portal.pond-site[data-theme] .case-study-snapshot{padding:24px 28px;border-radius:8px;margin-bottom:40px}
+.study-portal.pond-site[data-theme] .case-study-snapshot>p:last-child,.study-portal.pond-site[data-theme] .case-study-story-block>p:last-child,.study-portal.pond-site[data-theme] .case-study-ending section>p:last-child{max-width:65ch;color:var(--study-muted);font-size:17px;line-height:1.75}
+.study-portal.pond-site[data-theme] .case-study-goals{gap:16px;margin-top:20px}
+.study-portal.pond-site[data-theme] .case-study-goals li{padding:18px;border-radius:6px}
+.study-portal.pond-site[data-theme] .case-study-process,.study-portal.pond-site[data-theme] .case-study-process li,.study-portal.pond-site[data-theme] .case-study-ending section,.study-portal.pond-site[data-theme] .case-study-modal-footer{border-color:var(--study-line)}
+.study-portal.pond-site[data-theme] .case-study-process li{padding:16px 0;column-gap:12px}
+.study-portal.pond-site[data-theme] .case-study-constraints .case-study-process,.study-portal.pond-site[data-theme] .case-study-next-steps .case-study-goals,.study-portal.pond-site[data-theme] .case-study-information-architecture .case-study-goals,.study-portal.pond-site[data-theme] .case-study-decisions{grid-template-columns:repeat(2,minmax(0,1fr))}
+.study-portal.pond-site[data-theme] .case-study-constraints .case-study-process li{padding:18px;border-color:var(--study-line)}
+.study-portal.pond-site[data-theme] .case-study-decisions article{padding:24px;border-radius:6px}
+.study-portal.pond-site[data-theme] .case-study-decisions h4{font-size:19px;margin-bottom:12px}
+.study-portal.pond-site[data-theme] .case-study-hmw{background:var(--study-panel);border-color:var(--study-accent);border-radius:6px}
+.study-portal.pond-site[data-theme] .case-study-hmw blockquote{color:var(--study-text);font-size:24px;line-height:1.5;max-width:60ch}
+.study-portal.pond-site[data-theme] .case-study-final-design h3{font-size:26px}
+.study-portal.pond-site[data-theme] .case-study-final-design>div>p:not(.case-study-step){color:var(--study-muted);font-size:17px;line-height:1.75}
+.study-portal.pond-site[data-theme] .case-study-final-design a,.study-portal.pond-site[data-theme] .case-study-modal-footer a{color:var(--study-accent);font-size:16px;line-height:1.6;text-decoration:underline;text-underline-offset:4px}
+.study-portal.pond-site[data-theme] a:focus-visible,.study-portal.pond-site[data-theme] button:focus-visible{outline:2px solid var(--study-accent);outline-offset:4px}
+@media(max-width:700px){
+.study-portal.pond-site[data-theme] .case-study-modal-backdrop{padding:0}
+.study-portal.pond-site[data-theme] .case-study-modal{width:100%;height:100dvh;max-height:100dvh;border-radius:0;border:0}
+.study-portal.pond-site[data-theme] .case-study-modal-hero{grid-template-columns:1fr}
+.study-portal.pond-site[data-theme] .case-study-modal-intro{padding:64px 24px 28px}
+.study-portal.pond-site[data-theme] .case-study-modal-intro h2{font-size:36px}
+.study-portal.pond-site[data-theme] .case-study-modal-intro>p:last-child{font-size:17px}
+.study-portal.pond-site[data-theme] .case-study-modal-hero>img{height:220px}
+.study-portal.pond-site[data-theme] .case-study-modal-body{padding:0 24px 36px}
+.study-portal.pond-site[data-theme] .case-study-meta{grid-template-columns:repeat(2,minmax(0,1fr))}
+.study-portal.pond-site[data-theme] .case-study-meta div{padding:20px 8px}
+.study-portal.pond-site[data-theme] .case-study-meta dd{font-size:15px;overflow-wrap:anywhere}
+.study-portal.pond-site[data-theme] .case-study-phase,.study-portal.pond-site[data-theme] .case-study-ending,.study-portal.pond-site[data-theme] .case-study-constraints .case-study-process,.study-portal.pond-site[data-theme] .case-study-next-steps .case-study-goals,.study-portal.pond-site[data-theme] .case-study-information-architecture .case-study-goals,.study-portal.pond-site[data-theme] .case-study-decisions{grid-template-columns:1fr}
+.study-portal.pond-site[data-theme] .case-study-goals{grid-template-columns:1fr}
+.study-portal.pond-site[data-theme] .case-study-story-block h3,.study-portal.pond-site[data-theme] .case-study-ending h3{font-size:24px}
+}
+
+.study-portal.pond-site[data-theme] .study-highlights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:0}
+.study-portal.pond-site[data-theme] .study-highlights dt,.study-portal.pond-site[data-theme] .study-reasoning dt{color:var(--study-text);font-size:15px;font-weight:700;margin-bottom:10px}
+.study-portal.pond-site[data-theme] .study-highlights dd,.study-portal.pond-site[data-theme] .study-reasoning dd{margin:0;color:var(--study-muted);font-size:15px;line-height:1.75}
+.study-portal.pond-site[data-theme] .study-evidence{margin-bottom:48px;border-bottom:1px solid var(--study-line);padding-bottom:32px}
+.study-portal.pond-site[data-theme] .study-evidence>h3{font-size:26px;margin:0 0 24px}
+.study-portal.pond-site[data-theme] .study-workflow,.study-portal.pond-site[data-theme] .study-reasoning{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:0 0 24px}
+.study-portal.pond-site[data-theme] .study-workflow article{padding:24px;background:var(--study-panel);border:1px solid var(--study-line);border-radius:6px}
+.study-portal.pond-site[data-theme] .study-workflow h4{font-size:16px;margin:0 0 12px}
+.study-portal.pond-site[data-theme] .study-workflow p{margin:0;font-size:16px}
+.study-portal.pond-site[data-theme] .study-validation{margin:0;padding-left:18px;border-left:2px solid var(--study-accent);font-size:14px;line-height:1.75}
+.study-portal.pond-site[data-theme] .study-validation strong{color:var(--study-text)}
+@media(max-width:700px){.study-portal.pond-site[data-theme] .study-highlights,.study-portal.pond-site[data-theme] .study-workflow,.study-portal.pond-site[data-theme] .study-reasoning{grid-template-columns:1fr;gap:20px}.study-portal.pond-site[data-theme] .study-evidence>h3{font-size:24px}}

@@ -1,29 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.a1fee287.css",
-    "main.js": "/static/js/main.f5a4450e.js",
-    "static/js/487.0dd9a14b.chunk.js": "/static/js/487.0dd9a14b.chunk.js",
-    "static/js/712.3c862a9c.chunk.js": "/static/js/712.3c862a9c.chunk.js",
+    "main.css": "/static/css/main.b2eb72c7.css",
+    "main.js": "/static/js/main.0a452557.js",
     "static/media/uffsa.png": "/static/media/uffsa.e6da3bf2ddf68e6f1cb1.png",
     "static/media/carto.jpg": "/static/media/carto.948fc461db309430b4a0.jpg",
     "static/media/navigator.png": "/static/media/navigator.073f4ed56f42ef665305.png",
-    "static/media/koi-cutout.png": "/static/media/koi-cutout.63bacbbbe0c1efe36b0a.png",
+    "static/media/koilh-transparent.png": "/static/media/koilh-transparent.15ea8e991386c9d16fe4.png",
     "static/media/cc.png": "/static/media/cc.58e65cabd67dda627c1d.png",
     "static/media/ldt.png": "/static/media/ldt.e1f06ca2e8dac5581895.png",
     "static/media/db.png": "/static/media/db.76f2242cdc1c403c31c0.png",
+    "static/media/esri.png": "/static/media/esri.0660cf75ec11b37264b4.png",
+    "static/media/JetBrainsMono-Bold.ttf": "/static/media/JetBrainsMono-Bold.c02a933160186a7f38ea.ttf",
+    "static/media/JetBrainsMono-Regular.ttf": "/static/media/JetBrainsMono-Regular.18bf079ce726b7b766fc.ttf",
     "static/media/uweather.png": "/static/media/uweather.e18b9ce563f4e0c3b44f.png",
     "static/media/pickleportal.png": "/static/media/pickleportal.a18a94427ac805a012a1.png",
     "static/media/classmail.png": "/static/media/classmail.36e88e88264bb2edba29.png",
     "static/media/centsible.jpg": "/static/media/centsible.821cdbd750a489adbe55.jpg",
+    "static/media/mascot 1 (1).png": "/static/media/mascot 1 (1).1a4e6836a9a6e83cc514.png",
     "index.html": "/index.html",
-    "static/media/mark-github.svg": "/static/media/mark-github.06cbf6003f0503529f8552f9aa0e6491.svg",
-    "main.a1fee287.css.map": "/static/css/main.a1fee287.css.map",
-    "main.f5a4450e.js.map": "/static/js/main.f5a4450e.js.map",
-    "487.0dd9a14b.chunk.js.map": "/static/js/487.0dd9a14b.chunk.js.map",
-    "712.3c862a9c.chunk.js.map": "/static/js/712.3c862a9c.chunk.js.map"
+    "main.b2eb72c7.css.map": "/static/css/main.b2eb72c7.css.map",
+    "main.0a452557.js.map": "/static/js/main.0a452557.js.map"
   },
   "entrypoints": [
-    "static/css/main.a1fee287.css",
-    "static/js/main.f5a4450e.js"
+    "static/css/main.b2eb72c7.css",
+    "static/js/main.0a452557.js"
   ]
 }
