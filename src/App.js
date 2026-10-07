@@ -16,6 +16,7 @@ import './case-study-design.css';
 import './projects-editorial.css';
 import './work-design.css';
 import './viewport-pages.css';
+import './mobile-navigation.css';
 
 const pages = ['home', 'projects', 'work', 'contact'];
 const readPage = () => { const value = window.location.hash.slice(1).split('/')[0]; return [...pages, 'project-journal'].includes(value) ? value : 'home'; };
@@ -88,6 +89,8 @@ function HomeStory() {
 
 export default function App() {
   const [page, setPage] = useState(readPage);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuButton = useRef(null);
   const [theme, setTheme] = useState(() => { try { return localStorage.getItem('portfolio-theme') === 'dark' ? 'dark' : 'light'; } catch { return 'light'; } });
   useEffect(() => {
     document.documentElement.dataset.portfolioTheme = theme;
@@ -143,16 +146,33 @@ export default function App() {
     fit();
     return () => {observer.disconnect(); window.removeEventListener('resize', fit);};
   }, [page]);
+  useEffect(() => { setMenuOpen(false); }, [page]);
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+    const media = window.matchMedia('(max-width:700px)');
+    const close = event => {
+      if (event.key === 'Escape') {setMenuOpen(false); menuButton.current?.focus({preventScroll: true});}
+    };
+    const resize = () => {if (!media.matches) setMenuOpen(false);};
+    const main = heading.current;
+    const previousOverflow = document.body.style.overflow;
+    if (media.matches) {main?.setAttribute('inert', ''); document.body.style.overflow = 'hidden';}
+    document.addEventListener('keydown', close);
+    media.addEventListener?.('change', resize);
+    return () => {main?.removeAttribute('inert'); document.body.style.overflow = previousOverflow; document.removeEventListener('keydown', close); media.removeEventListener?.('change', resize);};
+  }, [menuOpen]);
   const icons = [home, projectsIcon, work, contact];
   const fixedPage = ['projects', 'work'].includes(page);
   const pageClass = page === 'project-journal' ? 'projects' : page;
   return <>
     <div className={`pond-site figma-site figma-site--${pageClass}${fixedPage ? ' viewport-fixed' : ''}`} data-theme={theme} data-page={page}>
       <a href="#page-content" className="skip-link" onClick={event => { event.preventDefault(); heading.current?.focus(); }}>Skip to content</a>
-      <aside className="portfolio-sidebar">
+      <aside className="portfolio-sidebar" data-mobile-open={menuOpen}>
         <a className="portfolio-mascot" href="#home" aria-label="Lynette home"><img src={mascot} alt="" /></a>
-        <nav aria-label="Main navigation">{pages.map((item, index) => <a key={item} href={`#${item}`} aria-label={item[0].toUpperCase() + item.slice(1)} aria-current={(page === item || (page === 'project-journal' && item === 'projects')) ? 'page' : undefined}><img src={icons[index]} alt="" /><span>[{item}]</span></a>)}</nav>
-        <button className="portfolio-theme-toggle" type="button" aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'} aria-pressed={theme === 'dark'} onClick={() => setTheme(value => value === 'light' ? 'dark' : 'light')}><span aria-hidden="true">{theme === 'light' ? '◐' : '◑'}</span><span>{theme === 'light' ? 'dark' : 'light'}</span></button>
+        <button className="mobile-menu-toggle" ref={menuButton} type="button" aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={menuOpen} aria-controls="portfolio-navigation" onClick={() => setMenuOpen(value => !value)}><span /><span /><span /></button>
+        {menuOpen && <button className="mobile-menu-backdrop" type="button" tabIndex={-1} aria-label="Close navigation backdrop" onClick={() => {setMenuOpen(false);menuButton.current?.focus({preventScroll: true});}} />}
+        <div className="portfolio-navigation" id="portfolio-navigation"><nav aria-label="Main navigation">{pages.map((item, index) => <a key={item} onClick={() => {if(menuOpen){setMenuOpen(false);requestAnimationFrame(() => heading.current?.focus({preventScroll: true}));}}} href={`#${item}`} aria-label={item[0].toUpperCase() + item.slice(1)} aria-current={(page === item || (page === 'project-journal' && item === 'projects')) ? 'page' : undefined}><img src={icons[index]} alt="" /><span>[{item}]</span></a>)}</nav>
+        <button className="portfolio-theme-toggle" type="button" aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'} aria-pressed={theme === 'dark'} onClick={() => setTheme(value => value === 'light' ? 'dark' : 'light')}><span aria-hidden="true">{theme === 'light' ? '◐' : '◑'}</span><span>{theme === 'light' ? 'dark' : 'light'}</span></button></div>
       </aside>
       <main id="page-content" className={`portfolio-page portfolio-page--${pageClass}${fixedPage ? ' portfolio-page--fixed' : ''}`} ref={heading} tabIndex={-1} key={page}>
         {page === 'home' && <div className="home-scene" ref={homeScene}>

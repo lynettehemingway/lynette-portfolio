@@ -92,7 +92,7 @@ test('navigation links lead to separate pages', () => {
 test('contact displays a usable form immediately without a dialog', () => {
   window.location.hash = '#contact';
   const {container} = render(<App />);
-  expect(screen.getByRole('heading', {level:1, name:'contact me!'})).toBeInTheDocument();
+  expect(screen.getByRole('heading', {level:1, name:/contact me!/i})).toBeInTheDocument();
   expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   expect(container.querySelector('.pond-site')).not.toHaveAttribute('inert');
   const form = screen.getByRole('form', {name:'Send Lynette a message'});
@@ -217,4 +217,19 @@ test('homepage illustration can replay and opens the ClassMail story directly', 
   expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   expect(window.location.hash).toBe('#projects');
   expect(screen.getByRole('heading', {name: 'Projects', exact: true})).toHaveFocus();
+});
+
+test('mobile navigation hides the page while open and Escape returns focus', () => {
+  window.matchMedia.mockReturnValue({matches:true});
+  const {container}=render(<App />);
+  const open=screen.getByRole('button',{name:'Open navigation',exact:true});
+  fireEvent.click(open);
+  expect(screen.getByRole('button',{name:'Close navigation',exact:true})).toHaveAttribute('aria-expanded','true');
+  expect(container.querySelector('main')).toHaveAttribute('inert');
+  fireEvent.keyDown(document,{key:'Escape'});
+  expect(screen.getByRole('button',{name:'Open navigation',exact:true})).toHaveFocus();
+  expect(container.querySelector('main')).not.toHaveAttribute('inert');
+  fireEvent.click(open);
+  fireEvent.click(screen.getByRole('link',{name:'Work',exact:true}));
+  expect(open).toHaveAttribute('aria-expanded','false');
 });

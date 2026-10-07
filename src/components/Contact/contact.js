@@ -64,7 +64,7 @@ export default function Contact() {
   return <section className="contact-page" aria-labelledby="contact-title">
     <header className="contact-page-intro">
       <p className="page-eyebrow">say hello</p>
-      <h1 id="contact-title">contact me!</h1>
+      <h1 id="contact-title">Contact me!</h1>
       <p className="contact-page-description contact-invitation">I’d love to hear from you!</p>
       <MessageExamples onUse={useExample} />
       <a className="contact-direct-email" href="mailto:lynette.hemingway@gmail.com">lynette.hemingway@gmail.com ↗</a>
