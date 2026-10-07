@@ -22,6 +22,8 @@ test('selected projects show three previews and adjacent case-study links', () =
   expect(container.querySelector('.selected-project-grid')).toHaveClass('selected-project-grid--index');
   fireEvent.click(screen.getByRole('button', {name: 'Plates', exact: true}));
   expect(container.querySelector('.selected-project-grid')).toHaveClass('selected-project-grid--plates');
+  expect(container.querySelectorAll('.project-editorial-card')).toHaveLength(3);
+  expect(screen.queryByRole('button', {name: /Next project/})).not.toBeInTheDocument();
   fireEvent.click(screen.getByRole('button', {name: 'Spotlight', exact: true}));
   expect(screen.getByRole('button', {name: 'Spotlight', exact: true})).toHaveAttribute('aria-pressed', 'true');
   expect(container.querySelectorAll('.project-editorial-card')).toHaveLength(1);

@@ -5,7 +5,6 @@ html.portfolio-home-active #root,html.portfolio-viewport-fixed #root{height:100%
 .figma-site.pond-site.viewport-fixed{height:100svh;min-height:0;overflow:hidden}
 .portfolio-page--fixed{height:100svh;min-height:0;overflow:hidden;padding-bottom:64px}
 .viewport-scene{display:flow-root;transform:scale(var(--page-scale,1));transform-origin:top center}
-.project-spotlight-navigation--plates{display:none}
 .viewport-fixed #experience.work-experience{margin-bottom:0}
 @media(max-width:700px){
  .portfolio-page--fixed{height:calc(100svh - 70px - env(safe-area-inset-bottom));padding:18px 22px 40px}
@@ -22,13 +21,22 @@ html.portfolio-home-active #root,html.portfolio-viewport-fixed #root{height:100%
  .viewport-fixed .selected-project-grid--index .project-editorial-description{display:none}
  .viewport-fixed .selected-project-grid--index .project-editorial-actions a,.viewport-fixed .selected-project-grid--index .project-editorial-actions button{min-height:36px}
  .viewport-fixed .projects-editorial-grid.selected-project-grid{padding-bottom:16px}
- .viewport-fixed .selected-project-grid--plates .project-editorial-card{display:none}
- .viewport-fixed .selected-project-grid--plates .project-editorial-card[data-project-active=true]{display:flex}
- .viewport-fixed .selected-project-grid--plates .project-editorial-image,.viewport-fixed .selected-project-grid--spotlight .project-editorial-image{height:clamp(100px,20svh,170px)}
- .viewport-fixed .selected-project-grid--plates .project-editorial-body h2,.viewport-fixed .selected-project-grid--spotlight .project-editorial-body h2{font-size:22px}
+ .figma-site.viewport-fixed .projects-editorial-grid.selected-project-grid--plates{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 16px}
+ .viewport-fixed .selected-project-grid--plates .project-editorial-card{display:flex;min-width:0}
+ .viewport-fixed .selected-project-grid--plates .project-editorial-image{height:clamp(84px,14svh,120px)}
+ .viewport-fixed .selected-project-grid--plates .project-editorial-body{padding-top:10px}
+ .figma-site.viewport-fixed .selected-project-grid--plates .project-editorial-body h2{font-size:17px;margin-bottom:5px}
+ .figma-site.viewport-fixed .selected-project-grid--plates .project-editorial-description{display:none}
+ .viewport-fixed .selected-project-grid--plates .project-status{min-height:30px}
+ .viewport-fixed .selected-project-grid--plates .project-editorial-actions{gap:0 12px;align-items:flex-start}
+ .figma-site.viewport-fixed .selected-project-grid--plates .project-editorial-actions a,.figma-site.viewport-fixed .selected-project-grid--plates .project-editorial-actions button{font-size:10px;min-height:44px;display:inline-flex;align-items:center;gap:4px}
+ .viewport-fixed .selected-project-grid--plates .project-editorial-card:last-child{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:16px;align-items:center;border-top:1px solid var(--project-border);padding-top:16px}
+ .viewport-fixed .selected-project-grid--plates .project-editorial-card:last-child .project-editorial-body{padding-top:0}
+ .viewport-fixed .selected-project-grid--plates .project-editorial-card:last-child .project-status{min-height:0}
+ .viewport-fixed .selected-project-grid--spotlight .project-editorial-image{height:clamp(100px,20svh,170px)}
+ .viewport-fixed .selected-project-grid--spotlight .project-editorial-body h2{font-size:22px}
  .viewport-fixed .selected-project-grid--plates .project-editorial-kind,.viewport-fixed .selected-project-grid--spotlight .project-editorial-kind,.viewport-fixed .selected-project-grid--plates .project-editorial-skills,.viewport-fixed .selected-project-grid--spotlight .project-editorial-skills{display:none}
  .viewport-fixed .selected-project-grid .project-editorial-description{font-size:12px;line-height:1.6;margin-bottom:10px}
- .project-spotlight-navigation--plates{display:flex}
  .viewport-fixed .project-spotlight-navigation{margin-bottom:12px}
  .viewport-fixed .project-spotlight-navigation button{min-height:36px}
  .viewport-fixed .projects-more{padding-top:12px;margin-bottom:0;gap:8px}

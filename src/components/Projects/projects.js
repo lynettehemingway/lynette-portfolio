@@ -262,7 +262,7 @@ const Projects = ({ theme = 'light', archive = false }) => {
             </section>
 
             <div className={`projects-editorial-grid selected-project-grid selected-project-grid--${view}`}>
-              {(view === 'spotlight' ? [selectedProjects[spotlightIndex]] : selectedProjects).map(project => <article className="project-editorial-card" data-project-active={project.name === selectedProjects[spotlightIndex].name} key={project.name}>
+              {(view === 'spotlight' ? [selectedProjects[spotlightIndex]] : selectedProjects).map(project => <article className="project-editorial-card" key={project.name}>
                 <div className="project-editorial-plate">
                   <div className="project-editorial-image"><img src={project.image} alt={`${project.name} project preview`} loading="lazy" style={{objectPosition: project.imagePosition || 'center', objectFit: project.imageFit || 'cover'}} /></div>
                 </div>
@@ -279,7 +279,7 @@ const Projects = ({ theme = 'light', archive = false }) => {
               </article>)}
             </div>
 
-            {(view === 'spotlight' || view === 'plates') && <div className={`project-spotlight-navigation project-spotlight-navigation--${view}`} aria-label="Browse spotlight projects">
+            {view === 'spotlight' && <div className={`project-spotlight-navigation project-spotlight-navigation--${view}`} aria-label="Browse spotlight projects">
               <button type="button" onClick={() => setSpotlightIndex(value => (value + selectedProjects.length - 1) % selectedProjects.length)}>← Previous project</button>
               <span aria-live="polite">{selectedProjects[spotlightIndex].name}</span>
               <button type="button" onClick={() => setSpotlightIndex(value => (value + 1) % selectedProjects.length)}>Next project →</button>
