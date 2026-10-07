@@ -193,7 +193,7 @@ export default function App() {
         </div>}
         {page === 'projects' && <div className="viewport-scene" ref={pageScene}><Projects theme={theme} /></div>}
         {page === 'project-journal' && <Projects theme={theme} archive />}
-        {page === 'work' && <div className="viewport-scene" ref={pageScene}><header className="work-page-heading"><h1>My work.</h1><p>Experience / 2025–2026</p></header><Experience /></div>}
+        {page === 'work' && <div className="viewport-scene" ref={pageScene}><header className="work-page-heading"><h1>My work.</h1><p>2025–2026</p></header><Experience /></div>}
         {page === 'contact' && <Contact />}
       </main>
       <footer className="portfolio-copyright">© 2026 LYNETTE</footer>
