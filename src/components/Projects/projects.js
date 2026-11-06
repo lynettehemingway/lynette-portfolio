@@ -21,51 +21,59 @@ const projects = [
         description: "UF's autonomous maritime system, built with the Machine Intelligence Laboratory.",
         skills: ["UX Research", "Interaction Design", "Figma"],
         image: nav,
-        imagePosition: "center",        liveLink: "https://navigatoruf.org/",
+        imagePosition: "center",
+        liveLink: "https://navigatoruf.org/",
     },
     {
         name: "PicklePortal",
         description: "An IoT-powered court monitor that helps players check availability, queues, and live court status.",
         skills: ["Figma", "TypeScript", "React", "ESP32"],
         image: pickle,
-        imagePosition: "center",        githubLink: "https://github.com/RJ-Tabelon/PicklePortal"
+        imagePosition: "center",
+        githubLink: "https://github.com/RJ-Tabelon/PicklePortal"
     },
     {
         name: "UFFSA",
         description: "A home for the Filipino Student Association's events, programs, and community.",
         skills: ["Visual Design", "Figma", "React"],
         image: uffsa,
-        imagePosition: "top",        liveLink: "https://uffsa.net/",
+        imagePosition: "top",
+        liveLink: "https://uffsa.net/",
     },
     {
         name: "Centsible",
         description: "A responsive budgeting platform designed around the financial challenges students face.",
         skills: ["Product Design", "Prototyping", "React Native"],
-        image: centsible,        githubLink: "https://github.com/lynettehemingway/centsible"
+        image: centsible,
+        githubLink: "https://github.com/lynettehemingway/centsible"
     },
     {
         name: "uweather ☁",
         description: "Year-over-year weather comparisons that make long-term climate trends easier to see.",
         skills: ["Data Visualization", "UX Design", "C++"],
-        image: uweather,        githubLink: "https://github.com/NivedhaaS/uweather"
+        image: uweather,
+        githubLink: "https://github.com/NivedhaaS/uweather"
     },
     {
         name: "Deadbeat",
         description: "An original pixel-art horror game where rhythm mechanics build tension and trigger scares.",
         skills: ["Game UX", "Visual Design", "Unity"],
-        image: db,        githubLink: "https://github.com/TiniToni/winghacks2025"
+        image: db,
+        githubLink: "https://github.com/TiniToni/winghacks2025"
     },
     {
         name: "CostCompass",
         description: "Real-time cost-of-living context powered by maps, census data, and AI.",
         skills: ["Information Architecture", "Map UX", "Figma"],
-        image: cc,        githubLink: "https://github.com/CloudRazerz/CostCompass"
+        image: cc,
+        githubLink: "https://github.com/CloudRazerz/CostCompass"
     },
     {
         name: "Lion Dance Team",
         description: "A website for the UF Lion Dance Team, showcasing their performances, history, and community.",
         skills: ["UI Design", "Prototyping", "JS"],
-        image: ldt,        liveLink: "https://www.ufldt.com/"
+        image: ldt,
+        liveLink: "https://www.ufldt.com/"
     }
 ];
 
@@ -138,11 +146,6 @@ const caseStudyOrder = ["CARTograph", "ClassMail"];
 const visibleCaseStudies = caseStudies
     .sort((a, b) => caseStudyOrder.indexOf(a.name) - caseStudyOrder.indexOf(b.name));
 
-const movingProjects = [
-  ...visibleCaseStudies.map(study => ({name: study.name, description: study.name === 'CARTograph' ? 'grocery shopping, simplified' : 'a little less inbox. a lot more clarity.', tag: study.name === 'CARTograph' ? '2nd place · Esri hackathon' : 'product design'})),
-  ...projects.map(project => ({name: project.name, description: project.description, tag: project.skills[0]}))
-];
-
 const studyHighlights = {
   CARTograph: {
     status: 'Functional proof of concept',
@@ -173,31 +176,31 @@ const portfolioProjects = [
   ...projects.map(project => ({...project, destination: project.liveLink || project.githubLink, action: project.liveLink ? 'Live' : 'Source'}))
 ];
 
-const selectedProjects = portfolioProjects.filter(project => project.study || project.name === 'PicklePortal');
-const otherProjects = portfolioProjects.filter(project => !selectedProjects.includes(project));
 
-const Projects = ({ theme = 'light', archive = false }) => {
+
+const Projects = ({ theme = 'dark' }) => {
     const [selectedStudy, setSelectedStudy] = useState(() => window.location.hash === '#projects/classmail' ? caseStudies.find(study => study.name === 'ClassMail') : null);
     const dismissStudy = React.useCallback(() => {
       setSelectedStudy(null);
       if (window.location.hash === '#projects/classmail') window.history.replaceState(null, '', '#projects');
     }, []);
     const [motionPaused, setMotionPaused] = useState(false);
-    const [view, setView] = useState('index');
-    const [spotlightIndex, setSpotlightIndex] = useState(0);
+    const [expanded, setExpanded] = useState(null);
+    const closeExpanded = React.useCallback(() => setExpanded(null), []);
+    const modalOpen = Boolean(selectedStudy || expanded);
 
     const dialogRef = useRef(null);
 
     useEffect(() => {
-        if (!selectedStudy) return undefined;
+        if (!modalOpen) return undefined;
         const previousOverflow = document.body.style.overflow;
         const trigger = document.activeElement;
         const dialog = dialogRef.current;
-        const site = document.querySelector('.pond-site');
+        const site = document.querySelector('.pixel-universe');
         site?.setAttribute('inert', '');
         dialog?.querySelector('button')?.focus();
         const closeOnEscape = (event) => {
-            if (event.key === "Escape") dismissStudy();
+            if (event.key === "Escape") { dismissStudy(); closeExpanded(); }
             if (event.key === "Tab" && dialog) {
                 const items = [...dialog.querySelectorAll('button, a[href], iframe')];
                 const first = items[0];
@@ -208,7 +211,7 @@ const Projects = ({ theme = 'light', archive = false }) => {
         };
         document.body.style.overflow = "hidden";
         document.addEventListener("keydown", closeOnEscape);
-        
+
 
     return () => {
             document.body.style.overflow = previousOverflow;
@@ -217,75 +220,18 @@ const Projects = ({ theme = 'light', archive = false }) => {
             else document.getElementById('projects-title')?.focus({preventScroll: true});
             document.removeEventListener("keydown", closeOnEscape);
         };
-    }, [selectedStudy, dismissStudy]);
-
-    if (archive) return <section id="projects" className="project-journal" aria-labelledby="project-journal-title">
-      <a className="project-journal-back" href="#projects"><span aria-hidden="true">← </span>Selected projects</a>
-      <header className="project-journal-header">
-        <p className="page-eyebrow">the project journal</p>
-        <h1 id="project-journal-title" className="projects-editorial-title">More projects</h1>
-        <p>More things I’ve designed and built, from student communities to maps and games.</p>
-      </header>
-      <div className="project-journal-entries">
-        {otherProjects.map((project, index) => <article className="project-journal-entry" key={project.name}>
-          <div className="project-journal-image"><img src={project.image} alt={`${project.name} project preview`} loading="lazy" style={{objectPosition: project.imagePosition || 'center'}} /></div>
-          <div className="project-journal-copy">
-            <p className="project-journal-number">ENTRY {String(index + 1).padStart(2, '0')} / {project.liveLink ? 'WEBSITE' : 'OPEN SOURCE'}</p>
-            <h2>{project.name}</h2>
-            <p className="project-journal-description">{project.description}</p>
-            <ul className="project-editorial-skills" aria-label={`${project.name} skills`}>{project.skills.map(skill => <li key={skill}>{skill}</li>)}</ul>
-            <div className="project-editorial-actions"><a href={project.destination} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.name} project`}>{project.action} ↗</a></div>
-          </div>
-        </article>)}
-      </div>
-      <a className="project-journal-back" href="#projects"><span aria-hidden="true">← </span>Back to selected projects</a>
-    </section>;
+    }, [modalOpen, selectedStudy, expanded, dismissStudy, closeExpanded]);
 
     return (
-    <section id="projects" aria-labelledby="projects-title">
-        <div className="projContent">
-            <header className="projects-editorial-header">
-              <h1 id="projects-title" className="projects-editorial-title" tabIndex={-1}>Projects</h1>
-              <div className="projects-view-controls" role="group" aria-label="Project layout">
-                {['index', 'plates', 'spotlight'].map(layout => <button key={layout} type="button" aria-pressed={view === layout} onClick={() => setView(layout)}>{layout[0].toUpperCase() + layout.slice(1)}</button>)}
-              </div>
-            </header>
-            <section className="project-motion" aria-labelledby="project-motion-title">
-              <header className="project-motion-header"><h2 id="project-motion-title">/ selected work, in motion</h2><button type="button" aria-label={motionPaused ? 'Resume project strip' : 'Pause project strip'} aria-pressed={motionPaused} onClick={() => setMotionPaused(value => !value)}>{motionPaused ? 'play →' : 'pause Ⅱ'}</button></header>
-              <div className="project-motion-window">
-                <div className="project-motion-track" data-paused={motionPaused} style={{animationDuration: `${movingProjects.length * 21}s`}}>
-                  {[0, 1].map(copy => <div className="project-motion-group" key={copy} aria-hidden={copy === 1 ? true : undefined}>
-                    {movingProjects.map(project => <div className="project-motion-item" key={project.name}><span className="project-motion-name">{project.name}</span><span className="project-motion-description">{project.description}</span><span className="project-motion-tag">{project.tag}</span></div>)}
-                  </div>)}
-                </div>
-              </div>
-            </section>
-
-            <div className={`projects-editorial-grid selected-project-grid selected-project-grid--${view}`}>
-              {(view === 'spotlight' ? [selectedProjects[spotlightIndex]] : selectedProjects).map(project => <article className="project-editorial-card" key={project.name}>
-                <div className="project-editorial-plate">
-                  <div className="project-editorial-image"><img src={project.image} alt={`${project.name} project preview`} loading="lazy" style={{objectPosition: project.imagePosition || 'center', objectFit: project.imageFit || 'cover'}} /></div>
-                </div>
-                <div className="project-editorial-body">
-                  <h2>{project.name}</h2>
-                  <p className="project-status">{project.study ? studyHighlights[project.name].status : project.name === 'PicklePortal' ? 'IoT project · Source available' : project.liveLink ? 'Website' : 'Source available'}</p>
-                  <p className="project-editorial-description">{project.description}</p>
-                  <ul className="project-editorial-skills" aria-label={`${project.name} skills`}>{project.skills.map(skill => <li key={skill}>{skill}</li>)}</ul>
-                  <div className="project-editorial-actions">
-                    <a href={project.destination} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.name} project`}>{project.action} <span aria-hidden="true">↗</span></a>
-                    {project.study && <button type="button" onClick={() => setSelectedStudy(project.study)} aria-label={`Read ${project.name} case study`}>Case study <span aria-hidden="true">↗</span></button>}
-                  </div>
-                </div>
-              </article>)}
-            </div>
-
-            {view === 'spotlight' && <div className={`project-spotlight-navigation project-spotlight-navigation--${view}`} aria-label="Browse spotlight projects">
-              <button type="button" onClick={() => setSpotlightIndex(value => (value + selectedProjects.length - 1) % selectedProjects.length)}>← Previous project</button>
-              <span aria-live="polite">{selectedProjects[spotlightIndex].name}</span>
-              <button type="button" onClick={() => setSpotlightIndex(value => (value + 1) % selectedProjects.length)}>Next project →</button>
-            </div>}
-            <div className="projects-more"><p>Browse through my projects :D</p><a className="projects-more-link" href="#project-journal">View more projects <span aria-hidden="true">↗</span></a></div>
-
+    <section id="projects" className="project-studio" aria-labelledby="projects-title">
+      <div className="projContent">
+        <header className="studio-heading"><div><p className="studio-kicker">DESIGN + DEVELOPMENT</p><h1 id="projects-title" tabIndex={-1}>Selected projects<span>.</span></h1><p>Thoughtful products and the stories behind them.</p></div><span className="project-count">{portfolioProjects.length} projects</span></header>
+        <section className="project-reel" aria-labelledby="project-motion-title">
+          <header><h2 id="project-motion-title">A few things I've made</h2><button type="button" aria-label={motionPaused?'Resume project strip':'Pause project strip'} aria-pressed={motionPaused} onClick={()=>setMotionPaused(v=>!v)}>{motionPaused?'Play':'Pause'}</button></header>
+          <div className="project-reel-viewport"><div className="project-reel-track" data-paused={motionPaused}>{[0,1].map(copy=><div className="project-reel-group" key={copy} aria-hidden={copy===1?true:undefined}>{portfolioProjects.map(project=><div className="reel-project" key={project.name}><img src={project.image} alt="" loading="lazy"/><span>{project.name}</span></div>)}</div>)}</div></div>
+        </section>
+        <div className="studio-projects">{portfolioProjects.map(project=><article className="studio-card" key={project.name}><button type="button" className="project-open" aria-label={'View '+project.name+' project'} onClick={()=>setExpanded(project)}><div className="studio-preview"><img src={project.image} alt={project.name+' preview'} loading="lazy" style={{objectPosition:project.imagePosition||'center',objectFit:project.imageFit||'cover'}}/></div><div className="studio-card-copy"><div className="studio-card-meta"><span>{project.study?'Product design':project.skills[0]}</span><span aria-hidden="true">&#8599;</span></div><h2>{project.name}</h2><p>{project.description}</p></div></button></article>)}</div>
+        {expanded&&createPortal(<div className="project-expanded-backdrop" onMouseDown={e=>{if(e.target===e.currentTarget)closeExpanded();}}><section ref={dialogRef} className="project-expanded" role="dialog" aria-modal="true" aria-labelledby="expanded-project-title" tabIndex={-1}><header className="titlebar"><span>{expanded.name.toLowerCase()}.project</span><button type="button" className="expanded-close" onClick={closeExpanded} aria-label="Close project preview">&#215;</button></header><div className="project-expanded-body"><img className="expanded-image" src={expanded.image} alt={expanded.name+' expanded preview'}/><div className="expanded-copy"><p className="studio-kicker">{expanded.study?'PRODUCT DESIGN CASE STUDY':expanded.skills[0]}</p><h2 id="expanded-project-title">{expanded.name}</h2><p>{expanded.description}</p><ul>{expanded.skills.map(skill=><li key={skill}>{skill}</li>)}</ul>{expanded.study&&<><h3>My contribution</h3><p>{expanded.study.roleSummary}</p><h3>Outcome</h3><p>{expanded.study.outcome}</p></>}<div className="studio-card-actions">{expanded.study&&<button type="button" onClick={()=>{setExpanded(null);setSelectedStudy(expanded.study);}}>Read full case study</button>}<a href={expanded.destination} target="_blank" rel="noopener noreferrer">Open {expanded.action.toLowerCase()} &#8599;</a></div></div></div></section></div>,document.body)}
             {selectedStudy && createPortal(
                 <div className="pond-site study-portal" data-theme={theme}>
                 <div className="case-study-modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) dismissStudy(); }}>
