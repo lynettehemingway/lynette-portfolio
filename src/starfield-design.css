@@ -1,0 +1,219 @@
+@font-face{font-family:Manrope;src:url('./assets/fonts/Manrope.ttf') format('truetype');font-weight:200 800;font-display:swap}
+:root{--night:#181818;--panel:#242424;--paper:#efefef;--quiet:#b5b5b5;--silver:#c6c6c6;--edge:#464646}
+body{margin:0;background:var(--night);color:var(--paper)}
+html.atmosphere-active,html.atmosphere-active body,html.atmosphere-active #root{height:100%;overflow:hidden}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.atmosphere-site.figma-site.pond-site[data-theme]{--forest:var(--night);--forest-deep:var(--night);--cream:var(--paper);--ink:var(--paper);--sage:var(--silver);--accent:var(--silver);--muted:var(--quiet);--line:var(--edge);--work-muted:var(--quiet);--work-line:var(--edge);--work-accent:var(--silver);--work-soft:var(--panel);position:relative;isolation:isolate;height:100dvh;min-height:0!important;overflow:hidden!important;background:var(--night);color:var(--paper);color-scheme:dark}
+.atmosphere-site.figma-site.pond-site,.atmosphere-site.figma-site.pond-site *{box-sizing:border-box;font-family:Manrope,Arial,sans-serif}
+.atmosphere-site.figma-site.pond-site :is(h1,h2,h3,h4){font-family:Manrope,Arial,sans-serif;font-weight:450;color:var(--paper);letter-spacing:-.045em}
+.atmosphere-site a{color:inherit;text-decoration:none}
+.atmosphere-site button{cursor:pointer}
+.atmosphere-site :is(a,button,input,textarea):focus-visible{outline:2px solid var(--silver);outline-offset:5px}
+.atmosphere-canvas.ascii-sky{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:-1;opacity:.8;mask-image:radial-gradient(ellipse at 50% 48%,#00000055,#000000 70%)}
+.atmosphere-site:not(.figma-site--home) .atmosphere-canvas{opacity:.2}
+.atmosphere-site .portfolio-page{position:absolute;inset:100px 0 64px;margin:0;padding:24px clamp(24px,6vw,110px);min-height:0;height:auto;overflow:auto;scrollbar-width:thin;scrollbar-color:#646464 transparent;outline:none}
+.atmosphere-site .portfolio-page--home{inset:0;padding:0;height:100dvh;overflow:hidden}
+.atmosphere-site .home-scene.starfield-home{width:100%;height:100%;display:grid;place-items:center;transform:none}
+.starfield-identity{width:100%;padding:0 24px 2vh;text-align:center;pointer-events:none}
+.atmosphere-site.figma-site .starfield-identity h1{font-family:Manrope,Arial,sans-serif;font-size:clamp(64px,8.6vw,136px);font-weight:350;letter-spacing:-.075em;line-height:1.02;margin:0;color:#f4f4f4;text-shadow:0 2px 30px #1616167a}
+.atmosphere-site .starfield-identity h1>span{font-weight:350;color:#f0f0f0}
+.starfield-role{font-size:14px;letter-spacing:.16em;margin:28px 0 0;color:var(--silver);font-weight:450;line-height:1.5}
+.atmosphere-site.figma-site[data-theme] .portfolio-sidebar{position:absolute;inset:0;width:100%;max-width:none;height:100%;border:0;padding:0;background:transparent;pointer-events:none;z-index:5;color:var(--paper)}
+.atmosphere-site .portfolio-sidebar nav{display:flex;justify-content:center;gap:8px;margin:0;padding:24px;pointer-events:none}
+.atmosphere-site .portfolio-sidebar nav a{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;min-height:44px;min-width:100px;padding:10px 18px;font-size:12px;letter-spacing:.015em;font-weight:500;border:1px solid transparent;border-radius:2px;color:var(--quiet);pointer-events:auto;transition:background .2s,border-color .2s,color .2s,transform .2s;background:#16161680;white-space:nowrap}
+.atmosphere-site .portfolio-sidebar nav a:hover,.atmosphere-site .portfolio-sidebar nav a[aria-current]{color:var(--paper);background:#292929d9;border-color:#727272}
+.atmosphere-site .nav-direction{font-size:13px;color:var(--silver)}
+.atmosphere-site.figma-site--home .portfolio-sidebar nav{display:contents}
+.atmosphere-site.figma-site--home .portfolio-sidebar nav a{position:absolute;min-width:126px;background:#161616b8;border:1px solid #86868659;backdrop-filter:blur(5px);padding:14px 20px}
+.atmosphere-site.figma-site--home .portfolio-sidebar nav a:nth-child(1){left:16%;top:23%;transform:rotate(-7deg)}
+.atmosphere-site.figma-site--home .portfolio-sidebar nav a:nth-child(2){right:10%;top:31%;transform:rotate(7deg)}
+.atmosphere-site.figma-site--home .portfolio-sidebar nav a:nth-child(3){left:10%;bottom:26%;transform:rotate(5deg)}
+.atmosphere-site.figma-site--home .portfolio-sidebar nav a:nth-child(4){right:16%;bottom:20%;transform:rotate(-6deg)}
+.atmosphere-site.figma-site--home .portfolio-sidebar nav a:hover{transform:rotate(0);background:#313131;color:var(--paper);border-color:var(--silver)}
+.sky-menu-toggle{display:none}
+.atmosphere-site .portfolio-copyright{position:absolute!important;left:32px!important;right:auto!important;bottom:24px!important;transform:none!important;border:0!important;padding:0!important;background:transparent!important;color:var(--quiet);font-size:10px;letter-spacing:.015em;z-index:4;text-align:left}
+.starfield-motion{position:absolute;right:22px;bottom:9px;min-height:44px;padding:12px;border:0;background:transparent;color:var(--quiet);font-size:10px;z-index:5}
+.starfield-motion:hover{color:var(--silver)}
+.starfield-about-link{position:absolute;bottom:10%;left:50%;transform:translateX(-50%);padding:12px 0;min-height:44px;border:0;border-bottom:1px solid #9696967a;background:transparent;color:var(--paper);font-size:12px;white-space:nowrap}
+.starfield-about-link span{margin-left:24px;color:var(--silver);font-size:17px}
+.starfield-about-link:hover{border-color:var(--silver);color:var(--silver)}
+.starfield-about{width:min(620px,calc(100% - 40px));max-height:calc(100dvh - 64px);padding:48px;background:var(--panel);color:var(--paper);border:1px solid var(--edge);border-radius:2px;overflow:auto}
+.starfield-about::backdrop{background:#0c0c0cdd;backdrop-filter:blur(8px)}
+.starfield-about-close{position:absolute;right:12px;top:12px;display:grid;place-items:center;width:44px;height:44px;border:0;background:transparent;color:var(--paper)}
+.atmosphere-site .starfield-about h2{font-size:36px;margin:0 0 24px}
+.atmosphere-site .starfield-about .portfolio-bio{font-size:15px;line-height:1.85;color:var(--quiet)}
+.starfield-about .portfolio-bio p{margin:0 0 18px}
+.starfield-about .portfolio-bio a{color:var(--silver);font-size:13px}
+.atmosphere-site.figma-site #projects{--project-border:var(--edge);--project-muted:var(--quiet);--project-plate:var(--panel);--gallery-ink:var(--paper);--gallery-muted:var(--quiet);--gallery-line:var(--edge);--gallery-rose:var(--silver);--gallery-panel:var(--panel);background:transparent;color:var(--paper)}
+.atmosphere-site.figma-site #projects .studio-heading{border-color:var(--edge)}
+.atmosphere-site.figma-site #projects .studio-heading h1,.atmosphere-site.figma-site .work-page-heading h1,.atmosphere-site.figma-site .contact-page h1{font-family:Manrope,Arial,sans-serif;font-size:clamp(40px,4.8vw,70px);font-weight:400;letter-spacing:-.065em;line-height:1.1;color:var(--paper)}
+.atmosphere-site.figma-site #projects .studio-kicker,.atmosphere-site.figma-site #projects .studio-heading p,.atmosphere-site.figma-site #projects .project-count{color:var(--quiet)}
+.atmosphere-site.figma-site #projects .project-reel{background:#202020bd;border-color:var(--edge);border-radius:2px}
+.atmosphere-site.figma-site #projects .project-reel>header{background:transparent;border-color:var(--edge);color:var(--paper)}
+.atmosphere-site.figma-site #projects .project-reel button{background:transparent;color:var(--silver);border-color:var(--edge)}
+.atmosphere-site.figma-site #projects .project-open{background:#202020aa;border:1px solid var(--edge);border-radius:2px;color:var(--paper);overflow:hidden;text-align:left}
+.atmosphere-site.figma-site #projects .studio-preview{background:var(--panel);border-color:var(--edge)}
+.atmosphere-site.figma-site #projects .studio-card-copy{background:transparent;color:var(--paper);padding:22px}
+.atmosphere-site.figma-site #projects .studio-card h2{font-family:Manrope,Arial,sans-serif;font-size:28px;letter-spacing:-.04em;color:var(--paper);font-weight:500}
+.atmosphere-site.figma-site #projects .studio-card p{font-size:14px;line-height:1.7;color:var(--quiet)}
+.atmosphere-site.figma-site #projects .studio-card-meta{color:var(--silver);font-size:11px}
+.atmosphere-site.figma-site #projects .project-open:hover{border-color:var(--silver);transform:translateY(-3px)}
+.atmosphere-site.figma-site .work-timeline-tabs button{color:var(--quiet)}
+.atmosphere-site.figma-site .work-timeline-tabs button[aria-selected=true]{color:var(--paper)}
+.atmosphere-site.figma-site .work-role-intro h3{font-family:Manrope,Arial,sans-serif;font-size:30px;line-height:1.25;color:var(--paper)}
+.atmosphere-site.figma-site .work-role-contributions p{font-size:15px;line-height:1.8;color:var(--quiet)}
+.atmosphere-site.figma-site .work-page-heading{align-items:baseline}
+.atmosphere-site.figma-site .contact-page{min-height:calc(100dvh - 220px);padding:0;gap:clamp(32px,7vw,110px)}
+.atmosphere-site.figma-site .contact-page .page-eyebrow{color:var(--silver)}
+.atmosphere-site.figma-site .contact-page :is(input:not([type=hidden]),textarea){background:#202020d9;color:var(--paper);border:1px solid var(--edge);border-radius:2px;font-family:Manrope,Arial,sans-serif;font-size:14px}
+.atmosphere-site.figma-site .contact-page :is(input,textarea)::placeholder{color:#b5b5b5}
+.atmosphere-site.figma-site .contact-page .contact-page-send{border-radius:2px;background:var(--silver);color:#161616;font-weight:600}
+.atmosphere-site.figma-site .contact-page .contact-example-topics button[aria-pressed=true]{background:var(--silver);color:#161616;border-color:var(--silver)}
+.atmosphere-site.figma-site .contact-page .contact-example-line{font-family:Manrope,Arial,sans-serif;font-size:14px;line-height:1.8}
+.atmosphere-site.figma-site .contact-page .contact-example-line *{font-family:Manrope,Arial,sans-serif}
+.atmosphere-site.figma-site .contact-page .contact-direct-email{color:var(--silver)}
+.atmosphere-site.figma-site .contact-page .portfolio-socials a{color:var(--quiet)}
+/* Portal dialogs share the same palette and type even outside the application root. */
+html.atmosphere-active .project-expanded-backdrop{background:#0c0c0cda;backdrop-filter:blur(8px)}
+html.atmosphere-active .project-expanded{background:var(--night);color:var(--paper);border:1px solid var(--edge);border-radius:2px;box-shadow:none;font-family:Manrope,Arial,sans-serif}
+html.atmosphere-active .project-expanded *{font-family:Manrope,Arial,sans-serif}
+html.atmosphere-active .project-expanded .titlebar{background:var(--panel);color:var(--quiet);border-color:var(--edge)}
+html.atmosphere-active .project-expanded .expanded-close{background:transparent;color:var(--paper);border-color:var(--edge)}
+html.atmosphere-active .project-expanded .expanded-copy :is(h2,h3){color:var(--paper)}
+html.atmosphere-active .project-expanded .expanded-copy :is(p,li){color:var(--quiet)}
+html.atmosphere-active .project-expanded .studio-card-actions :is(a,button){background:var(--silver);color:var(--night);border:0;border-radius:2px;padding:12px 18px}
+html.atmosphere-active .study-portal.pond-site[data-theme]{--study-surface:var(--night);--study-panel:var(--panel);--study-text:var(--paper);--study-muted:var(--quiet);--study-accent:var(--silver);--study-line:var(--edge)}
+html.atmosphere-active .study-portal.pond-site[data-theme] .case-study-modal,html.atmosphere-active .study-portal.pond-site[data-theme] .case-study-modal *{font-family:Manrope,Arial,sans-serif}
+html.atmosphere-active .study-portal.pond-site[data-theme] .case-study-modal{border-radius:2px}
+@media(max-width:1000px) and (min-width:701px){.atmosphere-site.figma-site--home .portfolio-sidebar nav a:nth-child(1){left:8%;top:22%}.atmosphere-site.figma-site--home .portfolio-sidebar nav a:nth-child(2){right:5%;top:28%}.atmosphere-site.figma-site--home .portfolio-sidebar nav a:nth-child(3){left:5%;bottom:24%}.atmosphere-site.figma-site--home .portfolio-sidebar nav a:nth-child(4){right:9%;bottom:21%}}
+@media(max-width:700px){
+ .sky-menu-toggle{display:grid;place-items:center;position:absolute;top:max(16px,env(safe-area-inset-top));left:16px;z-index:8;width:48px;height:48px;border:1px solid #8686864d;border-radius:2px;background:#161616b8;color:#ffffff}
+ .atmosphere-site .portfolio-sidebar nav,.atmosphere-site.figma-site--home .portfolio-sidebar nav{display:none}
+ .atmosphere-site .portfolio-sidebar.is-open nav{position:absolute;inset:80px 16px auto;display:flex;flex-direction:column;padding:10px;gap:2px;background:#202020f5;border:1px solid var(--edge);pointer-events:auto;backdrop-filter:blur(16px)}
+ .atmosphere-site.figma-site .portfolio-sidebar.is-open nav a:nth-child(n){position:static;transform:none;display:flex;flex-direction:row;justify-content:space-between;width:100%;min-height:50px;padding:12px 18px;border:0;background:transparent;font-size:14px;border-radius:2px}
+ .atmosphere-site.figma-site .portfolio-sidebar.is-open nav a[aria-current]{background:#353535;color:var(--paper)}
+ .atmosphere-site .portfolio-page{inset:84px 0 60px;padding:16px 24px 28px}
+ .atmosphere-site .portfolio-page--home{inset:0;padding:0}
+ .atmosphere-site.figma-site .starfield-identity h1{font-size:clamp(51px,13vw,88px);line-height:1.06;letter-spacing:-.075em}
+ .starfield-identity{padding:0 20px 3vh}
+ .starfield-role{font-size:12px;letter-spacing:.13em;margin-top:24px}
+ .starfield-about-link{bottom:13%;font-size:11px}
+ .atmosphere-site .portfolio-copyright{left:20px!important;bottom:max(28px,calc(env(safe-area-inset-bottom) + 14px))!important;font-size:8px}
+ .starfield-motion{right:14px;bottom:max(11px,env(safe-area-inset-bottom));font-size:9px}
+ .starfield-about{padding:48px 24px 24px}
+ .atmosphere-site.figma-site .work-page-heading{display:block}
+ .atmosphere-site.figma-site .work-page-heading>p{margin-top:14px}
+ .atmosphere-site.figma-site .contact-page{display:block;min-height:0}
+ .atmosphere-site.figma-site .contact-page h1{font-size:48px}
+ .atmosphere-site.figma-site .contact-page-form{padding:20px 0}
+ .atmosphere-site.figma-site #projects .studio-card-copy{padding:18px}
+}
+@media(max-height:500px){.atmosphere-site.figma-site .starfield-identity h1{font-size:clamp(35px,12vh,60px)}.starfield-role{margin-top:12px}.starfield-about-link{bottom:9%}}
+@media(prefers-reduced-motion:reduce){.atmosphere-site *{animation:none!important;transition:none!important}.atmosphere-site .project-open:hover{transform:none}}
+::selection{background:#c6c6c6;color:#161616}
+/* Shared gallery structure replaces the unused desktop-window skin. */
+.atmosphere-site .portfolio-sidebar nav{flex-direction:row}
+.atmosphere-site #projects .studio-heading{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-bottom:36px}
+.atmosphere-site #projects .studio-heading h1{margin:0 0 18px}
+.atmosphere-site #projects .studio-kicker{font-size:10px;letter-spacing:.12em;margin:0 0 16px}
+.atmosphere-site #projects .studio-heading p{font-size:14px;line-height:1.7}
+.atmosphere-site #projects .project-count{font-size:12px;white-space:nowrap}
+.atmosphere-site #projects .project-reel{display:none}
+.atmosphere-site #projects .studio-projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;padding-bottom:24px}
+.atmosphere-site #projects .studio-card{min-width:0}
+.atmosphere-site #projects .project-open{display:flex;flex-direction:column;width:100%;height:100%;padding:0;transition:transform .2s,border-color .2s}
+.atmosphere-site #projects .studio-preview{display:block;width:100%;height:240px;overflow:hidden;border-bottom:1px solid var(--edge)}
+.atmosphere-site #projects .studio-preview img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .4s}
+.atmosphere-site #projects .project-open:hover img{transform:scale(1.035)}
+.atmosphere-site #projects .studio-card-copy{display:block;width:100%}
+.atmosphere-site #projects .studio-card-copy h2{margin:16px 0 12px}
+.atmosphere-site #projects .studio-card-copy p{margin:0}
+.atmosphere-site #projects .studio-card-meta{display:flex;justify-content:space-between;align-items:center}
+html.atmosphere-active .project-expanded-backdrop{position:fixed;inset:0;z-index:30;display:grid;place-items:center;padding:24px}
+html.atmosphere-active .project-expanded{width:min(1040px,100%);max-height:calc(100dvh - 48px);display:flex;flex-direction:column;overflow:hidden}
+html.atmosphere-active .project-expanded>.titlebar{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;font-size:12px;border-bottom:1px solid var(--edge)}
+html.atmosphere-active .project-expanded .expanded-close{width:44px;height:44px;border:0;font-size:28px;cursor:pointer}
+html.atmosphere-active .project-expanded-body{overflow:auto;min-height:0}
+html.atmosphere-active .expanded-image{width:100%;height:320px;object-fit:contain;display:block;background:var(--panel);padding:24px}
+html.atmosphere-active .expanded-copy{padding:28px 36px}
+html.atmosphere-active .expanded-copy h2{font-size:36px;letter-spacing:-.05em;margin:0 0 20px;font-weight:450}
+html.atmosphere-active .expanded-copy p{font-size:15px;line-height:1.8;max-width:75ch}
+html.atmosphere-active .expanded-copy>ul{display:flex;flex-wrap:wrap;gap:16px;list-style:none;padding:0;font-size:12px}
+html.atmosphere-active .expanded-copy .studio-kicker{color:var(--silver);font-size:11px;letter-spacing:.08em}
+html.atmosphere-active .studio-card-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+@media(max-width:700px){.atmosphere-site #projects .studio-heading{display:block}.atmosphere-site #projects .project-count{display:none}.atmosphere-site #projects .studio-projects{grid-template-columns:1fr;gap:24px}.atmosphere-site #projects .studio-preview{height:210px}.atmosphere-site .portfolio-sidebar.is-open nav{flex-direction:column}html.atmosphere-active .project-expanded-backdrop{padding:12px}html.atmosphere-active .expanded-copy{padding:24px}html.atmosphere-active .expanded-image{height:220px}}
+.atmosphere-site.figma-site.pond-site[data-theme] .contact-page .contact-page-form input:not([hidden]):not([type=hidden]),.atmosphere-site.figma-site.pond-site[data-theme] .contact-page .contact-page-form textarea{background:#202020d9;color:var(--paper);border-color:var(--edge);border-radius:2px}
+.atmosphere-site.figma-site .contact-page .contact-example-navigation button{border:1px solid var(--edge);border-radius:2px;background:transparent;min-width:36px;color:var(--quiet)}
+/* Monochrome exhibition palette and a quiet three-link home navigation. */
+:root{--night:#191919;--panel:#232323;--paper:#eeeae0;--quiet:#b9b7b0;--silver:#dedad0;--edge:#464540}
+.atmosphere-site.figma-site .starfield-identity h1,.atmosphere-site .starfield-identity h1>span{color:var(--paper);text-shadow:0 2px 30px #19191980}
+.atmosphere-site.figma-site--home .starfield-identity{padding-bottom:14vh}
+.atmosphere-site.figma-site--home .portfolio-sidebar nav{position:absolute;left:50%;bottom:15%;transform:translateX(-50%);display:flex;flex-direction:row;gap:16px;padding:0;white-space:nowrap}
+.atmosphere-site.figma-site--home .portfolio-sidebar nav a:nth-child(n){position:static;inset:auto;transform:none;min-width:144px;min-height:50px;justify-content:space-between;border:1px solid #77756c70;background:#1c1c1ce0;backdrop-filter:blur(8px);padding:14px 20px}
+.atmosphere-site.figma-site--home .portfolio-sidebar nav a:hover{background:var(--paper);color:var(--night);border-color:var(--paper);transform:translateY(-3px)}
+.atmosphere-site.figma-site--home .portfolio-sidebar nav a:hover .nav-direction{color:var(--night)}
+.atmosphere-site.figma-site--home .starfield-about-link{top:28px;right:34px;bottom:auto;left:auto;transform:none;font-size:11px;border:0;color:var(--quiet)}
+.atmosphere-site .studio-preview img,html.atmosphere-active .expanded-image,html.atmosphere-active .case-study-modal img{filter:grayscale(1)}
+.atmosphere-site .atmosphere-canvas{mask-image:none;opacity:.9}
+.atmosphere-site:not(.figma-site--home) .atmosphere-canvas{opacity:.18}
+@media(max-width:700px){
+ .atmosphere-site.figma-site--home .portfolio-sidebar nav{display:none}
+ .atmosphere-site.figma-site--home .portfolio-sidebar.is-open nav{display:flex;position:absolute;inset:80px 16px auto;transform:none;flex-direction:column;padding:10px;gap:2px;background:#242424f5;white-space:normal;border:1px solid var(--edge)}
+ .atmosphere-site.figma-site--home .portfolio-sidebar.is-open nav a:nth-child(n){width:100%;min-height:50px;border:0;background:transparent;transform:none}
+ .atmosphere-site.figma-site--home .portfolio-sidebar.is-open nav a:hover{background:#343434;color:var(--paper)}
+ .atmosphere-site.figma-site--home .starfield-identity{padding-bottom:10vh}
+ .atmosphere-site.figma-site--home .starfield-about-link{top:20px;right:22px;min-height:44px;font-size:10px}
+}
+@media(max-height:500px) and (min-width:701px){.atmosphere-site.figma-site--home .portfolio-sidebar nav{bottom:13%}.atmosphere-site.figma-site--home .portfolio-sidebar nav a:nth-child(n){min-height:44px;padding:10px 18px}}
+/* Reserve the full name while typing, with enough tracking for each letter to breathe. */
+.atmosphere-site.figma-site .starfield-identity h1.typewriter-name{font-size:clamp(60px,8vw,124px);letter-spacing:-.025em;line-height:1.12;font-weight:350}
+.typewriter-name .typed-line{position:relative;display:block;width:max-content;max-width:100%;margin:0 auto;white-space:nowrap}
+.typewriter-name .typing-layout{visibility:hidden;display:block}
+.typewriter-name .typing-ink{position:absolute;inset:0;text-align:left;color:var(--paper)}
+.name-caret{display:inline-block;height:.77em;width:1px;background:var(--paper);vertical-align:-.02em;margin-left:.05em;animation:name-caret-blink .7s steps(1) infinite}
+@keyframes name-caret-blink{50%{opacity:0}}
+@media(max-width:700px){.atmosphere-site.figma-site .starfield-identity h1.typewriter-name{font-size:clamp(43px,11.5vw,76px);letter-spacing:-.015em;line-height:1.16}}
+@media(max-height:500px){.atmosphere-site.figma-site .starfield-identity h1.typewriter-name{font-size:clamp(32px,10vh,54px)}}
+@media(prefers-reduced-motion:reduce){.name-caret{display:none}}
+/* A quieter, wider desktop composition, with a more visible moving dust horizon. */
+@media(min-width:1100px){
+ .atmosphere-site.figma-site .starfield-identity h1.typewriter-name{display:flex;align-items:baseline;justify-content:center;gap:.3em;font-size:clamp(68px,7.3vw,120px);letter-spacing:-.025em}
+ .typewriter-name .typed-line{margin:0}
+ .atmosphere-site.figma-site--home .starfield-identity{padding-bottom:19vh}
+ .starfield-role{margin-top:30px;font-size:13px;letter-spacing:.2em}
+}
+.atmosphere-site.figma-site .work-role-contributions.work-role-bullets{list-style:disc;display:block;margin:0;padding:0 0 0 20px;align-self:center}
+.atmosphere-site.figma-site .work-role-bullets>li{display:list-item;animation:none;padding:0 0 0 8px;border:0;margin:0 0 22px;color:var(--silver)}
+.atmosphere-site.figma-site .work-role-bullets>li:last-child{margin-bottom:0}
+.atmosphere-site.figma-site .work-role-bullets>li p{margin:0;font-size:clamp(15px,1.2vw,18px);line-height:1.8;color:var(--paper);max-width:55ch}
+.atmosphere-site.figma-site .work-role-panel{gap:clamp(32px,6vw,90px);padding:28px 0}
+@media(max-width:700px){.atmosphere-site.figma-site .work-role-panel{padding:8px 0;gap:20px}.atmosphere-site.figma-site .work-role-bullets>li p{font-size:15px}}
+.atmosphere-site.figma-site .work-role-panel[hidden]{display:none!important}
+.atmosphere-site.figma-site #projects .studio-heading h1{margin-bottom:0}
+/* Hide scrollbar chrome while keeping touch, wheel, and keyboard scrolling. */
+html.atmosphere-active *,html.atmosphere-active{scrollbar-width:none!important;-ms-overflow-style:none}
+html.atmosphere-active ::-webkit-scrollbar{display:none;width:0;height:0}
+@media(max-width:700px){
+ .atmosphere-site.figma-site .portfolio-page--work{padding:12px 22px 28px}
+ .atmosphere-site.figma-site .work-page-heading h1{font-size:40px}
+ .atmosphere-site.figma-site .work-page-heading>p{max-width:none;text-align:left;margin-top:10px;font-size:10px}
+ .atmosphere-site.figma-site #experience.work-experience{margin:24px auto 0}
+ .atmosphere-site .work-timeline{overflow:visible;padding:16px 0 18px;margin-bottom:24px}
+ .atmosphere-site .work-timeline::before{content:'';position:absolute;left:16%;right:16%;top:70px;border-top:1px solid var(--edge);pointer-events:none}
+ .atmosphere-site .work-timeline-thread,.atmosphere-site .work-timeline-direction,.atmosphere-site .work-timeline-position,.atmosphere-site .work-timeline-dates{display:none}
+ .atmosphere-site .work-timeline-tabs{width:100%;min-width:0;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+ .atmosphere-site.figma-site .work-timeline-tabs button{width:100%;min-width:0;min-height:86px;padding:4px 0;gap:10px}
+ .atmosphere-site .work-timeline-company{font-size:12px;min-height:22px}
+ .atmosphere-site .work-timeline-tabs button:nth-child(n) .work-timeline-node{margin:0;width:36px;height:36px}
+ .atmosphere-site.figma-site .work-role-panel{grid-template-columns:minmax(0,1fr);padding:0;gap:18px;min-width:0}
+ .atmosphere-site.figma-site .work-role-intro h3{font-size:26px;line-height:1.25;max-width:none;overflow-wrap:break-word;margin-bottom:10px}
+ .atmosphere-site.figma-site .work-role-company{font-size:11px;margin-bottom:10px}
+ .atmosphere-site.figma-site .work-role-dates{font-size:11px;margin:0}
+ .atmosphere-site.figma-site .work-role-contributions.work-role-bullets{padding-left:18px}
+ .atmosphere-site.figma-site .work-role-bullets>li{padding-left:4px;margin-bottom:16px}
+ .atmosphere-site.figma-site .work-role-bullets>li p{font-size:14px;line-height:1.75}
+}
+/* Remove the original artwork's empty margins in the expanded CARTograph view. */
+html.atmosphere-active .project-expanded[data-project=CARTograph] .expanded-image-frame{width:min(100%,62dvh,680px);aspect-ratio:1;margin:28px auto;overflow:hidden}
+html.atmosphere-active .project-expanded[data-project=CARTograph] .expanded-image{width:100%;height:100%;padding:0;object-fit:cover;object-position:50% 74%;background:var(--panel)}
+@media(max-width:700px){html.atmosphere-active .project-expanded[data-project=CARTograph] .expanded-image-frame{width:100%;margin:0}}

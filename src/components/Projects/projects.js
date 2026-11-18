@@ -34,7 +34,7 @@ const projects = [
     },
     {
         name: "UFFSA",
-        description: "A home for the Filipino Student Association's events, programs, and community.",
+        description: "A website for the Filipino Student Association's events and programs.",
         skills: ["Visual Design", "Figma", "React"],
         image: uffsa,
         imagePosition: "top",
@@ -42,7 +42,7 @@ const projects = [
     },
     {
         name: "Centsible",
-        description: "A responsive budgeting platform designed around the financial challenges students face.",
+        description: "A budgeting platform for students.",
         skills: ["Product Design", "Prototyping", "React Native"],
         image: centsible,
         githubLink: "https://github.com/lynettehemingway/centsible"
@@ -63,7 +63,7 @@ const projects = [
     },
     {
         name: "CostCompass",
-        description: "Real-time cost-of-living context powered by maps, census data, and AI.",
+        description: "Maps cost-of-living data using census data and AI.",
         skills: ["Information Architecture", "Map UX", "Figma"],
         image: cc,
         githubLink: "https://github.com/CloudRazerz/CostCompass"
@@ -81,7 +81,7 @@ const caseStudies = [
     {
         name: "ClassMail",
         eyebrow: "Academic communication - MVP concept",
-        description: "Bringing email, Canvas announcements, and academic deadlines into one clear dashboard so students can see what needs attention.",
+        description: "Combines email, Canvas announcements, and academic deadlines in one dashboard.",
         skills: ["Product Design", "User Research", "Figma"],
         image: classmail,
         placeholder: "CM",
@@ -112,7 +112,7 @@ const caseStudies = [
     {
         name: "CARTograph",
         eyebrow: "Grocery planning - 2nd place hackathon winner",
-        description: "Helping shoppers compare grocery prices and plan multi-store routes that balance savings, travel time, distance, and gas costs.",
+        description: "Compares grocery prices and plans routes across stores.",
         skills: ["Product Design", "UX Strategy", "Figma"],
         image: carto,
         imagePosition: "center",
@@ -225,13 +225,13 @@ const Projects = ({ theme = 'dark' }) => {
     return (
     <section id="projects" className="project-studio" aria-labelledby="projects-title">
       <div className="projContent">
-        <header className="studio-heading"><div><p className="studio-kicker">DESIGN + DEVELOPMENT</p><h1 id="projects-title" tabIndex={-1}>Selected projects<span>.</span></h1><p>Thoughtful products and the stories behind them.</p></div><span className="project-count">{portfolioProjects.length} projects</span></header>
+        <header className="studio-heading"><div><p className="studio-kicker">DESIGN + DEVELOPMENT</p><h1 id="projects-title" tabIndex={-1}>Selected projects<span>.</span></h1></div><span className="project-count">{portfolioProjects.length} projects</span></header>
         <section className="project-reel" aria-labelledby="project-motion-title">
           <header><h2 id="project-motion-title">A few things I've made</h2><button type="button" aria-label={motionPaused?'Resume project strip':'Pause project strip'} aria-pressed={motionPaused} onClick={()=>setMotionPaused(v=>!v)}>{motionPaused?'Play':'Pause'}</button></header>
           <div className="project-reel-viewport"><div className="project-reel-track" data-paused={motionPaused}>{[0,1].map(copy=><div className="project-reel-group" key={copy} aria-hidden={copy===1?true:undefined}>{portfolioProjects.map(project=><div className="reel-project" key={project.name}><img src={project.image} alt="" loading="lazy"/><span>{project.name}</span></div>)}</div>)}</div></div>
         </section>
         <div className="studio-projects">{portfolioProjects.map(project=><article className="studio-card" key={project.name}><button type="button" className="project-open" aria-label={'View '+project.name+' project'} onClick={()=>setExpanded(project)}><div className="studio-preview"><img src={project.image} alt={project.name+' preview'} loading="lazy" style={{objectPosition:project.imagePosition||'center',objectFit:project.imageFit||'cover'}}/></div><div className="studio-card-copy"><div className="studio-card-meta"><span>{project.study?'Product design':project.skills[0]}</span><span aria-hidden="true">&#8599;</span></div><h2>{project.name}</h2><p>{project.description}</p></div></button></article>)}</div>
-        {expanded&&createPortal(<div className="project-expanded-backdrop" onMouseDown={e=>{if(e.target===e.currentTarget)closeExpanded();}}><section ref={dialogRef} className="project-expanded" role="dialog" aria-modal="true" aria-labelledby="expanded-project-title" tabIndex={-1}><header className="titlebar"><span>{expanded.name.toLowerCase()}.project</span><button type="button" className="expanded-close" onClick={closeExpanded} aria-label="Close project preview">&#215;</button></header><div className="project-expanded-body"><img className="expanded-image" src={expanded.image} alt={expanded.name+' expanded preview'}/><div className="expanded-copy"><p className="studio-kicker">{expanded.study?'PRODUCT DESIGN CASE STUDY':expanded.skills[0]}</p><h2 id="expanded-project-title">{expanded.name}</h2><p>{expanded.description}</p><ul>{expanded.skills.map(skill=><li key={skill}>{skill}</li>)}</ul>{expanded.study&&<><h3>My contribution</h3><p>{expanded.study.roleSummary}</p><h3>Outcome</h3><p>{expanded.study.outcome}</p></>}<div className="studio-card-actions">{expanded.study&&<button type="button" onClick={()=>{setExpanded(null);setSelectedStudy(expanded.study);}}>Read full case study</button>}<a href={expanded.destination} target="_blank" rel="noopener noreferrer">Open {expanded.action.toLowerCase()} &#8599;</a></div></div></div></section></div>,document.body)}
+        {expanded&&createPortal(<div className="project-expanded-backdrop" onMouseDown={e=>{if(e.target===e.currentTarget)closeExpanded();}}><section ref={dialogRef} className="project-expanded" data-project={expanded.name} role="dialog" aria-modal="true" aria-labelledby="expanded-project-title" tabIndex={-1}><header className="titlebar"><span>{expanded.name.toLowerCase()}.project</span><button type="button" className="expanded-close" onClick={closeExpanded} aria-label="Close project preview">&#215;</button></header><div className="project-expanded-body"><div className="expanded-image-frame"><img className="expanded-image" src={expanded.image} alt={expanded.name+' expanded preview'}/></div><div className="expanded-copy"><p className="studio-kicker">{expanded.study?'PRODUCT DESIGN CASE STUDY':expanded.skills[0]}</p><h2 id="expanded-project-title">{expanded.name}</h2><p>{expanded.description}</p><ul>{expanded.skills.map(skill=><li key={skill}>{skill}</li>)}</ul>{expanded.study&&<><h3>My contribution</h3><p>{expanded.study.roleSummary}</p><h3>Outcome</h3><p>{expanded.study.outcome}</p></>}<div className="studio-card-actions">{expanded.study&&<button type="button" onClick={()=>{setExpanded(null);setSelectedStudy(expanded.study);}}>Read full case study</button>}<a href={expanded.destination} target="_blank" rel="noopener noreferrer">Open {expanded.action.toLowerCase()} &#8599;</a></div></div></div></section></div>,document.body)}
             {selectedStudy && createPortal(
                 <div className="pond-site study-portal" data-theme={theme}>
                 <div className="case-study-modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) dismissStudy(); }}>

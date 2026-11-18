@@ -8,20 +8,9 @@ const roles = [
         "dates": "December 2025 — March 2026",
         "timelineDates": "Dec 2025–Mar 2026",
         "start": "2025-12",
-        "focus": [
-            "Product design",
-            "Design systems",
-            "UI engineering"
-        ],
-        "labels": [
-            "Clearer interactions",
-            "A reusable foundation",
-            "Design intent into React"
-        ],
         "bullets": [
-            "Elevated responsive interfaces across desktop and mobile through clearer hierarchy and interaction patterns.",
-            "Standardized repeated workflows by building reusable UI components across related product screens.",
-            "Reconciled technical constraints with design intent alongside engineers to preserve core user flows in React."
+            "Designed responsive screens for desktop and mobile.",
+            "Built reusable React components with engineers."
         ]
     },
     {
@@ -30,20 +19,9 @@ const roles = [
         "dates": "January 2026 — September 2026",
         "timelineDates": "Jan–Sep 2026",
         "start": "2026-01",
-        "focus": [
-            "Information architecture",
-            "Technical writing",
-            "User support"
-        ],
-        "labels": [
-            "A clearer starting point",
-            "Information that makes sense",
-            "Less friction, more clarity"
-        ],
         "bullets": [
-            "Identified onboarding pain points through stakeholder and user feedback, then redesigned documentation experiences supporting 7,000+ users.",
-            "Improved information architecture and usability across 30+ guides, FAQs, and troubleshooting resources, making technical content easier to navigate and understand.",
-            "Synthesized user needs and technical constraints to simplify complex workflows, improve content clarity, and reduce friction throughout the support experience."
+            "Reorganized 30+ guides, FAQs, and troubleshooting resources.",
+            "Updated onboarding documentation used by 7,000+ people."
         ]
     },
     {
@@ -52,20 +30,9 @@ const roles = [
         "dates": "May 2026 — August 2026",
         "timelineDates": "May–Aug 2026",
         "start": "2026-05",
-        "focus": [
-            "Workflow design",
-            "User research",
-            "React & TypeScript"
-        ],
-        "labels": [
-            "Research into interfaces",
-            "A simpler workflow",
-            "Design into production"
-        ],
         "bullets": [
-            "Revamped an ArcGIS splice editor, translating telecom engineer feedback into 10+ high-fidelity Figma screens.",
-            "Conceived ColorFinder, replacing manual fiber-color lookup with an interactive strand-identification tool.",
-            "Shipped UX concepts in React and TypeScript, translating Figma interactions into production UI."
+            "Designed 10+ Figma screens for an ArcGIS splice editor and implemented interfaces in React and TypeScript.",
+            "Designed ColorFinder, an interactive tool for identifying fiber strands."
         ]
     }
 ];
@@ -110,19 +77,15 @@ export default function Experience() {
       </div>
       <div className="work-role-stack">{roles.map((entry, index) => {
         const selected = index === activeRole;
-        return <article id={selected ? 'work-role-panel' : undefined} className="work-role-panel" role="tabpanel" aria-labelledby={'work-tab-' + index} aria-hidden={!selected} inert={selected ? undefined : ''} data-active={selected} tabIndex={selected ? 0 : -1} key={entry.company}>
+        return <article id={selected ? 'work-role-panel' : undefined} className="work-role-panel" role="tabpanel" aria-labelledby={'work-tab-' + index} aria-hidden={!selected} hidden={!selected} inert={selected ? undefined : ''} data-active={selected} tabIndex={selected ? 0 : -1} key={entry.company}>
         <header className="work-role-intro">
           <p className="work-role-company">{entry.company}</p>
           <h3>{entry.title}</h3>
           <p className="work-role-dates">{entry.dates}</p>
-          <ul className="work-role-focus" aria-label="Focus areas">{entry.focus.map(item => <li key={item}>{item}</li>)}</ul>
         </header>
-        <ol className="work-role-contributions">
-          {entry.bullets.map((bullet, index) => <li key={bullet}>
-            <span className="work-contribution-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-            <div><h4>{entry.labels[index]}</h4><p>{bullet}</p></div>
-          </li>)}
-        </ol>
+        <ul className="work-role-contributions work-role-bullets">
+          {entry.bullets.map(bullet => <li key={bullet}><p>{bullet}</p></li>)}
+        </ul>
       </article>;
       })}</div>
     </section>;
