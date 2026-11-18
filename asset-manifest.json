@@ -1,28 +1,36 @@
 {
   "files": {
-    "main.css": "/static/css/main.af4a2377.css",
-    "main.js": "/static/js/main.948b8d4d.js",
+    "main.css": "/static/css/main.21c3f3c4.css",
+    "main.js": "/static/js/main.3a1ebe08.js",
+    "static/css/862.8feb9d9e.chunk.css": "/static/css/862.8feb9d9e.chunk.css",
+    "static/js/862.7fbea94b.chunk.js": "/static/js/862.7fbea94b.chunk.js",
+    "static/js/264.01b69e4c.chunk.js": "/static/js/264.01b69e4c.chunk.js",
+    "static/css/436.0ae6166f.chunk.css": "/static/css/436.0ae6166f.chunk.css",
+    "static/js/436.f0ec2a5a.chunk.js": "/static/js/436.f0ec2a5a.chunk.js",
     "static/media/uffsa.png": "/static/media/uffsa.e6da3bf2ddf68e6f1cb1.png",
     "static/media/carto.jpg": "/static/media/carto.948fc461db309430b4a0.jpg",
     "static/media/navigator.png": "/static/media/navigator.073f4ed56f42ef665305.png",
-    "static/media/koilh-transparent.png": "/static/media/koilh-transparent.15ea8e991386c9d16fe4.png",
     "static/media/cc.png": "/static/media/cc.58e65cabd67dda627c1d.png",
     "static/media/ldt.png": "/static/media/ldt.e1f06ca2e8dac5581895.png",
     "static/media/db.png": "/static/media/db.76f2242cdc1c403c31c0.png",
-    "static/media/esri.png": "/static/media/esri.0660cf75ec11b37264b4.png",
     "static/media/JetBrainsMono-Bold.ttf": "/static/media/JetBrainsMono-Bold.c02a933160186a7f38ea.ttf",
     "static/media/JetBrainsMono-Regular.ttf": "/static/media/JetBrainsMono-Regular.18bf079ce726b7b766fc.ttf",
     "static/media/uweather.png": "/static/media/uweather.e18b9ce563f4e0c3b44f.png",
+    "static/media/Manrope.ttf": "/static/media/Manrope.3e197dc742eb2f7817e1.ttf",
     "static/media/pickleportal.png": "/static/media/pickleportal.a18a94427ac805a012a1.png",
     "static/media/classmail.png": "/static/media/classmail.36e88e88264bb2edba29.png",
     "static/media/centsible.jpg": "/static/media/centsible.821cdbd750a489adbe55.jpg",
-    "static/media/mascot 1 (1).png": "/static/media/mascot 1 (1).1a4e6836a9a6e83cc514.png",
     "index.html": "/index.html",
-    "main.af4a2377.css.map": "/static/css/main.af4a2377.css.map",
-    "main.948b8d4d.js.map": "/static/js/main.948b8d4d.js.map"
+    "main.21c3f3c4.css.map": "/static/css/main.21c3f3c4.css.map",
+    "main.3a1ebe08.js.map": "/static/js/main.3a1ebe08.js.map",
+    "862.8feb9d9e.chunk.css.map": "/static/css/862.8feb9d9e.chunk.css.map",
+    "862.7fbea94b.chunk.js.map": "/static/js/862.7fbea94b.chunk.js.map",
+    "264.01b69e4c.chunk.js.map": "/static/js/264.01b69e4c.chunk.js.map",
+    "436.0ae6166f.chunk.css.map": "/static/css/436.0ae6166f.chunk.css.map",
+    "436.f0ec2a5a.chunk.js.map": "/static/js/436.f0ec2a5a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.af4a2377.css",
-    "static/js/main.948b8d4d.js"
+    "static/css/main.21c3f3c4.css",
+    "static/js/main.3a1ebe08.js"
   ]
 }
